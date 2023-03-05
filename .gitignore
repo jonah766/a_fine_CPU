@@ -1,0 +1,4 @@
+simulation/*/sim_build
+simulation/*/results
+rtl/quickstart
+rt/simple_dff
