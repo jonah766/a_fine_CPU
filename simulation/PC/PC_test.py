@@ -143,8 +143,8 @@ class PCTester:
     async def _check(self) -> None:
         """checks the actual results are equal to the modelled expected result"""
         while True:
-            actual = await self.output_mon.values.get() # results from sim
-            inputs = await self.input_mon.values.get()  # input data to sim
+            outputs = await self.output_mon.values.get() # results from sim
+            inputs  = await self.input_mon.values.get()  # input data to sim
             
             # extract the supplied inputs
             PCincr      = Bit(inputs["PCincr"].binstr)
@@ -158,7 +158,7 @@ class PCTester:
             )
 
             # extract the actual results
-            PCout = actual["PCout"]
+            PCout = outputs["PCout"]
             
             # make debug strings
             inputs_str  = f" (inputs: count={self._prev_count}, {PCincr}, {PCabsbranch}, {PCrelbranch}, {Branchaddr}) "
