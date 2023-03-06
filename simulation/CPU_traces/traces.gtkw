@@ -1,0 +1,41 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Mon Mar  6 02:08:12 2023
+[*]
+[dumpfile] "/home/jonahfoley/ELEC6234_CW/simulation/CPU_traces/CPU.vcd"
+[dumpfile_mtime] "Mon Mar  6 01:59:20 2023"
+[dumpfile_size] 3888
+[savefile] "/home/jonahfoley/ELEC6234_CW/simulation/CPU_traces/traces.gtkw"
+[timestart] 0
+[size] 1267 600
+[pos] -234 -6
+*-15.000000 73700 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] CPU.
+[sst_width] 289
+[signals_width] 200
+[sst_expanded] 1
+[sst_vpaned_height] 250
+@28
+CPU.clk
+@24
+CPU.prog_addr[4:0]
+@22
+CPU.instr[23:0]
+@28
+CPU.instruction_decoder_0.opcode[5:0]
+CPU.register_file_0.we
+CPU.instruction_decoder_0.imm
+@22
+CPU.register_file_0.rs_data[7:0]
+CPU.rd_data[7:0]
+CPU.rs_data[7:0]
+CPU.alu_0.result[7:0]
+CPU.alu_0.a[7:0]
+@23
+CPU.alu_0.b[7:0]
+@420
+CPU.alu_0.b1[7:0]
+@28
+CPU.alu_0.flags[2:0]
+[pattern_trace] 1
+[pattern_trace] 0

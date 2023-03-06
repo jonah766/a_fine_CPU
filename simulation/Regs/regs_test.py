@@ -80,11 +80,11 @@ class RegsTester:
         self.dut = entity
         self.input_mon = InputMonitor(
             clk=self.dut.clk,
-            datas=dict(w=self.dut.w, Wdata=self.dut.Wdata, Raddr1=self.dut.Raddr1, Raddr2=self.dut.Raddr2)
+            datas=dict(we=self.dut.we, wr_data=self.dut.wr_data, rd_addr=self.dut.rd_addr, rs_addr=self.dut.rs_addr)
         )
         self.read_monitor = ReadMonitor(
             clk=self.dut.clk,
-            datas=dict(Rdata1=self.dut.Rdata1, Rdata2=self.dut.Rdata2)
+            datas=dict(rd_data=self.dut.rd_data, rs_data=self.dut.rs_data)
         )
         self._checker = None
 
@@ -105,23 +105,23 @@ class RegsTester:
         self._checker.kill()
         self._checker = None
 
-    def model_read(self, Raddr1 : BinaryValue, Raddr2 : BinaryValue) -> Tuple[BinaryValue, BinaryValue]:
+    def model_read(self, rd_addr : BinaryValue, rs_addr : BinaryValue) -> Tuple[BinaryValue, BinaryValue]:
         """
         Transaction-level model of the w as instantiated
         """
-        Rdata1 = Rdata2 = BinaryValue()
+        rd_data = rs_data = BinaryValue()
         
-        if (Raddr1.integer == 0):
-            Rdata1 = BinaryValue(0, n_bits=self.dut.Rdata1.value.n_bits, bigEndian=False, binaryRepresentation=0)
+        if (rd_addr.integer == 0):
+            rd_data = BinaryValue(0, n_bits=self.dut.rd_data.value.n_bits, bigEndian=False, binaryRepresentation=0)
         else:
-            Rdata1 = self.dut.gpr[Raddr1.integer].value
+            rd_data = self.dut.gpr[rd_addr.integer].value
 
-        if (Raddr2.integer == 0):
-            Rdata2 = BinaryValue(0, n_bits=self.dut.Rdata2.value.n_bits, bigEndian=False, binaryRepresentation=0)
+        if (rs_addr.integer == 0):
+            rs_data = BinaryValue(0, n_bits=self.dut.rs_data.value.n_bits, bigEndian=False, binaryRepresentation=0)
         else:
-            Rdata2 = self.dut.gpr[Raddr2.integer].value
+            rs_data = self.dut.gpr[rs_addr.integer].value
         
-        return Rdata1, Rdata2
+        return rd_data, rs_data
 
     async def _check(self) -> None:
         """asserts reads are correct (assumes if all reads are correct the writes are correct too)"""
@@ -130,26 +130,26 @@ class RegsTester:
             reads  = await self.read_monitor.values.get() # the read values (same cycle as input)
             
             # extract the supplied inputs
-            w      = inputs["w"]
-            Wdata  = inputs["Wdata"]
-            Raddr1 = inputs["Raddr1"]
-            Raddr2 = inputs["Raddr2"]
+            we      = inputs["we"]
+            wr_data = inputs["wr_data"]
+            rd_addr = inputs["rd_addr"]
+            rs_addr = inputs["rs_addr"]
 
             # compute the ideal read results
-            exp_Rdata1, exp_Rdata2 = self.model_read(Raddr1, Raddr2)
+            exp_rd_data, exp_rs_data = self.model_read(rd_addr, rs_addr)
 
             # extract the actual results
-            Rdata1 = reads["Rdata1"]
-            Rdata2 = reads["Rdata2"]
+            rd_data = reads["rd_data"]
+            rs_data = reads["rs_data"]
             
             # make debug strings
-            inputs_str = f" (inputs: {w}, {Wdata}, {Raddr1}, {Raddr2}) "
-            rdata1_str = f" (outputs: exp rdata1={exp_Rdata1}, actual rdata1={Rdata1})"
-            rdata2_str = f" (outputs: exp rdata1={exp_Rdata2}, actual rdata1={Rdata2})"
+            inputs_str = f" (inputs: {we}, {wr_data}, {rd_addr}, {rs_addr})"
+            rd_data_str = f" (outputs: exp rd_data={exp_rd_data}, actual rd_data={rd_data})"
+            rs_data_str = f" (outputs: exp rd_data={exp_rs_data}, actual rd_data={rs_data})"
 
             # assert that count is updated properly
-            assert exp_Rdata1 == Rdata1, "Read Data (1) ERROR!"+inputs_str+rdata1_str
-            assert exp_Rdata2 == Rdata2, "Read Data (2) ERROR!"+inputs_str+rdata2_str
+            assert exp_rd_data == rd_data, "Read Data (1) ERROR!"+inputs_str+rd_data_str
+            assert exp_rs_data == rs_data, "Read Data (2) ERROR!"+inputs_str+rs_data_str
             
 
 
@@ -165,41 +165,41 @@ async def regs_test(dut : SimHandleBase):
     cocotb.start_soon(Clock(dut.clk, 10, units="ns").start())
 
     # initial values
-    dut.w.value      = 0
-    dut.Wdata.value  = 0
-    dut.Raddr1.value = 0
-    dut.Raddr2.value = 0
+    dut.we.value     = 0
+    dut.wr_data.value  = 0
+    dut.rd_addr.value = 0
+    dut.rs_addr.value = 0
     for _ in range(3):
         await RisingEdge(dut.clk)
 
     # get size info
-    N = dut.Wdata.value.n_bits
+    N = dut.wr_data.value.n_bits
 
     # start tester after reset so we know it's in a good state
     tester.start()
     dut._log.info("Test regs operations")
 
     # Do multiplication operations
-    for i, (w, data, addrs) in enumerate(zip(gen_w(), gen_wdata(N), gen_read_addrs())):
+    for i, (we, data, addrs) in enumerate(zip(gen_we(), gen_wr_data(N), gen_read_addrs())):
         addr1, addr2 = addrs
         await RisingEdge(dut.clk)
-        dut.w.value      = w
-        dut.Wdata.value  = data
-        dut.Raddr1.value = addr1
-        dut.Raddr2.value = addr2
+        dut.we.value      = we
+        dut.wr_data.value = data
+        dut.rd_addr.value = addr1
+        dut.rs_addr.value = addr2
 
         if i % 100 == 0:
             dut._log.info(f"{i} / {NUM_SAMPLES}")
 
     dut._log.info(f"regs final val: {[addr.value.binstr for addr in dut.gpr]}")
 
-def gen_w(num_samples=NUM_SAMPLES) -> BinaryValue:
+def gen_we(num_samples=NUM_SAMPLES) -> BinaryValue:
     for _ in range(num_samples):
         yield BinaryValue(random.randint(0,1), n_bits=1, bigEndian=False, binaryRepresentation=0)
 
 
-def gen_wdata(n : int, num_samples=NUM_SAMPLES) -> BinaryValue:
-    """ wdata is an n-bit vector """
+def gen_wr_data(n : int, num_samples=NUM_SAMPLES) -> BinaryValue:
+    """ wr_data is an n-bit vector """
     for _ in range(num_samples):
         branchVal = random.randint(0, pow(2,n)-1)
         yield BinaryValue(branchVal, n_bits=n, bigEndian=False, binaryRepresentation=0)
@@ -221,24 +221,28 @@ def regs_runner():
     proj_path = Path(__file__).resolve().parent
 
     verilog_sources = [
-        proj_path / ".." / ".." / "rtl" / "picoMIPS" / "regs.sv"
+        proj_path / ".." / ".." / "rtl" / "picoMIPS" / "Register_File.sv"
     ]
 
-    N = 8
-    extra_args = [ -f"P regs.n={N}" ]
+    BUS_WIDTH  = 8
+    ADDR_WIDTH = 5
+    extra_args = [ 
+        f"-P Register_File.BUS_WIDTH={BUS_WIDTH} -P Register_File.ADDR_WIDTH={ADDR_WIDTH}",
+        f"-I $(PWD)/../../include"
+    ]
 
     runner = get_runner(sim)
     # build the test
     runner.build(
         verilog_sources=verilog_sources,
-        hdl_toplevel="regs",
+        hdl_toplevel="Register_File",
         build_args=extra_args,
         parameters=parameters,
         always=True,
     )
     # run the test
     runner.test(
-        hdl_toplevel="regs", 
+        hdl_toplevel="Register_File", 
         hdl_toplevel_lang=hdl_toplevel_lang,
         test_module="regs_test"
     )

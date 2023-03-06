@@ -94,9 +94,9 @@ class ALUTester:
 
     def model(self, op_a: int, op_b: int, func: int) -> tuple[int, Bit, Bit, Bit]:
         """Transaction-level model of the alu as instantiated"""
-        n = self.dut.result.value.n_bits
-        res_max = pow(2, (n-1))-1
-        res_min = pow(-2,(n-1))
+        BUS_WIDTH = self.dut.result.value.n_bits
+        res_max = pow(2, (BUS_WIDTH-1))-1
+        res_min = pow(-2,(BUS_WIDTH-1))
         
         # process the result
         res = 0
@@ -188,14 +188,14 @@ async def alu_test(dut : SimHandleBase):
     dut._log.info("Initialize and reset model")
 
     # bus width
-    n = dut.a.value.n_bits
+    BUS_WIDTH = dut.a.value.n_bits
 
     # start tester after reset so we know it's in a good state
     tester.start()
     dut._log.info("Test alu operations")
 
     # Do multiplication operations
-    for i, (op_a, op_b, func) in enumerate(zip(gen_a(n), gen_b(n), gen_func(func_codes))):
+    for i, (op_a, op_b, func) in enumerate(zip(gen_a(BUS_WIDTH), gen_b(BUS_WIDTH), gen_func(func_codes))):
         await Timer(10, units="ns")
         dut.a.value    = op_a
         dut.b.value    = op_b
@@ -204,17 +204,20 @@ async def alu_test(dut : SimHandleBase):
         if i % 100 == 0:
             dut._log.info(f"{i} / {NUM_SAMPLES}")
 
+
 # generates a signed integer in the valid range for input a
-def gen_a(n : int, num_samples=NUM_SAMPLES) -> int:
+def gen_a(BUS_WIDTH : int, num_samples=NUM_SAMPLES) -> int:
     """Generate random data for a"""
     for _ in range(num_samples):
-        yield random.randint(pow(-2,(n-1)), pow(2,(n-1))-1)
+        yield random.randint(pow(-2,(BUS_WIDTH-1)), pow(2,(BUS_WIDTH-1))-1)
+
 
 # generates a signed integer in the valid range for input b
-def gen_b(n : int, num_samples=NUM_SAMPLES) -> int:
+def gen_b(BUS_WIDTH : int, num_samples=NUM_SAMPLES) -> int:
     """Generate random data for b"""
     for _ in range(num_samples):
-        yield random.randint(pow(-2,(n-1)), pow(2,(n-1))-1)
+        yield random.randint(pow(-2,(BUS_WIDTH-1)), pow(2,(BUS_WIDTH-1))-1)
+
 
 # generates a func code as an integer from the func_codes dictionary
 def gen_func(func_codes : Dict[str, int], num_samples=NUM_SAMPLES) -> int:
@@ -230,24 +233,29 @@ def ALU_runner():
     proj_path = Path(__file__).resolve().parent
 
     verilog_sources = [
-        proj_path / ".." / ".." / "rtl" / "picoMIPS" / "alu.sv"
+        proj_path / ".." / ".." / "rtl" / "picoMIPS" / "ALU.sv"
     ]
 
-    N = 8
-    extra_args = [ -f"P alu.n={N}", f"-I {proj_path}/../../include" ]
+    BUS_WIDTH = 8
+    FUNC_WIDTH = 3
+    extra_args = [ 
+        f"P ALU.BUS_WIDTH={BUS_WIDTH}",
+        f"P ALU.FUNC_WIDTH={FUNC_WIDTH}",
+        f"-I {proj_path}/../../include"
+    ]
 
     runner = get_runner(sim)
     # build the test
     runner.build(
         verilog_sources=verilog_sources,
-        hdl_toplevel="alu",
+        hdl_toplevel="ALU",
         build_args=extra_args,
         parameters=parameters,
         always=True,
     )
     # run the test
     runner.test(
-        hdl_toplevel="alu", 
+        hdl_toplevel="ALU", 
         hdl_toplevel_lang=hdl_toplevel_lang,
         test_module="ALU_test"
     )

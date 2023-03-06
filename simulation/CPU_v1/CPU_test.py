@@ -80,7 +80,7 @@ class OutputMonitor(DataMonitor):
             self.values.put_nowait(self._sample())
 
 
-class PCTester:
+class CPUTester:
     """
     Reusable checker of a pc instance
     Args
@@ -88,15 +88,17 @@ class PCTester:
     """
     def __init__(self, entity : SimHandleBase):
         self.dut = entity
+        self.Program_Count
+        self.regs = []
+
         self.input_mon = InputMonitor(
             clk=self.dut.clk,
-            datas=dict(PC_incr=self.dut.PC_incr, PC_abs_branch=self.dut.PC_abs_branch, PC_rel_branch=self.dut.PC_rel_branch, branch_addr=self.dut.branch_addr),
+            datas=dict(PC_out=self.dut.PC_out),
         )
         self.output_mon = OutputMonitor(
             clk=self.dut.clk,
-            datas=dict(PC_out=self.dut.PC_out)
+            datas=dict(out_port=self.dut.out_port)
         )
-        self._prev_count = BinaryValue(0, n_bits=self.dut.PC_out.value.n_bits, bigEndian=False, binaryRepresentation=0)
         self._checker = None
 
     def start(self) -> None:
@@ -116,57 +118,23 @@ class PCTester:
         self._checker.kill()
         self._checker = None
 
-    def model(self, prev_count : BinaryValue, incr : Bit, absbranch : Bit, relbranch : Bit, addr : BinaryValue) -> BinaryValue:
+    def model(self) -> BinaryValue:
         """
-        Transaction-level model of the pc as instantiated
+        Transaction-level model of the CPU as instantiated
             > Treat the count as unsigned and the branch addr as signed, then adjust for wrap around
         """
-        next_count = 0
-        if (incr):
-            next_count = prev_count.integer + 1
-        elif (absbranch):
-            next_count = addr.signed_integer
-        elif (relbranch):
-            next_count = prev_count.integer + addr.signed_integer
-    
-        # correct overflow and underflow (wrap around)
-        n = self.dut.PC_out.value.n_bits
-        if (next_count < 0):
-            next_count = next_count + pow(2,n)
-        elif (next_count > pow(2,n)-1):
-           next_count = next_count - pow(2,n)
-
-        return BinaryValue(next_count, n_bits=self.dut.PC_out.value.n_bits, bigEndian=False, binaryRepresentation=0)
-
 
     async def _check(self) -> None:
         """checks the actual results are equal to the modelled expected result"""
         while True:
             outputs = await self.output_mon.values.get() # results from sim
             inputs  = await self.input_mon.values.get()  # input data to sim
-            
+
             # extract the supplied inputs
             PC_incr       = Bit(inputs["PC_incr"].binstr)
             PC_abs_branch = Bit(inputs["PC_abs_branch"].binstr)
             PC_rel_branch = Bit(inputs["PC_rel_branch"].binstr)
             branch_addr   = inputs["branch_addr"]
-
-            # compute the ideal results
-            exp_PC_out = self.model(
-               prev_count=self._prev_count, incr=PC_incr, absbranch=PC_abs_branch, relbranch=PC_rel_branch, addr=branch_addr
-            )
-
-            # extract the actual results
-            PC_out = outputs["PC_out"]
-            
-            # make debug strings
-            inputs_str  = f" (inputs: count={self._prev_count}, {PC_incr}, {PC_abs_branch}, {PC_rel_branch}, {branch_addr}) "
-            outputs_str = f" (outputs: exp={exp_PC_out}, actual count={PC_out})"
-
-            # assert that count is updated properly
-            assert exp_PC_out.integer == PC_out.integer, "COUNTER ERROR!"+inputs_str+outputs_str
-            self._prev_count = PC_out
-
 
 @cocotb.test()
 async def pc_test(dut : SimHandleBase):
@@ -184,12 +152,6 @@ async def pc_test(dut : SimHandleBase):
     for _ in range(3):
         await RisingEdge(dut.clk)
     dut.reset.value = 0
-
-    # initial values
-    dut.PC_incr.value       = 0
-    dut.PC_abs_branch.value = 0
-    dut.PC_rel_branch.value = 0
-    dut.branch_addr.value   = 0
 
     # get size info
     ADDR_WIDTH = dut.PC_out.value.n_bits
@@ -211,60 +173,61 @@ async def pc_test(dut : SimHandleBase):
             dut._log.info(f"{i} / {NUM_SAMPLES}")
 
 
-# generates a signed integer in the valid range for input a
-def gen_control_signals(num_samples=NUM_SAMPLES) -> BinaryValue:
-    """Only one control signal should be activated at once"""
-    for _ in range(num_samples):
-        v = random.randint(0,2)
-        match(v):
-            case 0: yield BinaryValue("001")  
-            case 1: yield BinaryValue("010")
-            case 2: yield BinaryValue("100")
-            case _: raise Exception("invalid random value")
-
-
-# generates a signed integer in the valid range for input a
-def gen_branch_addr(ADDR_WIDTH : int, num_samples=NUM_SAMPLES) -> BinaryValue:
-    """Generate random data for a"""
-    for _ in range(num_samples):
-        branchVal = random.randint(pow(-2,(ADDR_WIDTH-1)), pow(2,(ADDR_WIDTH-1))-1)
-        if (branchVal == 0):
-            yield BinaryValue(branchVal, n_bits=ADDR_WIDTH, bigEndian=False, binaryRepresentation=0)
-        else:
-            yield BinaryValue(branchVal, n_bits=ADDR_WIDTH, bigEndian=False, binaryRepresentation=2)
-
 
 # build and run the simulation
-def PC_runner():
+def CPU_runner():
 
+    # sim info
     hdl_toplevel_lang = os.getenv("HDL_TOPLEVEL_LANG", "verilog")
     sim = os.getenv("SIM", "icarus")
+    
+    # directories
     proj_path = Path(__file__).resolve().parent
+    rtl_path = proj_path / ".." / ".." / "rtl" / "picoMIPS"
 
+    # rtl sources
     verilog_sources = [
-        proj_path / ".." / ".." / "rtl" / "picoMIPS" / "Program_Counter.sv"
+        rtl_path / "Program_Counter.sv",
+        rtl_path / "Instruction_Decoder.sv",
+        rtl_path / "Program_Memory.sv",
+        rtl_path / "Register_File.sv",
+        rtl_path / "ALU.sv",
+        rtl_path / "CPU.sv"
     ]
 
-    ADDR_WIDTH = 6
-    extra_args = [ -f"P Program_Counter.ADDR_WIDTH={ADDR_WIDTH}" ]
+    # parameters
+    INSTR_WIDTH  = 24
+    OPCODE_WIDTH = 6 
+    ADDR_WIDTH   = 6
+    BUS_WIDTH    = 8
+    FUNC_WIDTH   = 3
+    FLAG_WIDTH   = 3
+    extra_args = [ 
+        f"P CPU.INSTR_WIDTH={INSTR_WIDTH}", 
+        f"P CPU.OPCODE_WIDTH={OPCODE_WIDTH}", 
+        f"P CPU.ADDR_WIDTH={ADDR_WIDTH}", 
+        f"P CPU.BUS_WIDTH={BUS_WIDTH}", 
+        f"P CPU.FUNC_WIDTH={FUNC_WIDTH}", 
+        f"P CPU.FLAG_WIDTH={FLAG_WIDTH}",
+        f"-I ${proj_path}/../../include" 
+    ]
 
     runner = get_runner(sim)
     # build the test
     runner.build(
         verilog_sources=verilog_sources,
-        hdl_toplevel="Program_Counter",
+        hdl_toplevel="CPU",
         build_args=extra_args,
         parameters=parameters,
         always=True,
     )
     # run the test
     runner.test(
-        hdl_toplevel="Program_Counter", 
+        hdl_toplevel="CPU", 
         hdl_toplevel_lang=hdl_toplevel_lang,
-        test_module="PC_test"
+        test_module="CPU_test"
     )
-
 
 if __name__ == "__main__":
     # run the tests 
-    PC_runner()
+    CPU_runner()

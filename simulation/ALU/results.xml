@@ -1,6 +1,6 @@
 <testsuites name="results">
   <testsuite name="all" package="all">
     <property name="random_seed" value="123456789" />
-    <testcase name="alu_test" classname="ALU_test" file="/home/jonahfoley/ELEC6234_CW/simulation/ALU/ALU_test.py" lineno="166" time="0.11783790588378906" sim_time_ns="10000.001" ratio_time="84862.34480322429" />
+    <testcase name="alu_test" classname="ALU_test" file="/home/jonahfoley/ELEC6234_CW/simulation/ALU/ALU_test.py" lineno="166" time="0.12767887115478516" sim_time_ns="10000.001" ratio_time="78321.50229364884" />
   </testsuite>
 </testsuites>
