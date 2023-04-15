@@ -1,0 +1,81 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Sat Apr 15 19:38:06 2023
+[*]
+[dumpfile] "/home/jonahfoley/ELEC6234/a_fine_CPU/simulation/v1/CPU/mux_21.vcd"
+[dumpfile_mtime] "Sat Apr 15 19:37:34 2023"
+[dumpfile_size] 34726
+[savefile] "/home/jonahfoley/ELEC6234/a_fine_CPU/simulation/v1/CPU/wave.gtkw"
+[timestart] 27800
+[size] 1524 879
+[pos] -1 -1
+*-16.000000 194700 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] CPU.
+[sst_width] 214
+[signals_width] 238
+[sst_expanded] 1
+[sst_vpaned_height] 428
+@28
+CPU.clock
+CPU.n_reset
+@200
+-Inputs
+@40000420
+[fpshift_count] 0
+CPU.sw[7:0]
+@28
+CPU.ready_in
+CPU.pattern_match
+@200
+-
+-PC
+@24
+CPU.PC_count[3:0]
+@28
+CPU.PC_en
+@200
+-
+-decoder
+@28
+id.opcode[2:0]
+id.wr_res
+id.f_wait
+id.f_add
+@200
+-
+-program_memory
+@22
+CPU.instr[11:0]
+@200
+-
+-register_file
+@28
+rf.we
+@24
+rf.wr_addr[2:0]
+@22
+rf.wr_data[7:0]
+@24
+rf.rd_addr_a[2:0]
+rf.rd_addr_b[2:0]
+@22
+rf.rd_data_a[7:0]
+rf.rd_data_b[7:0]
+@200
+-
+-ALU
+@28
+CPU.alu.reg_en[4:0]
+@22
+CPU.alu.ops[39:0]
+CPU.alu.ops_reg[39:0]
+@28
+CPU.alu.f_add
+@22
+CPU.alu.ops_in[39:0]
+CPU.alu.mult_a[7:0]
+CPU.alu.mult_b[7:0]
+@421
+CPU.alu.result[7:0]
+[pattern_trace] 1
+[pattern_trace] 0

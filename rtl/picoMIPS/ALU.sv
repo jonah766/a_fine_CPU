@@ -24,7 +24,6 @@ begin
         b1 = ~b + 1'b1; // 2's complement subtrahend
     else 
         b1 = b;
-
     ar = a + b1; // BUS_WIDTH-bit adder
 end 
    

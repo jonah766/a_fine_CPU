@@ -9,10 +9,10 @@ module Register_File #(
 	parameter int BUS_WIDTH = 8,
 	parameter int ADDR_WIDTH = 5
 ) (
-	input logic clk, we, // clk and write control
- 	input logic [BUS_WIDTH-1:0] wr_data,
- 	input logic [ADDR_WIDTH-1:0] rd_addr, rs_addr,
- 	output logic [BUS_WIDTH-1:0] rd_data, rs_data
+	input  logic                  clk, we, // clk and write control
+ 	input  logic [BUS_WIDTH-1:0]  wr_data,
+ 	input  logic [ADDR_WIDTH-1:0] rd_addr, rs_addr,
+ 	output logic [BUS_WIDTH-1:0]  rd_data, rs_data
 );
 
 // 5 bit address -> 1 << 5 = 2^5 = 32 registers
