@@ -1,33 +1,24 @@
-//-----------------------------------------------------
-// File Name   : alu.sv
-// Function    : ALU module for picoMIPS
-//-----------------------------------------------------
-import datatypes::operand_pack_t;
-
 module ALU #(
     parameter BUS_WIDTH  = 8
 ) (
-    input  logic                      clock, n_reset,
+    input  logic                      clk, n_reset,
     input  logic [4:0][BUS_WIDTH-1:0] ops,    
     input  logic [4:0]                reg_en,
     input  logic                      f_add,
     output logic [BUS_WIDTH-1:0]      result 
 );       
 
-// enable registered inputs
 logic [4:0][BUS_WIDTH-1:0] ops_reg;
 
-always_ff @(posedge clock) 
-begin
-    if (~n_reset) 
-        ops_reg <= '0;
-    else begin
-        for (int i = 0; i < 5; i=i+1) begin
-            if (reg_en[i] == 1'b1)
-                ops_reg[i] <= ops[i];
-        end
-    end
-end
+input_regs #(
+    BUS_WIDTH
+) regs (
+    .clk(clk),
+    .n_reset(n_reset),
+    .reg_en(reg_en),
+    .ops(ops),
+    .ops_reg(ops_reg)
+);
 
 // setting up of add/subtract inputs
 logic [4:0][BUS_WIDTH-1:0] ops_in;
@@ -116,7 +107,14 @@ sfixed_adder #(
     .out(add_b)
 );
 
-assign result = f_add ? ~add_b + 1'b1 : add_b;
+mux_21 #(
+    BUS_WIDTH
+) out_mux (   
+    .s(f_add), 
+    .a(~add_b + 1'b1), 
+    .b(add_b),
+    .out(result)
+);
 
 endmodule 
 

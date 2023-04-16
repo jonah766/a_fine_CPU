@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="41934129" />
+    <testcase name="CPU_test" classname="CPU_test" file="/home/jonahfoley/ELEC6234/a_fine_CPU/simulation/v2/CPU/CPU_test.py" lineno="30" time="0.07920527458190918" sim_time_ns="1480.001" ratio_time="18685.636882294686" />
+  </testsuite>
+</testsuites>

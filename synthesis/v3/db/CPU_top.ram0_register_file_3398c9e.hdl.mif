@@ -1,0 +1,18 @@
+-- begin_signature
+-- register_file(BUS_WIDTH
+-- 8
+-- ADDR_WIDTH
+-- 2)
+-- end_signature
+WIDTH=8;
+DEPTH=4;
+
+ADDRESS_RADIX=UNS;
+DATA_RADIX=BIN;
+
+CONTENT BEGIN
+	3 :	00000000;
+	2 :	00000000;
+	1 :	00000000;
+	0 :	00000000;
+END;
