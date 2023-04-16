@@ -6,7 +6,7 @@ module program_memory #(
     output logic [INSTR_WIDTH-1:0] instr
 ); 
 
-(* ramstyle = "MLAB" *)  logic [INSTR_WIDTH-1:0] prog_mem [(1<<ADDR_WIDTH)-1:0];
+logic [INSTR_WIDTH-1:0] prog_mem [(1<<ADDR_WIDTH)-1:0];
 
 initial
     $readmemh("/home/jonahfoley/ELEC6234/a_fine_CPU/programs/prog_2.hex", prog_mem);

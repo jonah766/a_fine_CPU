@@ -32,7 +32,7 @@ async def CPU_test(dut : SimHandleBase):
     """Test CPU value functionality."""
 
     # initial values
-    dut.sw.value       = 0
+    dut.in_port.value  = 0
     dut.ready_in.value = 0
 
     # create an instance of the tester
@@ -54,7 +54,7 @@ async def CPU_test(dut : SimHandleBase):
     dut._log.info("Test Butterfly operations")
 
     # generate an array of random stimulus
-    sw = np.random.randint(pow(-2,((BUS_WIDTH)-1)), pow(2,((BUS_WIDTH)-1)), 10, dtype=int)
+    sw = np.random.randint(pow(-2,((BUS_WIDTH)-1)), pow(2,((BUS_WIDTH)-1)), 100, dtype=int)
 
     # Do Butterfly operations
     ready_in_cnt = 0
@@ -69,8 +69,8 @@ async def CPU_test(dut : SimHandleBase):
             await RisingEdge(dut.clk)
 
         # assert the input values, note the input values
-        inputs[i%2]  = op_sw.item()
-        dut.sw.value = op_sw.item()
+        inputs[i%2] = op_sw.item()
+        dut.in_port.value = op_sw.item()
         dut.ready_in.value = 1   
         ready_in_cnt += 1
         await RisingEdge(dut.clk)
@@ -81,7 +81,7 @@ async def CPU_test(dut : SimHandleBase):
             for _ in range(9): await RisingEdge(dut.clk)
         
             # note the first output
-            for _ in range(4): await RisingEdge(dut.clk)
+            for _ in range(3): await RisingEdge(dut.clk)
             outputs[0] = dut.out_port.value.signed_integer
 
             # wait for ready_in == 1
@@ -91,7 +91,7 @@ async def CPU_test(dut : SimHandleBase):
                 await RisingEdge(dut.clk)
 
             # note the second output
-            for _ in range(4): await RisingEdge(dut.clk)
+            for _ in range(3): await RisingEdge(dut.clk)
             outputs[1] = dut.out_port.value.signed_integer
 
             # assert the test

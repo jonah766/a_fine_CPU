@@ -16,6 +16,7 @@ $(info TEST_BENCH is : $(TEST_BENCH))
 VERILOG_SOURCES ?= $(RTL_DIR)/datatypes.sv  
 VERILOG_SOURCES += $(RTL_DIR)/sfixed_adder.sv 
 VERILOG_SOURCES += $(RTL_DIR)/sfixed_mult.sv 
+VERILOG_SOURCES += $(RTL_DIR)/dual_port_SRAM.sv 
 VERILOG_SOURCES += $(RTL_DIR)/register_file.sv 
 VERILOG_SOURCES += $(RTL_DIR)/program_memory.sv 
 VERILOG_SOURCES += $(RTL_DIR)/program_counter.sv 

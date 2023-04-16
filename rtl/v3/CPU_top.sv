@@ -19,7 +19,7 @@ CPU cpu0 (
     .clk     (clk    ),
     .n_reset (n_reset),
     .ready_in(ReadyIn),
-    .sw      (sw     ),
+    .in_port (sw     ),
     .out_port(led    )
 );
 

@@ -4,30 +4,53 @@ module register_file #(
 ) (
 	input  logic                  clk, 
 	input  logic                  we,
+	input  logic [BUS_WIDTH-1:0]  sw,
  	input  logic [ADDR_WIDTH-1:0] wr_addr,
 	input  logic [BUS_WIDTH-1:0]  wr_data,
  	input  logic [ADDR_WIDTH-1:0] rd_addr_a, rd_addr_b,
  	output logic [BUS_WIDTH-1:0]  rd_data_a, rd_data_b
 );
 
-localparam N = (1 << ADDR_WIDTH);
+logic [BUS_WIDTH-1:0] data_a, data_b;
 
-logic [BUS_WIDTH-1:0] gpr [N-1:0];
+dual_port_SRAM #(
+	BUS_WIDTH,
+	ADDR_WIDTH
+) sr0 (
+	.clk      (clk      ), 
+	.we       (we       ),
+ 	.wr_addr  (wr_addr  ),
+	.wr_data  (wr_data  ),
+ 	.rd_addr_a(rd_addr_a), 
+	.rd_addr_b(rd_addr_b),
+ 	.rd_data_a(data_a   ), 
+	.rd_data_b(data_b   )
+);
 
-initial begin
-	for (int i = 0; i < N; i = i + 1)
-		gpr[i] = '0;
+logic [ADDR_WIDTH-1:0] rd_addr_a_p, rd_addr_b_p;
+always_ff @(posedge clk)
+begin
+    rd_addr_a_p <= rd_addr_a;
+    rd_addr_b_p <= rd_addr_b;
+end 
+
+// multiplex the rd_data_a output based on the asked for addr
+always_comb
+begin
+	if(~(|rd_addr_a_p))
+		rd_data_a = sw;
+	else 
+        rd_data_a = data_a;
 end
 
-// syncrhonous RAM write
-always_ff @ (posedge clk)
+// multiplex the rd_data_b output based on the asked for addr
+always_comb
 begin
-	if (we) begin 
-		gpr[wr_addr] <= wr_data;
-	end
-	rd_data_b <= gpr[rd_addr_b];
-	rd_data_a <= gpr[rd_addr_a];
-end	
-	
+	if (~(|rd_addr_b_p))
+		rd_data_b = sw;
+	else
+        rd_data_b = data_b;
+end
+
 
 endmodule

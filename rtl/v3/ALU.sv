@@ -15,10 +15,10 @@ logic [BUS_WIDTH-1:0] op_a_reg, op_b_reg, op_c_reg, op_d_reg, op_e_reg;
 mux_21 #(
     BUS_WIDTH
 ) e_mux (   
-    .s  (f_add     ), 
-    .a  (ops[0]    ), 
-    .b  (ops[4]    ),
-    .out(op_e      )
+    .s  (f_add ), 
+    .a  (ops[0]), 
+    .b  (ops[4]),
+    .out(op_e  )
 );
 
 // input registers
@@ -85,7 +85,7 @@ sfixed_mult #(
 ) m1 (
     .a  (op_c_reg), // int
     .b  (op_d_reg), // tf
-    .out(mult_b   )
+    .out(mult_b  )
 );
 
 sfixed_adder #(

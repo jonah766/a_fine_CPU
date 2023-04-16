@@ -1,5 +1,5 @@
 Analysis & Synthesis report for CPU_top
-Sun Apr 16 11:37:58 2023
+Sun Apr 16 13:59:44 2023
 Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
 
 
@@ -18,15 +18,15 @@ Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
  10. Registers Removed During Synthesis
  11. General Register Statistics
  12. Registers Packed Into Inferred Megafunctions
- 13. Multiplexer Restructuring Statistics (Restructuring Performed)
- 14. Source assignments for CPU:cpu0|register_file:rf|altsyncram:gpr_rtl_0|altsyncram_72s1:auto_generated
- 15. Source assignments for CPU:cpu0|register_file:rf|altsyncram:gpr_rtl_1|altsyncram_72s1:auto_generated
- 16. Parameter Settings for User Entity Instance: clk_divider:cd0
- 17. Parameter Settings for User Entity Instance: CPU:cpu0
- 18. Parameter Settings for User Entity Instance: CPU:cpu0|mux_21:PC_en_mux
- 19. Parameter Settings for User Entity Instance: CPU:cpu0|program_counter:pc
- 20. Parameter Settings for User Entity Instance: CPU:cpu0|program_memory:pm
- 21. Parameter Settings for User Entity Instance: CPU:cpu0|register_file:rf
+ 13. Source assignments for CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|altsyncram:gpr_rtl_0|altsyncram_97s1:auto_generated
+ 14. Source assignments for CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|altsyncram:gpr_rtl_1|altsyncram_97s1:auto_generated
+ 15. Parameter Settings for User Entity Instance: clk_divider:cd0
+ 16. Parameter Settings for User Entity Instance: CPU:cpu0
+ 17. Parameter Settings for User Entity Instance: CPU:cpu0|mux_21:PC_en_mux
+ 18. Parameter Settings for User Entity Instance: CPU:cpu0|program_counter:pc
+ 19. Parameter Settings for User Entity Instance: CPU:cpu0|program_memory:pm
+ 20. Parameter Settings for User Entity Instance: CPU:cpu0|register_file:rf
+ 21. Parameter Settings for User Entity Instance: CPU:cpu0|register_file:rf|dual_port_SRAM:sr0
  22. Parameter Settings for User Entity Instance: CPU:cpu0|instruction_decoder:id
  23. Parameter Settings for User Entity Instance: CPU:cpu0|ALU:alu
  24. Parameter Settings for User Entity Instance: CPU:cpu0|ALU:alu|mux_21:e_mux
@@ -34,8 +34,8 @@ Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
  26. Parameter Settings for User Entity Instance: CPU:cpu0|ALU:alu|sfixed_mult:m1
  27. Parameter Settings for User Entity Instance: CPU:cpu0|ALU:alu|sfixed_adder:a0
  28. Parameter Settings for User Entity Instance: CPU:cpu0|ALU:alu|sfixed_adder:a1
- 29. Parameter Settings for Inferred Entity Instance: CPU:cpu0|register_file:rf|altsyncram:gpr_rtl_0
- 30. Parameter Settings for Inferred Entity Instance: CPU:cpu0|register_file:rf|altsyncram:gpr_rtl_1
+ 29. Parameter Settings for Inferred Entity Instance: CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|altsyncram:gpr_rtl_0
+ 30. Parameter Settings for Inferred Entity Instance: CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|altsyncram:gpr_rtl_1
  31. altsyncram Parameter Settings by Entity Instance
  32. Port Connectivity Checks: "CPU:cpu0|program_memory:pm"
  33. Post-Synthesis Netlist Statistics for Top Partition
@@ -67,7 +67,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sun Apr 16 11:37:58 2023          ;
+; Analysis & Synthesis Status     ; Successful - Sun Apr 16 13:59:44 2023          ;
 ; Quartus Prime Version           ; 22.1std.1 Build 917 02/14/2023 SC Lite Edition ;
 ; Revision Name                   ; CPU_top                                        ;
 ; Top-level Entity Name           ; CPU_top                                        ;
@@ -97,6 +97,7 @@ https://fpgasoftware.intel.com/eula.
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; Verilog Show LMF Mapping Messages                                               ; Off                ;                    ;
 ; Verilog Version                                                                 ; SystemVerilog_2005 ; Verilog_2001       ;
+; Maximum DSP Block Usage                                                         ; 2                  ; -1 (Unlimited)     ;
 ; Optimization Technique                                                          ; Area               ; Balanced           ;
 ; Force Use of Synchronous Clear Signals                                          ; On                 ; Off                ;
 ; Allow Any RAM Size For Recognition                                              ; On                 ; Off                ;
@@ -193,36 +194,37 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                                                         ;
-+----------------------------------------------------------+-----------------+-------------------------------------------------------+-------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path                         ; Used in Netlist ; File Type                                             ; File Name with Absolute Path                                                                    ; Library ;
-+----------------------------------------------------------+-----------------+-------------------------------------------------------+-------------------------------------------------------------------------------------------------+---------+
-; ../../rtl/v3/ALU.sv                                      ; yes             ; User SystemVerilog HDL File                           ; /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/ALU.sv                                              ;         ;
-; ../../rtl/v3/clk_divider.sv                              ; yes             ; User SystemVerilog HDL File                           ; /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/clk_divider.sv                                      ;         ;
-; ../../rtl/v3/CPU.sv                                      ; yes             ; User SystemVerilog HDL File                           ; /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/CPU.sv                                              ;         ;
-; ../../rtl/v3/CPU_top.sv                                  ; yes             ; User SystemVerilog HDL File                           ; /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/CPU_top.sv                                          ;         ;
-; ../../rtl/v3/instruction_decoder.sv                      ; yes             ; User SystemVerilog HDL File                           ; /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/instruction_decoder.sv                              ;         ;
-; ../../rtl/v3/mux_21.sv                                   ; yes             ; User SystemVerilog HDL File                           ; /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/mux_21.sv                                           ;         ;
-; ../../rtl/v3/opcodes.sv                                  ; yes             ; User SystemVerilog HDL File                           ; /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/opcodes.sv                                          ;         ;
-; ../../rtl/v3/program_counter.sv                          ; yes             ; User SystemVerilog HDL File                           ; /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/program_counter.sv                                  ;         ;
-; ../../rtl/v3/program_memory.sv                           ; yes             ; User SystemVerilog HDL File                           ; /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/program_memory.sv                                   ;         ;
-; ../../rtl/v3/register_file.sv                            ; yes             ; User SystemVerilog HDL File                           ; /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/register_file.sv                                    ;         ;
-; ../../rtl/v3/sfixed_adder.sv                             ; yes             ; User SystemVerilog HDL File                           ; /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/sfixed_adder.sv                                     ;         ;
-; ../../rtl/v3/sfixed_mult.sv                              ; yes             ; User SystemVerilog HDL File                           ; /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/sfixed_mult.sv                                      ;         ;
-; /home/jonahfoley/ELEC6234/a_fine_CPU/programs/prog_2.hex ; yes             ; Auto-Found Hexadecimal (Intel-Format) File            ; /home/jonahfoley/ELEC6234/a_fine_CPU/programs/prog_2.hex                                        ;         ;
-; altsyncram.tdf                                           ; yes             ; Megafunction                                          ; /root/intelFPGA_lite/22.1std/quartus/libraries/megafunctions/altsyncram.tdf                     ;         ;
-; stratix_ram_block.inc                                    ; yes             ; Megafunction                                          ; /root/intelFPGA_lite/22.1std/quartus/libraries/megafunctions/stratix_ram_block.inc              ;         ;
-; lpm_mux.inc                                              ; yes             ; Megafunction                                          ; /root/intelFPGA_lite/22.1std/quartus/libraries/megafunctions/lpm_mux.inc                        ;         ;
-; lpm_decode.inc                                           ; yes             ; Megafunction                                          ; /root/intelFPGA_lite/22.1std/quartus/libraries/megafunctions/lpm_decode.inc                     ;         ;
-; aglobal221.inc                                           ; yes             ; Megafunction                                          ; /root/intelFPGA_lite/22.1std/quartus/libraries/megafunctions/aglobal221.inc                     ;         ;
-; a_rdenreg.inc                                            ; yes             ; Megafunction                                          ; /root/intelFPGA_lite/22.1std/quartus/libraries/megafunctions/a_rdenreg.inc                      ;         ;
-; altrom.inc                                               ; yes             ; Megafunction                                          ; /root/intelFPGA_lite/22.1std/quartus/libraries/megafunctions/altrom.inc                         ;         ;
-; altram.inc                                               ; yes             ; Megafunction                                          ; /root/intelFPGA_lite/22.1std/quartus/libraries/megafunctions/altram.inc                         ;         ;
-; altdpram.inc                                             ; yes             ; Megafunction                                          ; /root/intelFPGA_lite/22.1std/quartus/libraries/megafunctions/altdpram.inc                       ;         ;
-; db/altsyncram_72s1.tdf                                   ; yes             ; Auto-Generated Megafunction                           ; /home/jonahfoley/ELEC6234/a_fine_CPU/synthesis/v3/db/altsyncram_72s1.tdf                        ;         ;
-; db/CPU_top.ram0_register_file_3398c9e.hdl.mif            ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; /home/jonahfoley/ELEC6234/a_fine_CPU/synthesis/v3/db/CPU_top.ram0_register_file_3398c9e.hdl.mif ;         ;
-+----------------------------------------------------------+-----------------+-------------------------------------------------------+-------------------------------------------------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                           ;
++----------------------------------------------------------+-----------------+-------------------------------------------------------+---------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path                         ; Used in Netlist ; File Type                                             ; File Name with Absolute Path                                                                      ; Library ;
++----------------------------------------------------------+-----------------+-------------------------------------------------------+---------------------------------------------------------------------------------------------------+---------+
+; ../../rtl/v3/dual_port_SRAM.sv                           ; yes             ; User SystemVerilog HDL File                           ; /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/dual_port_SRAM.sv                                     ;         ;
+; ../../rtl/v3/ALU.sv                                      ; yes             ; User SystemVerilog HDL File                           ; /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/ALU.sv                                                ;         ;
+; ../../rtl/v3/clk_divider.sv                              ; yes             ; User SystemVerilog HDL File                           ; /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/clk_divider.sv                                        ;         ;
+; ../../rtl/v3/CPU.sv                                      ; yes             ; User SystemVerilog HDL File                           ; /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/CPU.sv                                                ;         ;
+; ../../rtl/v3/CPU_top.sv                                  ; yes             ; User SystemVerilog HDL File                           ; /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/CPU_top.sv                                            ;         ;
+; ../../rtl/v3/instruction_decoder.sv                      ; yes             ; User SystemVerilog HDL File                           ; /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/instruction_decoder.sv                                ;         ;
+; ../../rtl/v3/mux_21.sv                                   ; yes             ; User SystemVerilog HDL File                           ; /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/mux_21.sv                                             ;         ;
+; ../../rtl/v3/opcodes.sv                                  ; yes             ; User SystemVerilog HDL File                           ; /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/opcodes.sv                                            ;         ;
+; ../../rtl/v3/program_counter.sv                          ; yes             ; User SystemVerilog HDL File                           ; /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/program_counter.sv                                    ;         ;
+; ../../rtl/v3/program_memory.sv                           ; yes             ; User SystemVerilog HDL File                           ; /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/program_memory.sv                                     ;         ;
+; ../../rtl/v3/register_file.sv                            ; yes             ; User SystemVerilog HDL File                           ; /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/register_file.sv                                      ;         ;
+; ../../rtl/v3/sfixed_adder.sv                             ; yes             ; User SystemVerilog HDL File                           ; /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/sfixed_adder.sv                                       ;         ;
+; ../../rtl/v3/sfixed_mult.sv                              ; yes             ; User SystemVerilog HDL File                           ; /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/sfixed_mult.sv                                        ;         ;
+; /home/jonahfoley/ELEC6234/a_fine_CPU/programs/prog_2.hex ; yes             ; Auto-Found Hexadecimal (Intel-Format) File            ; /home/jonahfoley/ELEC6234/a_fine_CPU/programs/prog_2.hex                                          ;         ;
+; altsyncram.tdf                                           ; yes             ; Megafunction                                          ; /root/intelFPGA_lite/22.1std/quartus/libraries/megafunctions/altsyncram.tdf                       ;         ;
+; stratix_ram_block.inc                                    ; yes             ; Megafunction                                          ; /root/intelFPGA_lite/22.1std/quartus/libraries/megafunctions/stratix_ram_block.inc                ;         ;
+; lpm_mux.inc                                              ; yes             ; Megafunction                                          ; /root/intelFPGA_lite/22.1std/quartus/libraries/megafunctions/lpm_mux.inc                          ;         ;
+; lpm_decode.inc                                           ; yes             ; Megafunction                                          ; /root/intelFPGA_lite/22.1std/quartus/libraries/megafunctions/lpm_decode.inc                       ;         ;
+; aglobal221.inc                                           ; yes             ; Megafunction                                          ; /root/intelFPGA_lite/22.1std/quartus/libraries/megafunctions/aglobal221.inc                       ;         ;
+; a_rdenreg.inc                                            ; yes             ; Megafunction                                          ; /root/intelFPGA_lite/22.1std/quartus/libraries/megafunctions/a_rdenreg.inc                        ;         ;
+; altrom.inc                                               ; yes             ; Megafunction                                          ; /root/intelFPGA_lite/22.1std/quartus/libraries/megafunctions/altrom.inc                           ;         ;
+; altram.inc                                               ; yes             ; Megafunction                                          ; /root/intelFPGA_lite/22.1std/quartus/libraries/megafunctions/altram.inc                           ;         ;
+; altdpram.inc                                             ; yes             ; Megafunction                                          ; /root/intelFPGA_lite/22.1std/quartus/libraries/megafunctions/altdpram.inc                         ;         ;
+; db/altsyncram_97s1.tdf                                   ; yes             ; Auto-Generated Megafunction                           ; /home/jonahfoley/ELEC6234/a_fine_CPU/synthesis/v3/db/altsyncram_97s1.tdf                          ;         ;
+; db/CPU_top.ram0_dual_port_SRAM_7a2d7751.hdl.mif          ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; /home/jonahfoley/ELEC6234/a_fine_CPU/synthesis/v3/db/CPU_top.ram0_dual_port_SRAM_7a2d7751.hdl.mif ;         ;
++----------------------------------------------------------+-----------------+-------------------------------------------------------+---------------------------------------------------------------------------------------------------+---------+
 
 
 +-------------------------------------------------------------------------+
@@ -233,11 +235,11 @@ https://fpgasoftware.intel.com/eula.
 ; Estimate of Logic utilization (ALMs needed) ; 54                        ;
 ;                                             ;                           ;
 ; Combinational ALUT usage for logic          ; 70                        ;
-;     -- 7 input functions                    ; 1                         ;
-;     -- 6 input functions                    ; 0                         ;
-;     -- 5 input functions                    ; 0                         ;
+;     -- 7 input functions                    ; 0                         ;
+;     -- 6 input functions                    ; 1                         ;
+;     -- 5 input functions                    ; 1                         ;
 ;     -- 4 input functions                    ; 22                        ;
-;     -- <=3 input functions                  ; 47                        ;
+;     -- <=3 input functions                  ; 46                        ;
 ;                                             ;                           ;
 ; Dedicated logic registers                   ; 102                       ;
 ;                                             ;                           ;
@@ -249,43 +251,44 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;                           ;
 ; Maximum fan-out node                        ; clk_divider:cd0|count[24] ;
 ; Maximum fan-out                             ; 94                        ;
-; Total fan-out                               ; 660                       ;
+; Total fan-out                               ; 659                       ;
 ; Average fan-out                             ; 2.89                      ;
 +---------------------------------------------+---------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                 ;
-+----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------+---------------------+--------------+
-; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                    ; Entity Name         ; Library Name ;
-+----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------+---------------------+--------------+
-; |CPU_top                                     ; 70 (0)              ; 102 (0)                   ; 64                ; 2          ; 19   ; 0            ; |CPU_top                                                                               ; CPU_top             ; work         ;
-;    |CPU:cpu0|                                ; 45 (9)              ; 77 (33)                   ; 64                ; 2          ; 0    ; 0            ; |CPU_top|CPU:cpu0                                                                      ; CPU                 ; work         ;
-;       |ALU:alu|                              ; 16 (8)              ; 40 (40)                   ; 0                 ; 2          ; 0    ; 0            ; |CPU_top|CPU:cpu0|ALU:alu                                                              ; ALU                 ; work         ;
-;          |sfixed_adder:a1|                   ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|ALU:alu|sfixed_adder:a1                                              ; sfixed_adder        ; work         ;
-;          |sfixed_mult:m0|                    ; 0 (0)               ; 0 (0)                     ; 0                 ; 1          ; 0    ; 0            ; |CPU_top|CPU:cpu0|ALU:alu|sfixed_mult:m0                                               ; sfixed_mult         ; work         ;
-;          |sfixed_mult:m1|                    ; 0 (0)               ; 0 (0)                     ; 0                 ; 1          ; 0    ; 0            ; |CPU_top|CPU:cpu0|ALU:alu|sfixed_mult:m1                                               ; sfixed_mult         ; work         ;
-;       |instruction_decoder:id|               ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|instruction_decoder:id                                               ; instruction_decoder ; work         ;
-;       |program_counter:pc|                   ; 5 (5)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|program_counter:pc                                                   ; program_counter     ; work         ;
-;       |program_memory:pm|                    ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|program_memory:pm                                                    ; program_memory      ; work         ;
-;       |register_file:rf|                     ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|register_file:rf                                                     ; register_file       ; work         ;
-;          |altsyncram:gpr_rtl_0|              ; 0 (0)               ; 0 (0)                     ; 32                ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|register_file:rf|altsyncram:gpr_rtl_0                                ; altsyncram          ; work         ;
-;             |altsyncram_72s1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 32                ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|register_file:rf|altsyncram:gpr_rtl_0|altsyncram_72s1:auto_generated ; altsyncram_72s1     ; work         ;
-;          |altsyncram:gpr_rtl_1|              ; 0 (0)               ; 0 (0)                     ; 32                ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|register_file:rf|altsyncram:gpr_rtl_1                                ; altsyncram          ; work         ;
-;             |altsyncram_72s1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 32                ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|register_file:rf|altsyncram:gpr_rtl_1|altsyncram_72s1:auto_generated ; altsyncram_72s1     ; work         ;
-;    |clk_divider:cd0|                         ; 25 (25)             ; 25 (25)                   ; 0                 ; 0          ; 0    ; 0            ; |CPU_top|clk_divider:cd0                                                               ; clk_divider         ; work         ;
-+----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------+---------------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                       ;
++-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                      ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                       ; Entity Name         ; Library Name ;
++-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |CPU_top                                        ; 70 (0)              ; 102 (0)                   ; 64                ; 2          ; 19   ; 0            ; |CPU_top                                                                                                  ; CPU_top             ; work         ;
+;    |CPU:cpu0|                                   ; 45 (1)              ; 77 (33)                   ; 64                ; 2          ; 0    ; 0            ; |CPU_top|CPU:cpu0                                                                                         ; CPU                 ; work         ;
+;       |ALU:alu|                                 ; 16 (8)              ; 40 (40)                   ; 0                 ; 2          ; 0    ; 0            ; |CPU_top|CPU:cpu0|ALU:alu                                                                                 ; ALU                 ; work         ;
+;          |sfixed_adder:a1|                      ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|ALU:alu|sfixed_adder:a1                                                                 ; sfixed_adder        ; work         ;
+;          |sfixed_mult:m0|                       ; 0 (0)               ; 0 (0)                     ; 0                 ; 1          ; 0    ; 0            ; |CPU_top|CPU:cpu0|ALU:alu|sfixed_mult:m0                                                                  ; sfixed_mult         ; work         ;
+;          |sfixed_mult:m1|                       ; 0 (0)               ; 0 (0)                     ; 0                 ; 1          ; 0    ; 0            ; |CPU_top|CPU:cpu0|ALU:alu|sfixed_mult:m1                                                                  ; sfixed_mult         ; work         ;
+;       |instruction_decoder:id|                  ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|instruction_decoder:id                                                                  ; instruction_decoder ; work         ;
+;       |program_counter:pc|                      ; 4 (4)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|program_counter:pc                                                                      ; program_counter     ; work         ;
+;       |program_memory:pm|                       ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|program_memory:pm                                                                       ; program_memory      ; work         ;
+;       |register_file:rf|                        ; 9 (9)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|register_file:rf                                                                        ; register_file       ; work         ;
+;          |dual_port_SRAM:sr0|                   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|register_file:rf|dual_port_SRAM:sr0                                                     ; dual_port_SRAM      ; work         ;
+;             |altsyncram:gpr_rtl_0|              ; 0 (0)               ; 0 (0)                     ; 32                ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|altsyncram:gpr_rtl_0                                ; altsyncram          ; work         ;
+;                |altsyncram_97s1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 32                ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|altsyncram:gpr_rtl_0|altsyncram_97s1:auto_generated ; altsyncram_97s1     ; work         ;
+;             |altsyncram:gpr_rtl_1|              ; 0 (0)               ; 0 (0)                     ; 32                ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|altsyncram:gpr_rtl_1                                ; altsyncram          ; work         ;
+;                |altsyncram_97s1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 32                ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|altsyncram:gpr_rtl_1|altsyncram_97s1:auto_generated ; altsyncram_97s1     ; work         ;
+;    |clk_divider:cd0|                            ; 25 (25)             ; 25 (25)                   ; 0                 ; 0          ; 0    ; 0            ; |CPU_top|clk_divider:cd0                                                                                  ; clk_divider         ; work         ;
++-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis RAM Summary                                                                                                                                                                                                      ;
-+------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+-----------------------------------------------+
-; Name                                                                                     ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF                                           ;
-+------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+-----------------------------------------------+
-; CPU:cpu0|register_file:rf|altsyncram:gpr_rtl_0|altsyncram_72s1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 4            ; 8            ; 4            ; 8            ; 32   ; db/CPU_top.ram0_register_file_3398c9e.hdl.mif ;
-; CPU:cpu0|register_file:rf|altsyncram:gpr_rtl_1|altsyncram_72s1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 4            ; 8            ; 4            ; 8            ; 32   ; db/CPU_top.ram0_register_file_3398c9e.hdl.mif ;
-+------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+-----------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                                           ;
++-------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+-------------------------------------------------+
+; Name                                                                                                        ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF                                             ;
++-------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+-------------------------------------------------+
+; CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|altsyncram:gpr_rtl_0|altsyncram_97s1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 4            ; 8            ; 4            ; 8            ; 32   ; db/CPU_top.ram0_dual_port_SRAM_7a2d7751.hdl.mif ;
+; CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|altsyncram:gpr_rtl_1|altsyncram_97s1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 4            ; 8            ; 4            ; 8            ; 32   ; db/CPU_top.ram0_dual_port_SRAM_7a2d7751.hdl.mif ;
++-------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+-------------------------------------------------+
 
 
 +----------------------------------------------+
@@ -301,21 +304,21 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------------------------------+--------------+
 
 
-+----------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                         ;
-+---------------------------------------+------------------------------------+
-; Register name                         ; Reason for Removal                 ;
-+---------------------------------------+------------------------------------+
-; CPU:cpu0|ALU_reg_en[2]                ; Merged with CPU:cpu0|ALU_reg_en[0] ;
-; CPU:cpu0|ALU_imm[0]                   ; Merged with CPU:cpu0|addr_b_p[0]   ;
-; CPU:cpu0|addr_b_p[1]                  ; Merged with CPU:cpu0|ALU_imm[1]    ;
-; CPU:cpu0|addr_a_p[0]                  ; Merged with CPU:cpu0|ALU_imm[3]    ;
-; CPU:cpu0|addr_a_p[1]                  ; Merged with CPU:cpu0|ALU_imm[4]    ;
-; CPU:cpu0|wr_addr[0]                   ; Merged with CPU:cpu0|ALU_imm[6]    ;
-; CPU:cpu0|wr_addr[1]                   ; Merged with CPU:cpu0|ALU_imm[7]    ;
-; CPU:cpu0|ALU_reg_en[0]                ; Merged with CPU:cpu0|we            ;
-; Total Number of Removed Registers = 8 ;                                    ;
-+---------------------------------------+------------------------------------+
++-------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                            ;
++------------------------------------------+------------------------------------+
+; Register name                            ; Reason for Removal                 ;
++------------------------------------------+------------------------------------+
+; CPU:cpu0|ALU_reg_en[2]                   ; Merged with CPU:cpu0|ALU_reg_en[0] ;
+; CPU:cpu0|ALU_imm[6]                      ; Merged with CPU:cpu0|wr_addr[0][0] ;
+; CPU:cpu0|register_file:rf|rd_addr_b_p[0] ; Merged with CPU:cpu0|ALU_imm[0]    ;
+; CPU:cpu0|register_file:rf|rd_addr_b_p[1] ; Merged with CPU:cpu0|ALU_imm[1]    ;
+; CPU:cpu0|register_file:rf|rd_addr_a_p[0] ; Merged with CPU:cpu0|ALU_imm[3]    ;
+; CPU:cpu0|register_file:rf|rd_addr_a_p[1] ; Merged with CPU:cpu0|ALU_imm[4]    ;
+; CPU:cpu0|wr_addr[0][1]                   ; Merged with CPU:cpu0|ALU_imm[7]    ;
+; CPU:cpu0|ALU_reg_en[0]                   ; Merged with CPU:cpu0|we[0]         ;
+; Total Number of Removed Registers = 8    ;                                    ;
++------------------------------------------+------------------------------------+
 
 
 +------------------------------------------------------+
@@ -324,50 +327,41 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
 ; Total registers                              ; 102   ;
-; Number of registers using Synchronous Clear  ; 5     ;
+; Number of registers using Synchronous Clear  ; 2     ;
 ; Number of registers using Synchronous Load   ; 16    ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Clear ; 4     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 43    ;
+; Number of registers using Clock Enable       ; 40    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+----------------------------------------------------------------------------------------+
-; Registers Packed Into Inferred Megafunctions                                           ;
-+-------------------------------------------+-------------------------------------+------+
-; Register Name                             ; Megafunction                        ; Type ;
-+-------------------------------------------+-------------------------------------+------+
-; CPU:cpu0|register_file:rf|rd_data_b[0..7] ; CPU:cpu0|register_file:rf|gpr_rtl_0 ; RAM  ;
-; CPU:cpu0|register_file:rf|rd_data_a[0..7] ; CPU:cpu0|register_file:rf|gpr_rtl_1 ; RAM  ;
-+-------------------------------------------+-------------------------------------+------+
++------------------------------------------------------------------------------------------------------------------------------+
+; Registers Packed Into Inferred Megafunctions                                                                                 ;
++--------------------------------------------------------------+--------------------------------------------------------+------+
+; Register Name                                                ; Megafunction                                           ; Type ;
++--------------------------------------------------------------+--------------------------------------------------------+------+
+; CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|rd_data_b[0..7] ; CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|gpr_rtl_0 ; RAM  ;
+; CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|rd_data_a[0..7] ; CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|gpr_rtl_1 ; RAM  ;
++--------------------------------------------------------------+--------------------------------------------------------+------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                              ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                    ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |CPU_top|CPU:cpu0|program_counter:pc|count[3] ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|altsyncram:gpr_rtl_0|altsyncram_97s1:auto_generated ;
++---------------------------------+--------------------+------+-----------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                        ;
++---------------------------------+--------------------+------+-----------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                         ;
++---------------------------------+--------------------+------+-----------------------------------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------+
-; Source assignments for CPU:cpu0|register_file:rf|altsyncram:gpr_rtl_0|altsyncram_72s1:auto_generated ;
-+---------------------------------+--------------------+------+----------------------------------------+
-; Assignment                      ; Value              ; From ; To                                     ;
-+---------------------------------+--------------------+------+----------------------------------------+
-; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                      ;
-+---------------------------------+--------------------+------+----------------------------------------+
-
-
-+------------------------------------------------------------------------------------------------------+
-; Source assignments for CPU:cpu0|register_file:rf|altsyncram:gpr_rtl_1|altsyncram_72s1:auto_generated ;
-+---------------------------------+--------------------+------+----------------------------------------+
-; Assignment                      ; Value              ; From ; To                                     ;
-+---------------------------------+--------------------+------+----------------------------------------+
-; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                      ;
-+---------------------------------+--------------------+------+----------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|altsyncram:gpr_rtl_1|altsyncram_97s1:auto_generated ;
++---------------------------------+--------------------+------+-----------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                        ;
++---------------------------------+--------------------+------+-----------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                         ;
++---------------------------------+--------------------+------+-----------------------------------------------------------+
 
 
 +--------------------------------------------------------------+
@@ -433,6 +427,17 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; BUS_WIDTH      ; 8     ; Signed Integer                                ;
 ; ADDR_WIDTH     ; 2     ; Signed Integer                                ;
 +----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:cpu0|register_file:rf|dual_port_SRAM:sr0 ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; BUS_WIDTH      ; 8     ; Signed Integer                                                   ;
+; ADDR_WIDTH     ; 2     ; Signed Integer                                                   ;
++----------------+-------+------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -526,157 +531,157 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-----------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: CPU:cpu0|register_file:rf|altsyncram:gpr_rtl_0     ;
-+------------------------------------+-----------------------------------------------+----------------+
-; Parameter Name                     ; Value                                         ; Type           ;
-+------------------------------------+-----------------------------------------------+----------------+
-; BYTE_SIZE_BLOCK                    ; 8                                             ; Untyped        ;
-; AUTO_CARRY_CHAINS                  ; ON                                            ; AUTO_CARRY     ;
-; IGNORE_CARRY_BUFFERS               ; OFF                                           ; IGNORE_CARRY   ;
-; AUTO_CASCADE_CHAINS                ; ON                                            ; AUTO_CASCADE   ;
-; IGNORE_CASCADE_BUFFERS             ; OFF                                           ; IGNORE_CASCADE ;
-; WIDTH_BYTEENA                      ; 1                                             ; Untyped        ;
-; OPERATION_MODE                     ; DUAL_PORT                                     ; Untyped        ;
-; WIDTH_A                            ; 8                                             ; Untyped        ;
-; WIDTHAD_A                          ; 2                                             ; Untyped        ;
-; NUMWORDS_A                         ; 4                                             ; Untyped        ;
-; OUTDATA_REG_A                      ; UNREGISTERED                                  ; Untyped        ;
-; ADDRESS_ACLR_A                     ; NONE                                          ; Untyped        ;
-; OUTDATA_ACLR_A                     ; NONE                                          ; Untyped        ;
-; WRCONTROL_ACLR_A                   ; NONE                                          ; Untyped        ;
-; INDATA_ACLR_A                      ; NONE                                          ; Untyped        ;
-; BYTEENA_ACLR_A                     ; NONE                                          ; Untyped        ;
-; WIDTH_B                            ; 8                                             ; Untyped        ;
-; WIDTHAD_B                          ; 2                                             ; Untyped        ;
-; NUMWORDS_B                         ; 4                                             ; Untyped        ;
-; INDATA_REG_B                       ; CLOCK1                                        ; Untyped        ;
-; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                        ; Untyped        ;
-; RDCONTROL_REG_B                    ; CLOCK1                                        ; Untyped        ;
-; ADDRESS_REG_B                      ; CLOCK0                                        ; Untyped        ;
-; OUTDATA_REG_B                      ; UNREGISTERED                                  ; Untyped        ;
-; BYTEENA_REG_B                      ; CLOCK1                                        ; Untyped        ;
-; INDATA_ACLR_B                      ; NONE                                          ; Untyped        ;
-; WRCONTROL_ACLR_B                   ; NONE                                          ; Untyped        ;
-; ADDRESS_ACLR_B                     ; NONE                                          ; Untyped        ;
-; OUTDATA_ACLR_B                     ; NONE                                          ; Untyped        ;
-; RDCONTROL_ACLR_B                   ; NONE                                          ; Untyped        ;
-; BYTEENA_ACLR_B                     ; NONE                                          ; Untyped        ;
-; WIDTH_BYTEENA_A                    ; 1                                             ; Untyped        ;
-; WIDTH_BYTEENA_B                    ; 1                                             ; Untyped        ;
-; RAM_BLOCK_TYPE                     ; AUTO                                          ; Untyped        ;
-; BYTE_SIZE                          ; 8                                             ; Untyped        ;
-; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                      ; Untyped        ;
-; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                          ; Untyped        ;
-; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                          ; Untyped        ;
-; INIT_FILE                          ; db/CPU_top.ram0_register_file_3398c9e.hdl.mif ; Untyped        ;
-; INIT_FILE_LAYOUT                   ; PORT_A                                        ; Untyped        ;
-; MAXIMUM_DEPTH                      ; 0                                             ; Untyped        ;
-; CLOCK_ENABLE_INPUT_A               ; NORMAL                                        ; Untyped        ;
-; CLOCK_ENABLE_INPUT_B               ; NORMAL                                        ; Untyped        ;
-; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                        ; Untyped        ;
-; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                        ; Untyped        ;
-; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                               ; Untyped        ;
-; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                               ; Untyped        ;
-; ENABLE_ECC                         ; FALSE                                         ; Untyped        ;
-; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                         ; Untyped        ;
-; WIDTH_ECCSTATUS                    ; 3                                             ; Untyped        ;
-; DEVICE_FAMILY                      ; Cyclone V                                     ; Untyped        ;
-; CBXI_PARAMETER                     ; altsyncram_72s1                               ; Untyped        ;
-+------------------------------------+-----------------------------------------------+----------------+
++--------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|altsyncram:gpr_rtl_0 ;
++------------------------------------+-------------------------------------------------+-----------------------------+
+; Parameter Name                     ; Value                                           ; Type                        ;
++------------------------------------+-------------------------------------------------+-----------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                                               ; Untyped                     ;
+; AUTO_CARRY_CHAINS                  ; ON                                              ; AUTO_CARRY                  ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                             ; IGNORE_CARRY                ;
+; AUTO_CASCADE_CHAINS                ; ON                                              ; AUTO_CASCADE                ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                             ; IGNORE_CASCADE              ;
+; WIDTH_BYTEENA                      ; 1                                               ; Untyped                     ;
+; OPERATION_MODE                     ; DUAL_PORT                                       ; Untyped                     ;
+; WIDTH_A                            ; 8                                               ; Untyped                     ;
+; WIDTHAD_A                          ; 2                                               ; Untyped                     ;
+; NUMWORDS_A                         ; 4                                               ; Untyped                     ;
+; OUTDATA_REG_A                      ; UNREGISTERED                                    ; Untyped                     ;
+; ADDRESS_ACLR_A                     ; NONE                                            ; Untyped                     ;
+; OUTDATA_ACLR_A                     ; NONE                                            ; Untyped                     ;
+; WRCONTROL_ACLR_A                   ; NONE                                            ; Untyped                     ;
+; INDATA_ACLR_A                      ; NONE                                            ; Untyped                     ;
+; BYTEENA_ACLR_A                     ; NONE                                            ; Untyped                     ;
+; WIDTH_B                            ; 8                                               ; Untyped                     ;
+; WIDTHAD_B                          ; 2                                               ; Untyped                     ;
+; NUMWORDS_B                         ; 4                                               ; Untyped                     ;
+; INDATA_REG_B                       ; CLOCK1                                          ; Untyped                     ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                          ; Untyped                     ;
+; RDCONTROL_REG_B                    ; CLOCK1                                          ; Untyped                     ;
+; ADDRESS_REG_B                      ; CLOCK0                                          ; Untyped                     ;
+; OUTDATA_REG_B                      ; UNREGISTERED                                    ; Untyped                     ;
+; BYTEENA_REG_B                      ; CLOCK1                                          ; Untyped                     ;
+; INDATA_ACLR_B                      ; NONE                                            ; Untyped                     ;
+; WRCONTROL_ACLR_B                   ; NONE                                            ; Untyped                     ;
+; ADDRESS_ACLR_B                     ; NONE                                            ; Untyped                     ;
+; OUTDATA_ACLR_B                     ; NONE                                            ; Untyped                     ;
+; RDCONTROL_ACLR_B                   ; NONE                                            ; Untyped                     ;
+; BYTEENA_ACLR_B                     ; NONE                                            ; Untyped                     ;
+; WIDTH_BYTEENA_A                    ; 1                                               ; Untyped                     ;
+; WIDTH_BYTEENA_B                    ; 1                                               ; Untyped                     ;
+; RAM_BLOCK_TYPE                     ; AUTO                                            ; Untyped                     ;
+; BYTE_SIZE                          ; 8                                               ; Untyped                     ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                        ; Untyped                     ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                            ; Untyped                     ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                            ; Untyped                     ;
+; INIT_FILE                          ; db/CPU_top.ram0_dual_port_SRAM_7a2d7751.hdl.mif ; Untyped                     ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                          ; Untyped                     ;
+; MAXIMUM_DEPTH                      ; 0                                               ; Untyped                     ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                          ; Untyped                     ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                          ; Untyped                     ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                          ; Untyped                     ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                          ; Untyped                     ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                                 ; Untyped                     ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                                 ; Untyped                     ;
+; ENABLE_ECC                         ; FALSE                                           ; Untyped                     ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                           ; Untyped                     ;
+; WIDTH_ECCSTATUS                    ; 3                                               ; Untyped                     ;
+; DEVICE_FAMILY                      ; Cyclone V                                       ; Untyped                     ;
+; CBXI_PARAMETER                     ; altsyncram_97s1                                 ; Untyped                     ;
++------------------------------------+-------------------------------------------------+-----------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-----------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: CPU:cpu0|register_file:rf|altsyncram:gpr_rtl_1     ;
-+------------------------------------+-----------------------------------------------+----------------+
-; Parameter Name                     ; Value                                         ; Type           ;
-+------------------------------------+-----------------------------------------------+----------------+
-; BYTE_SIZE_BLOCK                    ; 8                                             ; Untyped        ;
-; AUTO_CARRY_CHAINS                  ; ON                                            ; AUTO_CARRY     ;
-; IGNORE_CARRY_BUFFERS               ; OFF                                           ; IGNORE_CARRY   ;
-; AUTO_CASCADE_CHAINS                ; ON                                            ; AUTO_CASCADE   ;
-; IGNORE_CASCADE_BUFFERS             ; OFF                                           ; IGNORE_CASCADE ;
-; WIDTH_BYTEENA                      ; 1                                             ; Untyped        ;
-; OPERATION_MODE                     ; DUAL_PORT                                     ; Untyped        ;
-; WIDTH_A                            ; 8                                             ; Untyped        ;
-; WIDTHAD_A                          ; 2                                             ; Untyped        ;
-; NUMWORDS_A                         ; 4                                             ; Untyped        ;
-; OUTDATA_REG_A                      ; UNREGISTERED                                  ; Untyped        ;
-; ADDRESS_ACLR_A                     ; NONE                                          ; Untyped        ;
-; OUTDATA_ACLR_A                     ; NONE                                          ; Untyped        ;
-; WRCONTROL_ACLR_A                   ; NONE                                          ; Untyped        ;
-; INDATA_ACLR_A                      ; NONE                                          ; Untyped        ;
-; BYTEENA_ACLR_A                     ; NONE                                          ; Untyped        ;
-; WIDTH_B                            ; 8                                             ; Untyped        ;
-; WIDTHAD_B                          ; 2                                             ; Untyped        ;
-; NUMWORDS_B                         ; 4                                             ; Untyped        ;
-; INDATA_REG_B                       ; CLOCK1                                        ; Untyped        ;
-; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                        ; Untyped        ;
-; RDCONTROL_REG_B                    ; CLOCK1                                        ; Untyped        ;
-; ADDRESS_REG_B                      ; CLOCK0                                        ; Untyped        ;
-; OUTDATA_REG_B                      ; UNREGISTERED                                  ; Untyped        ;
-; BYTEENA_REG_B                      ; CLOCK1                                        ; Untyped        ;
-; INDATA_ACLR_B                      ; NONE                                          ; Untyped        ;
-; WRCONTROL_ACLR_B                   ; NONE                                          ; Untyped        ;
-; ADDRESS_ACLR_B                     ; NONE                                          ; Untyped        ;
-; OUTDATA_ACLR_B                     ; NONE                                          ; Untyped        ;
-; RDCONTROL_ACLR_B                   ; NONE                                          ; Untyped        ;
-; BYTEENA_ACLR_B                     ; NONE                                          ; Untyped        ;
-; WIDTH_BYTEENA_A                    ; 1                                             ; Untyped        ;
-; WIDTH_BYTEENA_B                    ; 1                                             ; Untyped        ;
-; RAM_BLOCK_TYPE                     ; AUTO                                          ; Untyped        ;
-; BYTE_SIZE                          ; 8                                             ; Untyped        ;
-; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                      ; Untyped        ;
-; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                          ; Untyped        ;
-; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                          ; Untyped        ;
-; INIT_FILE                          ; db/CPU_top.ram0_register_file_3398c9e.hdl.mif ; Untyped        ;
-; INIT_FILE_LAYOUT                   ; PORT_A                                        ; Untyped        ;
-; MAXIMUM_DEPTH                      ; 0                                             ; Untyped        ;
-; CLOCK_ENABLE_INPUT_A               ; NORMAL                                        ; Untyped        ;
-; CLOCK_ENABLE_INPUT_B               ; NORMAL                                        ; Untyped        ;
-; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                        ; Untyped        ;
-; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                        ; Untyped        ;
-; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                               ; Untyped        ;
-; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                               ; Untyped        ;
-; ENABLE_ECC                         ; FALSE                                         ; Untyped        ;
-; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                         ; Untyped        ;
-; WIDTH_ECCSTATUS                    ; 3                                             ; Untyped        ;
-; DEVICE_FAMILY                      ; Cyclone V                                     ; Untyped        ;
-; CBXI_PARAMETER                     ; altsyncram_72s1                               ; Untyped        ;
-+------------------------------------+-----------------------------------------------+----------------+
++--------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|altsyncram:gpr_rtl_1 ;
++------------------------------------+-------------------------------------------------+-----------------------------+
+; Parameter Name                     ; Value                                           ; Type                        ;
++------------------------------------+-------------------------------------------------+-----------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                                               ; Untyped                     ;
+; AUTO_CARRY_CHAINS                  ; ON                                              ; AUTO_CARRY                  ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                             ; IGNORE_CARRY                ;
+; AUTO_CASCADE_CHAINS                ; ON                                              ; AUTO_CASCADE                ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                             ; IGNORE_CASCADE              ;
+; WIDTH_BYTEENA                      ; 1                                               ; Untyped                     ;
+; OPERATION_MODE                     ; DUAL_PORT                                       ; Untyped                     ;
+; WIDTH_A                            ; 8                                               ; Untyped                     ;
+; WIDTHAD_A                          ; 2                                               ; Untyped                     ;
+; NUMWORDS_A                         ; 4                                               ; Untyped                     ;
+; OUTDATA_REG_A                      ; UNREGISTERED                                    ; Untyped                     ;
+; ADDRESS_ACLR_A                     ; NONE                                            ; Untyped                     ;
+; OUTDATA_ACLR_A                     ; NONE                                            ; Untyped                     ;
+; WRCONTROL_ACLR_A                   ; NONE                                            ; Untyped                     ;
+; INDATA_ACLR_A                      ; NONE                                            ; Untyped                     ;
+; BYTEENA_ACLR_A                     ; NONE                                            ; Untyped                     ;
+; WIDTH_B                            ; 8                                               ; Untyped                     ;
+; WIDTHAD_B                          ; 2                                               ; Untyped                     ;
+; NUMWORDS_B                         ; 4                                               ; Untyped                     ;
+; INDATA_REG_B                       ; CLOCK1                                          ; Untyped                     ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                          ; Untyped                     ;
+; RDCONTROL_REG_B                    ; CLOCK1                                          ; Untyped                     ;
+; ADDRESS_REG_B                      ; CLOCK0                                          ; Untyped                     ;
+; OUTDATA_REG_B                      ; UNREGISTERED                                    ; Untyped                     ;
+; BYTEENA_REG_B                      ; CLOCK1                                          ; Untyped                     ;
+; INDATA_ACLR_B                      ; NONE                                            ; Untyped                     ;
+; WRCONTROL_ACLR_B                   ; NONE                                            ; Untyped                     ;
+; ADDRESS_ACLR_B                     ; NONE                                            ; Untyped                     ;
+; OUTDATA_ACLR_B                     ; NONE                                            ; Untyped                     ;
+; RDCONTROL_ACLR_B                   ; NONE                                            ; Untyped                     ;
+; BYTEENA_ACLR_B                     ; NONE                                            ; Untyped                     ;
+; WIDTH_BYTEENA_A                    ; 1                                               ; Untyped                     ;
+; WIDTH_BYTEENA_B                    ; 1                                               ; Untyped                     ;
+; RAM_BLOCK_TYPE                     ; AUTO                                            ; Untyped                     ;
+; BYTE_SIZE                          ; 8                                               ; Untyped                     ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                        ; Untyped                     ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                            ; Untyped                     ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                            ; Untyped                     ;
+; INIT_FILE                          ; db/CPU_top.ram0_dual_port_SRAM_7a2d7751.hdl.mif ; Untyped                     ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                          ; Untyped                     ;
+; MAXIMUM_DEPTH                      ; 0                                               ; Untyped                     ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                          ; Untyped                     ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                          ; Untyped                     ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                          ; Untyped                     ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                          ; Untyped                     ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                                 ; Untyped                     ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                                 ; Untyped                     ;
+; ENABLE_ECC                         ; FALSE                                           ; Untyped                     ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                           ; Untyped                     ;
+; WIDTH_ECCSTATUS                    ; 3                                               ; Untyped                     ;
+; DEVICE_FAMILY                      ; Cyclone V                                       ; Untyped                     ;
+; CBXI_PARAMETER                     ; altsyncram_97s1                                 ; Untyped                     ;
++------------------------------------+-------------------------------------------------+-----------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+--------------------------------------------------------------------------------------------+
-; altsyncram Parameter Settings by Entity Instance                                           ;
-+-------------------------------------------+------------------------------------------------+
-; Name                                      ; Value                                          ;
-+-------------------------------------------+------------------------------------------------+
-; Number of entity instances                ; 2                                              ;
-; Entity Instance                           ; CPU:cpu0|register_file:rf|altsyncram:gpr_rtl_0 ;
-;     -- OPERATION_MODE                     ; DUAL_PORT                                      ;
-;     -- WIDTH_A                            ; 8                                              ;
-;     -- NUMWORDS_A                         ; 4                                              ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED                                   ;
-;     -- WIDTH_B                            ; 8                                              ;
-;     -- NUMWORDS_B                         ; 4                                              ;
-;     -- ADDRESS_REG_B                      ; CLOCK0                                         ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED                                   ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                                           ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                       ;
-; Entity Instance                           ; CPU:cpu0|register_file:rf|altsyncram:gpr_rtl_1 ;
-;     -- OPERATION_MODE                     ; DUAL_PORT                                      ;
-;     -- WIDTH_A                            ; 8                                              ;
-;     -- NUMWORDS_A                         ; 4                                              ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED                                   ;
-;     -- WIDTH_B                            ; 8                                              ;
-;     -- NUMWORDS_B                         ; 4                                              ;
-;     -- ADDRESS_REG_B                      ; CLOCK0                                         ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED                                   ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                                           ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                       ;
-+-------------------------------------------+------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                              ;
++-------------------------------------------+-------------------------------------------------------------------+
+; Name                                      ; Value                                                             ;
++-------------------------------------------+-------------------------------------------------------------------+
+; Number of entity instances                ; 2                                                                 ;
+; Entity Instance                           ; CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|altsyncram:gpr_rtl_0 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                                         ;
+;     -- WIDTH_A                            ; 8                                                                 ;
+;     -- NUMWORDS_A                         ; 4                                                                 ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                      ;
+;     -- WIDTH_B                            ; 8                                                                 ;
+;     -- NUMWORDS_B                         ; 4                                                                 ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                                            ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                      ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                              ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                                          ;
+; Entity Instance                           ; CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|altsyncram:gpr_rtl_1 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                                         ;
+;     -- WIDTH_A                            ; 8                                                                 ;
+;     -- NUMWORDS_A                         ; 4                                                                 ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                      ;
+;     -- WIDTH_B                            ; 8                                                                 ;
+;     -- NUMWORDS_B                         ; 4                                                                 ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                                            ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                      ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                              ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                                          ;
++-------------------------------------------+-------------------------------------------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------+
@@ -694,22 +699,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; arriav_ff             ; 102                         ;
+;     CLR               ; 4                           ;
 ;     ENA               ; 24                          ;
-;     ENA SCLR          ; 3                           ;
 ;     ENA SLD           ; 16                          ;
 ;     SCLR              ; 2                           ;
-;     plain             ; 57                          ;
+;     plain             ; 56                          ;
 ; arriav_lcell_comb     ; 70                          ;
 ;     arith             ; 24                          ;
 ;         1 data inputs ; 23                          ;
 ;         2 data inputs ; 1                           ;
-;     extend            ; 1                           ;
-;         7 data inputs ; 1                           ;
-;     normal            ; 37                          ;
+;     normal            ; 38                          ;
 ;         1 data inputs ; 1                           ;
 ;         2 data inputs ; 12                          ;
-;         3 data inputs ; 2                           ;
+;         3 data inputs ; 1                           ;
 ;         4 data inputs ; 22                          ;
+;         5 data inputs ; 1                           ;
+;         6 data inputs ; 1                           ;
 ;     shared            ; 8                           ;
 ;         3 data inputs ; 8                           ;
 ; arriav_mac            ; 2                           ;
@@ -717,7 +722,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; stratixv_ram_block    ; 16                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 3.30                        ;
-; Average LUT depth     ; 1.31                        ;
+; Average LUT depth     ; 1.32                        ;
 +-----------------------+-----------------------------+
 
 
@@ -736,11 +741,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
-    Info: Processing started: Sun Apr 16 11:37:48 2023
+    Info: Processing started: Sun Apr 16 13:59:35 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off affine_CPU_v3 -c CPU_top
 Info (16303): Aggressive Area optimization mode selected -- logic area will be prioritized at the potential cost of reduced timing performance
+    Info (16304): Mode behavior is affected by advanced setting Physical Synthesis Effort Level (default for this mode is Normal)
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/dual_port_SRAM.sv
+    Info (12023): Found entity 1: dual_port_SRAM File: /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/dual_port_SRAM.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/ALU.sv
     Info (12023): Found entity 1: ALU File: /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/ALU.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/clk_divider.sv
@@ -771,21 +779,23 @@ Info (12021): Found 1 design units, including 1 entities, in source file /home/j
 Info (12127): Elaborating entity "CPU_top" for the top level hierarchy
 Info (12128): Elaborating entity "clk_divider" for hierarchy "clk_divider:cd0" File: /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/CPU_top.sv Line: 16
 Info (12128): Elaborating entity "CPU" for hierarchy "CPU:cpu0" File: /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/CPU_top.sv Line: 24
-Warning (10230): Verilog HDL assignment warning at CPU.sv(83): truncated value with size 3 to match size of target (2) File: /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/CPU.sv Line: 83
-Info (12128): Elaborating entity "mux_21" for hierarchy "CPU:cpu0|mux_21:PC_en_mux" File: /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/CPU.sv Line: 49
-Info (12128): Elaborating entity "program_counter" for hierarchy "CPU:cpu0|program_counter:pc" File: /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/CPU.sv Line: 60
-Info (12128): Elaborating entity "program_memory" for hierarchy "CPU:cpu0|program_memory:pm" File: /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/CPU.sv Line: 71
+Info (12128): Elaborating entity "mux_21" for hierarchy "CPU:cpu0|mux_21:PC_en_mux" File: /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/CPU.sv Line: 46
+Info (12128): Elaborating entity "program_counter" for hierarchy "CPU:cpu0|program_counter:pc" File: /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/CPU.sv Line: 57
+Info (12128): Elaborating entity "program_memory" for hierarchy "CPU:cpu0|program_memory:pm" File: /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/CPU.sv Line: 68
 Warning (10030): Net "prog_mem.data_a" at program_memory.sv(9) has no driver or initial value, using a default initial value '0' File: /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/program_memory.sv Line: 9
 Warning (10030): Net "prog_mem.waddr_a" at program_memory.sv(9) has no driver or initial value, using a default initial value '0' File: /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/program_memory.sv Line: 9
 Warning (10030): Net "prog_mem.we_a" at program_memory.sv(9) has no driver or initial value, using a default initial value '0' File: /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/program_memory.sv Line: 9
-Info (12128): Elaborating entity "register_file" for hierarchy "CPU:cpu0|register_file:rf" File: /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/CPU.sv Line: 99
-Info (12128): Elaborating entity "instruction_decoder" for hierarchy "CPU:cpu0|instruction_decoder:id" File: /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/CPU.sv Line: 139
-Info (12128): Elaborating entity "ALU" for hierarchy "CPU:cpu0|ALU:alu" File: /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/CPU.sv Line: 161
+Info (12128): Elaborating entity "register_file" for hierarchy "CPU:cpu0|register_file:rf" File: /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/CPU.sv Line: 95
+Info (12128): Elaborating entity "dual_port_SRAM" for hierarchy "CPU:cpu0|register_file:rf|dual_port_SRAM:sr0" File: /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/register_file.sv Line: 28
+Info (12128): Elaborating entity "instruction_decoder" for hierarchy "CPU:cpu0|instruction_decoder:id" File: /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/CPU.sv Line: 109
+Info (12128): Elaborating entity "ALU" for hierarchy "CPU:cpu0|ALU:alu" File: /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/CPU.sv Line: 131
 Info (12128): Elaborating entity "mux_21" for hierarchy "CPU:cpu0|ALU:alu|mux_21:e_mux" File: /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/ALU.sv Line: 22
 Info (12128): Elaborating entity "sfixed_mult" for hierarchy "CPU:cpu0|ALU:alu|sfixed_mult:m0" File: /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/ALU.sv Line: 76
 Info (12128): Elaborating entity "sfixed_adder" for hierarchy "CPU:cpu0|ALU:alu|sfixed_adder:a0" File: /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/ALU.sv Line: 102
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276004): RAM logic "CPU:cpu0|program_memory:pm|prog_mem" is uninferred due to inappropriate RAM size File: /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/program_memory.sv Line: 9
 Info (19000): Inferred 2 megafunctions from design logic
-    Info (276029): Inferred altsyncram megafunction from the following design logic: "CPU:cpu0|register_file:rf|gpr_rtl_0" 
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|gpr_rtl_0" 
         Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
         Info (286033): Parameter WIDTH_A set to 8
         Info (286033): Parameter WIDTHAD_A set to 2
@@ -800,9 +810,9 @@ Info (19000): Inferred 2 megafunctions from design logic
         Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
         Info (286033): Parameter INDATA_ACLR_A set to NONE
         Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
-        Info (286033): Parameter INIT_FILE set to db/CPU_top.ram0_register_file_3398c9e.hdl.mif
+        Info (286033): Parameter INIT_FILE set to db/CPU_top.ram0_dual_port_SRAM_7a2d7751.hdl.mif
         Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
-    Info (276029): Inferred altsyncram megafunction from the following design logic: "CPU:cpu0|register_file:rf|gpr_rtl_1" 
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|gpr_rtl_1" 
         Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
         Info (286033): Parameter WIDTH_A set to 8
         Info (286033): Parameter WIDTHAD_A set to 2
@@ -817,10 +827,10 @@ Info (19000): Inferred 2 megafunctions from design logic
         Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
         Info (286033): Parameter INDATA_ACLR_A set to NONE
         Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
-        Info (286033): Parameter INIT_FILE set to db/CPU_top.ram0_register_file_3398c9e.hdl.mif
+        Info (286033): Parameter INIT_FILE set to db/CPU_top.ram0_dual_port_SRAM_7a2d7751.hdl.mif
         Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
-Info (12130): Elaborated megafunction instantiation "CPU:cpu0|register_file:rf|altsyncram:gpr_rtl_0"
-Info (12133): Instantiated megafunction "CPU:cpu0|register_file:rf|altsyncram:gpr_rtl_0" with the following parameter:
+Info (12130): Elaborated megafunction instantiation "CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|altsyncram:gpr_rtl_0"
+Info (12133): Instantiated megafunction "CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|altsyncram:gpr_rtl_0" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
     Info (12134): Parameter "WIDTH_A" = "8"
     Info (12134): Parameter "WIDTHAD_A" = "2"
@@ -835,10 +845,11 @@ Info (12133): Instantiated megafunction "CPU:cpu0|register_file:rf|altsyncram:gp
     Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
     Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
     Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
-    Info (12134): Parameter "INIT_FILE" = "db/CPU_top.ram0_register_file_3398c9e.hdl.mif"
+    Info (12134): Parameter "INIT_FILE" = "db/CPU_top.ram0_dual_port_SRAM_7a2d7751.hdl.mif"
     Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
-Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_72s1.tdf
-    Info (12023): Found entity 1: altsyncram_72s1 File: /home/jonahfoley/ELEC6234/a_fine_CPU/synthesis/v3/db/altsyncram_72s1.tdf Line: 28
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_97s1.tdf
+    Info (12023): Found entity 1: altsyncram_97s1 File: /home/jonahfoley/ELEC6234/a_fine_CPU/synthesis/v3/db/altsyncram_97s1.tdf Line: 28
+Info (270000): Limiting DSP block usage to 2 DSP block(s) for the partition Top
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
@@ -848,10 +859,10 @@ Info (21057): Implemented 172 device resources after synthesis - the final resou
     Info (21061): Implemented 135 logic cells
     Info (21064): Implemented 16 RAM segments
     Info (21062): Implemented 2 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 534 megabytes
-    Info: Processing ended: Sun Apr 16 11:37:58 2023
-    Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:32
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 550 megabytes
+    Info: Processing ended: Sun Apr 16 13:59:44 2023
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:30
 
 

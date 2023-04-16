@@ -7,7 +7,7 @@ module CPU #(
 ) (
     input  logic                 clk,  
     input  logic                 n_reset,
-    input  logic [BUS_WIDTH-1:0] sw,
+    input  logic [BUS_WIDTH-1:0] in_port,
     input  logic                 ready_in,
     output logic [BUS_WIDTH-1:0] out_port
 );       
@@ -26,12 +26,9 @@ logic ready_in_p, pattern_match;
 always_ff @(posedge clk)
     ready_in_p <= ready_in;
 
-logic [BUS_WIDTH-1:0] sw_p, sw_pp;
+logic [1:0][BUS_WIDTH-1:0] sw;
 always_ff @(posedge clk)
-begin
-    sw_p  <= sw;
-    sw_pp <= sw_p;
-end
+    sw <= {sw[0], in_port};
 
 assign pattern_match = ({ready_in_p, ready_in} == 2'b01);
 
@@ -71,58 +68,31 @@ program_memory #(
 );
 
 // -- reg file
-logic wr_res, we, we_p;
-logic [REG_ADDR_WIDTH-1:0] wr_addr, wr_addr_p;
-logic [BUS_WIDTH-1:0] data_a, data_b;
+logic wr_res;
+logic [1:0] we;
+logic [1:0][REG_ADDR_WIDTH-1:0] wr_addr;
 logic [BUS_WIDTH-1:0] rd_data_a, rd_data_b;
 
 always_ff @(posedge clk) 
 begin
-    we        <= wr_res;
-    we_p      <= we;
-    wr_addr   <= instr[8:6];
-    wr_addr_p <= wr_addr;
+    we      <= {we[0], wr_res};
+    wr_addr <= {wr_addr[0], instr[7:6]};
 end
 
 register_file #(
     BUS_WIDTH,
     REG_ADDR_WIDTH
 ) rf (
-	.clk          (clk       ),  
-    .we           (we_p      ),
- 	.wr_addr      (wr_addr_p ),
-	.wr_data      (ALU_result),
- 	.rd_addr_a    (instr[4:3]), 
-    .rd_addr_b    (instr[1:0]),
- 	.rd_data_a    (data_a    ), 
-    .rd_data_b    (data_b    )
+	.clk      (clk       ),  
+    .we       (we[1]     ),
+    .sw       (sw[1]     ),
+ 	.wr_addr  (wr_addr[1]),
+	.wr_data  (ALU_result),
+ 	.rd_addr_a(instr[4:3]), 
+    .rd_addr_b(instr[1:0]),
+ 	.rd_data_a(rd_data_a ), 
+    .rd_data_b(rd_data_b )
 );
-
-logic [REG_ADDR_WIDTH-1:0] addr_a_p, addr_b_p;
-logic pattern_match_p;
-always_ff @(posedge clk)
-begin
-    addr_a_p <= instr[4:3];
-    addr_b_p <= instr[1:0];
-end 
-
-// multiplex the rd_data_a output based on the asked for addr
-always_comb
-begin
-	if(addr_a_p == 0)
-		rd_data_a = sw_pp;
-	else 
-        rd_data_a = data_a;
-end
-
-// multiplex the rd_data_b output based on the asked for addr
-always_comb
-begin
-	if (addr_b_p == 0)
-		rd_data_b = sw_pp;
-	else
-        rd_data_b = data_b;
-end
 
 // -- decoder
 logic f_add, PC_wait;
@@ -153,11 +123,11 @@ end
 ALU #(
     BUS_WIDTH
 ) alu (
-    .clk    (clk                                          ),
-    .ops    ({ALU_imm,ALU_imm,rd_data_b,ALU_imm,rd_data_a}),   
-    .reg_en (ALU_reg_en                                   ),
-    .f_add  (ALU_add                                      ),
-    .result (ALU_result                                   )
+    .clk   (clk                                          ),
+    .ops   ({ALU_imm,ALU_imm,rd_data_b,ALU_imm,rd_data_a}),   
+    .reg_en(ALU_reg_en                                   ),
+    .f_add (ALU_add                                      ),
+    .result(ALU_result                                   )
 );    
 
 assign out_port = ALU_result;

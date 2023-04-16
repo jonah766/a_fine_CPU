@@ -40,11 +40,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "n_reset",
+					"name" : "ReadyIn",
 					"strict" : false
 				},
 				{
-					"name" : "ReadyIn",
+					"name" : "n_reset",
 					"strict" : false
 				},
 				{

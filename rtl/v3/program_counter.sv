@@ -6,8 +6,8 @@ module program_counter #(
     output logic [ADDR_WIDTH-1:0] count
 );
  
-always_ff @(posedge clk) 
-begin
+always_ff @(posedge clk, negedge n_reset) 
+begin   
     if (~n_reset) 
         count <= '0;
     else begin
