@@ -1,7 +1,7 @@
 module CPU_top (
     input  logic       fastclk,
     input  logic       n_reset,
-    input  logic       ReadyIn,
+    input  logic       ready_in,
     input  logic [7:0] sw,
     output logic [7:0] led
 );
@@ -18,7 +18,7 @@ clk_divider #(
 CPU cpu0 (
     .clk     (clk    ),
     .n_reset (n_reset),
-    .ready_in(ReadyIn),
+    .ready_in(ready_in),
     .sw      (sw     ),
     .out_port(led    )
 );

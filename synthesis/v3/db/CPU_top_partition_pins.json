@@ -40,7 +40,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "ReadyIn",
+					"name" : "ready_in",
 					"strict" : false
 				},
 				{

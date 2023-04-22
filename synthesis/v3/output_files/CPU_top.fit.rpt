@@ -1,5 +1,5 @@
 Fitter report for CPU_top
-Sun Apr 16 14:00:37 2023
+Sat Apr 22 23:29:31 2023
 Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
 
 
@@ -11,34 +11,35 @@ Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
   3. Fitter Settings
   4. Parallel Compilation
   5. Fitter Netlist Optimizations
-  6. Incremental Compilation Preservation Summary
-  7. Incremental Compilation Partition Settings
-  8. Incremental Compilation Placement Preservation
-  9. Pin-Out File
- 10. Fitter Resource Usage Summary
- 11. Fitter Partition Statistics
- 12. Input Pins
- 13. Output Pins
- 14. I/O Bank Usage
- 15. All Package Pins
- 16. I/O Assignment Warnings
- 17. Fitter Resource Utilization by Entity
- 18. Delay Chain Summary
- 19. Pad To Core Delay Chain Fanout
- 20. Control Signals
- 21. Global & Other Fast Signals
- 22. Fitter RAM Summary
- 23. Fitter DSP Block Usage Summary
- 24. DSP Block Details
- 25. Routing Usage Summary
- 26. I/O Rules Summary
- 27. I/O Rules Details
- 28. I/O Rules Matrix
- 29. Fitter Device Options
- 30. Operating Settings and Conditions
- 31. Estimated Delay Added for Hold Timing Summary
- 32. Estimated Delay Added for Hold Timing Details
- 33. Fitter Messages
+  6. Ignored Assignments
+  7. Incremental Compilation Preservation Summary
+  8. Incremental Compilation Partition Settings
+  9. Incremental Compilation Placement Preservation
+ 10. Pin-Out File
+ 11. Fitter Resource Usage Summary
+ 12. Fitter Partition Statistics
+ 13. Input Pins
+ 14. Output Pins
+ 15. I/O Bank Usage
+ 16. All Package Pins
+ 17. I/O Assignment Warnings
+ 18. Fitter Resource Utilization by Entity
+ 19. Delay Chain Summary
+ 20. Pad To Core Delay Chain Fanout
+ 21. Control Signals
+ 22. Global & Other Fast Signals
+ 23. Fitter RAM Summary
+ 24. Fitter DSP Block Usage Summary
+ 25. DSP Block Details
+ 26. Routing Usage Summary
+ 27. I/O Rules Summary
+ 28. I/O Rules Details
+ 29. I/O Rules Matrix
+ 30. Fitter Device Options
+ 31. Operating Settings and Conditions
+ 32. Estimated Delay Added for Hold Timing Summary
+ 33. Estimated Delay Added for Hold Timing Details
+ 34. Fitter Messages
 
 
 
@@ -65,7 +66,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +---------------------------------+------------------------------------------------+
-; Fitter Status                   ; Successful - Sun Apr 16 14:00:37 2023          ;
+; Fitter Status                   ; Successful - Sat Apr 22 23:29:31 2023          ;
 ; Quartus Prime Version           ; 22.1std.1 Build 917 02/14/2023 SC Lite Edition ;
 ; Revision Name                   ; CPU_top                                        ;
 ; Top-level Entity Name           ; CPU_top                                        ;
@@ -73,7 +74,7 @@ https://fpgasoftware.intel.com/eula.
 ; Device                          ; 5CSEMA5F31C6                                   ;
 ; Timing Models                   ; Final                                          ;
 ; Logic utilization (in ALMs)     ; 40 / 32,070 ( < 1 % )                          ;
-; Total registers                 ; 80                                             ;
+; Total registers                 ; 78                                             ;
 ; Total pins                      ; 19 / 457 ( 4 % )                               ;
 ; Total virtual pins              ; 0                                              ;
 ; Total block memory bits         ; 64 / 4,065,280 ( < 1 % )                       ;
@@ -155,12 +156,12 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 16          ;
 ; Maximum allowed            ; 16          ;
 ;                            ;             ;
-; Average used               ; 1.04        ;
+; Average used               ; 1.05        ;
 ; Maximum used               ; 16          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.3%      ;
+;     Processor 2            ;   0.4%      ;
 ;     Processor 3            ;   0.3%      ;
 ;     Processor 4            ;   0.3%      ;
 ;     Processor 5            ;   0.3%      ;
@@ -168,44 +169,50 @@ https://fpgasoftware.intel.com/eula.
 ;     Processor 7            ;   0.3%      ;
 ;     Processor 8            ;   0.3%      ;
 ;     Processor 9            ;   0.3%      ;
-;     Processor 10           ;   0.3%      ;
-;     Processors 11-16       ;   0.2%      ;
+;     Processors 10-16       ;   0.3%      ;
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Fitter Netlist Optimizations                                                                                                                                                                                                                                     ;
-+--------------------------------------+-----------------+---------------------------------------------------+----------------------------+-----------+----------------+------------------------------------------------+------------------+-----------------------+
-; Node                                 ; Action          ; Operation                                         ; Reason                     ; Node Port ; Node Port Name ; Destination Node                               ; Destination Port ; Destination Port Name ;
-+--------------------------------------+-----------------+---------------------------------------------------+----------------------------+-----------+----------------+------------------------------------------------+------------------+-----------------------+
-; fastclk~inputCLKENA0                 ; Created         ; Placement                                         ; Fitter Periphery Placement ;           ;                ;                                                ;                  ;                       ;
-; CPU:cpu0|ALU:alu|op_a_reg[0]         ; Packed Register ; Register Packing                                  ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m0|Mult0~8        ; AX               ;                       ;
-; CPU:cpu0|ALU:alu|op_a_reg[1]         ; Packed Register ; Register Packing                                  ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m0|Mult0~8        ; AX               ;                       ;
-; CPU:cpu0|ALU:alu|op_a_reg[2]         ; Packed Register ; Register Packing                                  ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m0|Mult0~8        ; AX               ;                       ;
-; CPU:cpu0|ALU:alu|op_a_reg[3]         ; Packed Register ; Register Packing                                  ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m0|Mult0~8        ; AX               ;                       ;
-; CPU:cpu0|ALU:alu|op_a_reg[4]         ; Packed Register ; Register Packing                                  ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m0|Mult0~8        ; AX               ;                       ;
-; CPU:cpu0|ALU:alu|op_a_reg[5]         ; Packed Register ; Register Packing                                  ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m0|Mult0~8        ; AX               ;                       ;
-; CPU:cpu0|ALU:alu|op_a_reg[6]         ; Packed Register ; Register Packing                                  ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m0|Mult0~8        ; AX               ;                       ;
-; CPU:cpu0|ALU:alu|op_a_reg[7]         ; Packed Register ; Register Packing                                  ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m0|Mult0~8        ; AX               ;                       ;
-; CPU:cpu0|ALU:alu|op_b_reg[0]         ; Packed Register ; Register Packing                                  ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m0|Mult0~8        ; AY               ;                       ;
-; CPU:cpu0|ALU:alu|op_b_reg[1]         ; Packed Register ; Register Packing                                  ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m0|Mult0~8        ; AY               ;                       ;
-; CPU:cpu0|ALU:alu|op_b_reg[2]         ; Packed Register ; Register Packing                                  ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m0|Mult0~8        ; AY               ;                       ;
-; CPU:cpu0|ALU:alu|op_b_reg[3]         ; Packed Register ; Register Packing                                  ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m0|Mult0~8        ; AY               ;                       ;
-; CPU:cpu0|ALU:alu|op_b_reg[4]         ; Packed Register ; Register Packing                                  ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m0|Mult0~8        ; AY               ;                       ;
-; CPU:cpu0|ALU:alu|op_b_reg[5]         ; Packed Register ; Register Packing                                  ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m0|Mult0~8        ; AY               ;                       ;
-; CPU:cpu0|ALU:alu|op_b_reg[6]         ; Packed Register ; Register Packing                                  ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m0|Mult0~8        ; AY               ;                       ;
-; CPU:cpu0|ALU:alu|op_b_reg[7]         ; Packed Register ; Register Packing                                  ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m0|Mult0~8        ; AY               ;                       ;
-; CPU:cpu0|ALU:alu|op_d_reg[0]         ; Packed Register ; Register Packing                                  ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m1|Mult0~8        ; AX               ;                       ;
-; CPU:cpu0|ALU:alu|op_d_reg[1]         ; Packed Register ; Register Packing                                  ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m1|Mult0~8        ; AX               ;                       ;
-; CPU:cpu0|ALU:alu|op_d_reg[2]         ; Packed Register ; Register Packing                                  ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m1|Mult0~8        ; AX               ;                       ;
-; CPU:cpu0|ALU:alu|op_d_reg[3]         ; Packed Register ; Register Packing                                  ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m1|Mult0~8        ; AX               ;                       ;
-; CPU:cpu0|ALU:alu|op_d_reg[4]         ; Packed Register ; Register Packing                                  ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m1|Mult0~8        ; AX               ;                       ;
-; CPU:cpu0|ALU:alu|op_d_reg[5]         ; Packed Register ; Register Packing                                  ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m1|Mult0~8        ; AX               ;                       ;
-; CPU:cpu0|ALU:alu|op_d_reg[6]         ; Packed Register ; Register Packing                                  ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m1|Mult0~8        ; AX               ;                       ;
-; CPU:cpu0|ALU:alu|op_d_reg[7]         ; Packed Register ; Register Packing                                  ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m1|Mult0~8        ; AX               ;                       ;
-; CPU:cpu0|program_counter:pc|count[1] ; Duplicated      ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; CPU:cpu0|program_counter:pc|count[1]~DUPLICATE ;                  ;                       ;
-; CPU:cpu0|program_counter:pc|count[2] ; Duplicated      ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; CPU:cpu0|program_counter:pc|count[2]~DUPLICATE ;                  ;                       ;
-+--------------------------------------+-----------------+---------------------------------------------------+----------------------------+-----------+----------------+------------------------------------------------+------------------+-----------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fitter Netlist Optimizations                                                                                                                                                                                                    ;
++---------------------------------------------+-----------------+------------------+----------------------------+-----------+----------------+-----------------------------------------+------------------+-----------------------+
+; Node                                        ; Action          ; Operation        ; Reason                     ; Node Port ; Node Port Name ; Destination Node                        ; Destination Port ; Destination Port Name ;
++---------------------------------------------+-----------------+------------------+----------------------------+-----------+----------------+-----------------------------------------+------------------+-----------------------+
+; fastclk~inputCLKENA0                        ; Created         ; Placement        ; Fitter Periphery Placement ;           ;                ;                                         ;                  ;                       ;
+; CPU:cpu0|ALU:alu|ALU_regs:alur0|op_a_reg[0] ; Packed Register ; Register Packing ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m0|Mult0~8 ; AX               ;                       ;
+; CPU:cpu0|ALU:alu|ALU_regs:alur0|op_a_reg[1] ; Packed Register ; Register Packing ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m0|Mult0~8 ; AX               ;                       ;
+; CPU:cpu0|ALU:alu|ALU_regs:alur0|op_a_reg[2] ; Packed Register ; Register Packing ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m0|Mult0~8 ; AX               ;                       ;
+; CPU:cpu0|ALU:alu|ALU_regs:alur0|op_a_reg[3] ; Packed Register ; Register Packing ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m0|Mult0~8 ; AX               ;                       ;
+; CPU:cpu0|ALU:alu|ALU_regs:alur0|op_a_reg[4] ; Packed Register ; Register Packing ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m0|Mult0~8 ; AX               ;                       ;
+; CPU:cpu0|ALU:alu|ALU_regs:alur0|op_a_reg[5] ; Packed Register ; Register Packing ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m0|Mult0~8 ; AX               ;                       ;
+; CPU:cpu0|ALU:alu|ALU_regs:alur0|op_a_reg[6] ; Packed Register ; Register Packing ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m0|Mult0~8 ; AX               ;                       ;
+; CPU:cpu0|ALU:alu|ALU_regs:alur0|op_a_reg[7] ; Packed Register ; Register Packing ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m0|Mult0~8 ; AX               ;                       ;
+; CPU:cpu0|ALU:alu|ALU_regs:alur0|op_b_reg[0] ; Packed Register ; Register Packing ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m0|Mult0~8 ; AY               ;                       ;
+; CPU:cpu0|ALU:alu|ALU_regs:alur0|op_b_reg[1] ; Packed Register ; Register Packing ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m0|Mult0~8 ; AY               ;                       ;
+; CPU:cpu0|ALU:alu|ALU_regs:alur0|op_b_reg[2] ; Packed Register ; Register Packing ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m0|Mult0~8 ; AY               ;                       ;
+; CPU:cpu0|ALU:alu|ALU_regs:alur0|op_b_reg[3] ; Packed Register ; Register Packing ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m0|Mult0~8 ; AY               ;                       ;
+; CPU:cpu0|ALU:alu|ALU_regs:alur0|op_b_reg[4] ; Packed Register ; Register Packing ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m0|Mult0~8 ; AY               ;                       ;
+; CPU:cpu0|ALU:alu|ALU_regs:alur0|op_b_reg[5] ; Packed Register ; Register Packing ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m0|Mult0~8 ; AY               ;                       ;
+; CPU:cpu0|ALU:alu|ALU_regs:alur0|op_b_reg[6] ; Packed Register ; Register Packing ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m0|Mult0~8 ; AY               ;                       ;
+; CPU:cpu0|ALU:alu|ALU_regs:alur0|op_b_reg[7] ; Packed Register ; Register Packing ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m0|Mult0~8 ; AY               ;                       ;
+; CPU:cpu0|ALU:alu|ALU_regs:alur0|op_d_reg[0] ; Packed Register ; Register Packing ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m1|Mult0~8 ; AX               ;                       ;
+; CPU:cpu0|ALU:alu|ALU_regs:alur0|op_d_reg[1] ; Packed Register ; Register Packing ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m1|Mult0~8 ; AX               ;                       ;
+; CPU:cpu0|ALU:alu|ALU_regs:alur0|op_d_reg[2] ; Packed Register ; Register Packing ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m1|Mult0~8 ; AX               ;                       ;
+; CPU:cpu0|ALU:alu|ALU_regs:alur0|op_d_reg[3] ; Packed Register ; Register Packing ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m1|Mult0~8 ; AX               ;                       ;
+; CPU:cpu0|ALU:alu|ALU_regs:alur0|op_d_reg[4] ; Packed Register ; Register Packing ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m1|Mult0~8 ; AX               ;                       ;
+; CPU:cpu0|ALU:alu|ALU_regs:alur0|op_d_reg[5] ; Packed Register ; Register Packing ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m1|Mult0~8 ; AX               ;                       ;
+; CPU:cpu0|ALU:alu|ALU_regs:alur0|op_d_reg[6] ; Packed Register ; Register Packing ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m1|Mult0~8 ; AX               ;                       ;
+; CPU:cpu0|ALU:alu|ALU_regs:alur0|op_d_reg[7] ; Packed Register ; Register Packing ; Timing optimization        ; Q         ;                ; CPU:cpu0|ALU:alu|sfixed_mult:m1|Mult0~8 ; AX               ;                       ;
++---------------------------------------------+-----------------+------------------+----------------------------+-----------+----------------+-----------------------------------------+------------------+-----------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Ignored Assignments                                                                        ;
++--------------+----------------+--------------+------------+---------------+----------------+
+; Name         ; Ignored Entity ; Ignored From ; Ignored To ; Ignored Value ; Ignored Source ;
++--------------+----------------+--------------+------------+---------------+----------------+
+; I/O Standard ; CPU_top        ;              ; ReadyIn    ; 3.3-V LVCMOS  ; QSF Assignment ;
++--------------+----------------+--------------+------------+---------------+----------------+
 
 
 +--------------------------------------------------------------------------------------------------+
@@ -214,8 +221,8 @@ https://fpgasoftware.intel.com/eula.
 ; Type                ; Total [A + B]      ; From Design Partitions [A] ; From Rapid Recompile [B] ;
 +---------------------+--------------------+----------------------------+--------------------------+
 ; Placement (by node) ;                    ;                            ;                          ;
-;     -- Requested    ; 0.00 % ( 0 / 230 ) ; 0.00 % ( 0 / 230 )         ; 0.00 % ( 0 / 230 )       ;
-;     -- Achieved     ; 0.00 % ( 0 / 230 ) ; 0.00 % ( 0 / 230 )         ; 0.00 % ( 0 / 230 )       ;
+;     -- Requested    ; 0.00 % ( 0 / 228 ) ; 0.00 % ( 0 / 228 )         ; 0.00 % ( 0 / 228 )       ;
+;     -- Achieved     ; 0.00 % ( 0 / 228 ) ; 0.00 % ( 0 / 228 )         ; 0.00 % ( 0 / 228 )       ;
 ;                     ;                    ;                            ;                          ;
 ; Routing (by net)    ;                    ;                            ;                          ;
 ;     -- Requested    ; 0.00 % ( 0 / 0 )   ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
@@ -238,7 +245,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 ; Partition Name                 ; Preservation Achieved ; Preservation Level Used ; Netlist Type Used ; Preservation Method ; Notes ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
-; Top                            ; 0.00 % ( 0 / 230 )    ; N/A                     ; Source File       ; N/A                 ;       ;
+; Top                            ; 0.00 % ( 0 / 228 )    ; N/A                     ; Source File       ; N/A                 ;       ;
 ; hard_block:auto_generated_inst ; 0.00 % ( 0 / 0 )      ; N/A                     ; Source File       ; N/A                 ;       ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 
@@ -256,12 +263,12 @@ The pin-out file can be found in /home/jonahfoley/ELEC6234/a_fine_CPU/synthesis/
 +-------------------------------------------------------------+--------------------+-------+
 ; Logic utilization (ALMs needed / total ALMs on device)      ; 40 / 32,070        ; < 1 % ;
 ; ALMs needed [=A-B+C]                                        ; 40                 ;       ;
-;     [A] ALMs used in final placement [=a+b+c+d]             ; 53 / 32,070        ; < 1 % ;
-;         [a] ALMs used for LUT logic and registers           ; 23                 ;       ;
-;         [b] ALMs used for LUT logic                         ; 14                 ;       ;
-;         [c] ALMs used for registers                         ; 16                 ;       ;
+;     [A] ALMs used in final placement [=a+b+c+d]             ; 47 / 32,070        ; < 1 % ;
+;         [a] ALMs used for LUT logic and registers           ; 25                 ;       ;
+;         [b] ALMs used for LUT logic                         ; 11                 ;       ;
+;         [c] ALMs used for registers                         ; 11                 ;       ;
 ;         [d] ALMs used for memory (up to half of total ALMs) ; 0                  ;       ;
-;     [B] Estimate of ALMs recoverable by dense packing       ; 13 / 32,070        ; < 1 % ;
+;     [B] Estimate of ALMs recoverable by dense packing       ; 7 / 32,070         ; < 1 % ;
 ;     [C] Estimate of ALMs unavailable [=a+b+c+d]             ; 0 / 32,070         ; 0 %   ;
 ;         [a] Due to location constrained logic               ; 0                  ;       ;
 ;         [b] Due to LAB-wide signal conflicts                ; 0                  ;       ;
@@ -270,25 +277,25 @@ The pin-out file can be found in /home/jonahfoley/ELEC6234/a_fine_CPU/synthesis/
 ;                                                             ;                    ;       ;
 ; Difficulty packing design                                   ; Low                ;       ;
 ;                                                             ;                    ;       ;
-; Total LABs:  partially or completely used                   ; 8 / 3,207          ; < 1 % ;
-;     -- Logic LABs                                           ; 8                  ;       ;
+; Total LABs:  partially or completely used                   ; 7 / 3,207          ; < 1 % ;
+;     -- Logic LABs                                           ; 7                  ;       ;
 ;     -- Memory LABs (up to half of total LABs)               ; 0                  ;       ;
 ;                                                             ;                    ;       ;
-; Combinational ALUT usage for logic                          ; 71                 ;       ;
+; Combinational ALUT usage for logic                          ; 69                 ;       ;
 ;     -- 7 input functions                                    ; 0                  ;       ;
 ;     -- 6 input functions                                    ; 1                  ;       ;
 ;     -- 5 input functions                                    ; 1                  ;       ;
-;     -- 4 input functions                                    ; 22                 ;       ;
-;     -- <=3 input functions                                  ; 47                 ;       ;
-; Combinational ALUT usage for route-throughs                 ; 24                 ;       ;
+;     -- 4 input functions                                    ; 21                 ;       ;
+;     -- <=3 input functions                                  ; 46                 ;       ;
+; Combinational ALUT usage for route-throughs                 ; 19                 ;       ;
 ;                                                             ;                    ;       ;
-; Dedicated logic registers                                   ; 80                 ;       ;
+; Dedicated logic registers                                   ; 78                 ;       ;
 ;     -- By type:                                             ;                    ;       ;
-;         -- Primary logic registers                          ; 76 / 64,140        ; < 1 % ;
-;         -- Secondary logic registers                        ; 4 / 64,140         ; < 1 % ;
+;         -- Primary logic registers                          ; 71 / 64,140        ; < 1 % ;
+;         -- Secondary logic registers                        ; 7 / 64,140         ; < 1 % ;
 ;     -- By function:                                         ;                    ;       ;
 ;         -- Design implementation registers                  ; 78                 ;       ;
-;         -- Routing optimization registers                   ; 2                  ;       ;
+;         -- Routing optimization registers                   ; 0                  ;       ;
 ;                                                             ;                    ;       ;
 ; Virtual pins                                                ; 0                  ;       ;
 ; I/O pins                                                    ; 19 / 457           ; 4 %   ;
@@ -344,11 +351,11 @@ The pin-out file can be found in /home/jonahfoley/ELEC6234/a_fine_CPU/synthesis/
 ; Impedance control blocks                                    ; 0 / 4              ; 0 %   ;
 ; Hard Memory Controllers                                     ; 0 / 2              ; 0 %   ;
 ; Average interconnect usage (total/H/V)                      ; 0.1% / 0.1% / 0.0% ;       ;
-; Peak interconnect usage (total/H/V)                         ; 1.7% / 1.9% / 0.9% ;       ;
-; Maximum fan-out                                             ; 61                 ;       ;
-; Highest non-global fan-out                                  ; 61                 ;       ;
-; Total fan-out                                               ; 539                ;       ;
-; Average fan-out                                             ; 2.47               ;       ;
+; Peak interconnect usage (total/H/V)                         ; 1.2% / 1.4% / 0.8% ;       ;
+; Maximum fan-out                                             ; 59                 ;       ;
+; Highest non-global fan-out                                  ; 59                 ;       ;
+; Total fan-out                                               ; 521                ;       ;
+; Average fan-out                                             ; 2.49               ;       ;
 +-------------------------------------------------------------+--------------------+-------+
 
 
@@ -359,12 +366,12 @@ The pin-out file can be found in /home/jonahfoley/ELEC6234/a_fine_CPU/synthesis/
 +-------------------------------------------------------------+----------------------+--------------------------------+
 ; Logic utilization (ALMs needed / total ALMs on device)      ; 40 / 32070 ( < 1 % ) ; 0 / 32070 ( 0 % )              ;
 ; ALMs needed [=A-B+C]                                        ; 40                   ; 0                              ;
-;     [A] ALMs used in final placement [=a+b+c+d]             ; 53 / 32070 ( < 1 % ) ; 0 / 32070 ( 0 % )              ;
-;         [a] ALMs used for LUT logic and registers           ; 23                   ; 0                              ;
-;         [b] ALMs used for LUT logic                         ; 14                   ; 0                              ;
-;         [c] ALMs used for registers                         ; 16                   ; 0                              ;
+;     [A] ALMs used in final placement [=a+b+c+d]             ; 47 / 32070 ( < 1 % ) ; 0 / 32070 ( 0 % )              ;
+;         [a] ALMs used for LUT logic and registers           ; 25                   ; 0                              ;
+;         [b] ALMs used for LUT logic                         ; 11                   ; 0                              ;
+;         [c] ALMs used for registers                         ; 11                   ; 0                              ;
 ;         [d] ALMs used for memory (up to half of total ALMs) ; 0                    ; 0                              ;
-;     [B] Estimate of ALMs recoverable by dense packing       ; 13 / 32070 ( < 1 % ) ; 0 / 32070 ( 0 % )              ;
+;     [B] Estimate of ALMs recoverable by dense packing       ; 7 / 32070 ( < 1 % )  ; 0 / 32070 ( 0 % )              ;
 ;     [C] Estimate of ALMs unavailable [=a+b+c+d]             ; 0 / 32070 ( 0 % )    ; 0 / 32070 ( 0 % )              ;
 ;         [a] Due to location constrained logic               ; 0                    ; 0                              ;
 ;         [b] Due to LAB-wide signal conflicts                ; 0                    ; 0                              ;
@@ -373,28 +380,28 @@ The pin-out file can be found in /home/jonahfoley/ELEC6234/a_fine_CPU/synthesis/
 ;                                                             ;                      ;                                ;
 ; Difficulty packing design                                   ; Low                  ; Low                            ;
 ;                                                             ;                      ;                                ;
-; Total LABs:  partially or completely used                   ; 8 / 3207 ( < 1 % )   ; 0 / 3207 ( 0 % )               ;
-;     -- Logic LABs                                           ; 8                    ; 0                              ;
+; Total LABs:  partially or completely used                   ; 7 / 3207 ( < 1 % )   ; 0 / 3207 ( 0 % )               ;
+;     -- Logic LABs                                           ; 7                    ; 0                              ;
 ;     -- Memory LABs (up to half of total LABs)               ; 0                    ; 0                              ;
 ;                                                             ;                      ;                                ;
-; Combinational ALUT usage for logic                          ; 71                   ; 0                              ;
+; Combinational ALUT usage for logic                          ; 69                   ; 0                              ;
 ;     -- 7 input functions                                    ; 0                    ; 0                              ;
 ;     -- 6 input functions                                    ; 1                    ; 0                              ;
 ;     -- 5 input functions                                    ; 1                    ; 0                              ;
-;     -- 4 input functions                                    ; 22                   ; 0                              ;
-;     -- <=3 input functions                                  ; 47                   ; 0                              ;
-; Combinational ALUT usage for route-throughs                 ; 24                   ; 0                              ;
+;     -- 4 input functions                                    ; 21                   ; 0                              ;
+;     -- <=3 input functions                                  ; 46                   ; 0                              ;
+; Combinational ALUT usage for route-throughs                 ; 19                   ; 0                              ;
 ; Memory ALUT usage                                           ; 0                    ; 0                              ;
 ;     -- 64-address deep                                      ; 0                    ; 0                              ;
 ;     -- 32-address deep                                      ; 0                    ; 0                              ;
 ;                                                             ;                      ;                                ;
 ; Dedicated logic registers                                   ; 0                    ; 0                              ;
 ;     -- By type:                                             ;                      ;                                ;
-;         -- Primary logic registers                          ; 76 / 64140 ( < 1 % ) ; 0 / 64140 ( 0 % )              ;
-;         -- Secondary logic registers                        ; 4 / 64140 ( < 1 % )  ; 0 / 64140 ( 0 % )              ;
+;         -- Primary logic registers                          ; 71 / 64140 ( < 1 % ) ; 0 / 64140 ( 0 % )              ;
+;         -- Secondary logic registers                        ; 7 / 64140 ( < 1 % )  ; 0 / 64140 ( 0 % )              ;
 ;     -- By function:                                         ;                      ;                                ;
 ;         -- Design implementation registers                  ; 78                   ; 0                              ;
-;         -- Routing optimization registers                   ; 2                    ; 0                              ;
+;         -- Routing optimization registers                   ; 0                    ; 0                              ;
 ;                                                             ;                      ;                                ;
 ;                                                             ;                      ;                                ;
 ; Virtual pins                                                ; 0                    ; 0                              ;
@@ -413,8 +420,8 @@ The pin-out file can be found in /home/jonahfoley/ELEC6234/a_fine_CPU/synthesis/
 ;     -- Registered Output Connections                        ; 0                    ; 0                              ;
 ;                                                             ;                      ;                                ;
 ; Internal Connections                                        ;                      ;                                ;
-;     -- Total Connections                                    ; 588                  ; 0                              ;
-;     -- Registered Connections                               ; 282                  ; 0                              ;
+;     -- Total Connections                                    ; 570                  ; 0                              ;
+;     -- Registered Connections                               ; 279                  ; 0                              ;
 ;                                                             ;                      ;                                ;
 ; External Connections                                        ;                      ;                                ;
 ;     -- Top                                                  ; 0                    ; 0                              ;
@@ -441,23 +448,23 @@ The pin-out file can be found in /home/jonahfoley/ELEC6234/a_fine_CPU/synthesis/
 +-------------------------------------------------------------+----------------------+--------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Input Pins                                                                                                                                                                                                                                                                             ;
-+---------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+-----------------+----------+--------------+--------------+-------------+---------------------------+----------------------+-----------+
-; Name    ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Z coordinate ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination ; Termination Control Block ; Location assigned by ; Slew Rate ;
-+---------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+-----------------+----------+--------------+--------------+-------------+---------------------------+----------------------+-----------+
-; ReadyIn ; AD10  ; 3A       ; 4            ; 0            ; 17           ; 2                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 3.3-V LVCMOS ; Off         ; --                        ; User                 ; no        ;
-; fastclk ; AF14  ; 3B       ; 32           ; 0            ; 0            ; 25                    ; 0                  ; yes    ; no             ; no              ; no       ; Off          ; 3.3-V LVCMOS ; Off         ; --                        ; User                 ; no        ;
-; n_reset ; AE12  ; 3A       ; 2            ; 0            ; 57           ; 6                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 3.3-V LVCMOS ; Off         ; --                        ; User                 ; no        ;
-; sw[0]   ; AB12  ; 3A       ; 12           ; 0            ; 17           ; 1                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 3.3-V LVCMOS ; Off         ; --                        ; User                 ; no        ;
-; sw[1]   ; AC12  ; 3A       ; 16           ; 0            ; 0            ; 1                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 3.3-V LVCMOS ; Off         ; --                        ; User                 ; no        ;
-; sw[2]   ; AF9   ; 3A       ; 8            ; 0            ; 34           ; 1                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 3.3-V LVCMOS ; Off         ; --                        ; User                 ; no        ;
-; sw[3]   ; AF10  ; 3A       ; 4            ; 0            ; 51           ; 1                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 3.3-V LVCMOS ; Off         ; --                        ; User                 ; no        ;
-; sw[4]   ; AD11  ; 3A       ; 2            ; 0            ; 40           ; 1                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 3.3-V LVCMOS ; Off         ; --                        ; User                 ; no        ;
-; sw[5]   ; AD12  ; 3A       ; 16           ; 0            ; 17           ; 1                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 3.3-V LVCMOS ; Off         ; --                        ; User                 ; no        ;
-; sw[6]   ; AE11  ; 3A       ; 4            ; 0            ; 34           ; 1                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 3.3-V LVCMOS ; Off         ; --                        ; User                 ; no        ;
-; sw[7]   ; AC9   ; 3A       ; 4            ; 0            ; 0            ; 1                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 3.3-V LVCMOS ; Off         ; --                        ; User                 ; no        ;
-+---------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+-----------------+----------+--------------+--------------+-------------+---------------------------+----------------------+-----------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Input Pins                                                                                                                                                                                                                                                                              ;
++----------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+-----------------+----------+--------------+--------------+-------------+---------------------------+----------------------+-----------+
+; Name     ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Z coordinate ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination ; Termination Control Block ; Location assigned by ; Slew Rate ;
++----------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+-----------------+----------+--------------+--------------+-------------+---------------------------+----------------------+-----------+
+; fastclk  ; AF14  ; 3B       ; 32           ; 0            ; 0            ; 25                    ; 0                  ; yes    ; no             ; no              ; no       ; Off          ; 3.3-V LVCMOS ; Off         ; --                        ; User                 ; no        ;
+; n_reset  ; AE12  ; 3A       ; 2            ; 0            ; 57           ; 4                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 3.3-V LVCMOS ; Off         ; --                        ; User                 ; no        ;
+; ready_in ; AD10  ; 3A       ; 4            ; 0            ; 17           ; 2                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
+; sw[0]    ; AB12  ; 3A       ; 12           ; 0            ; 17           ; 1                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 3.3-V LVCMOS ; Off         ; --                        ; User                 ; no        ;
+; sw[1]    ; AC12  ; 3A       ; 16           ; 0            ; 0            ; 1                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 3.3-V LVCMOS ; Off         ; --                        ; User                 ; no        ;
+; sw[2]    ; AF9   ; 3A       ; 8            ; 0            ; 34           ; 1                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 3.3-V LVCMOS ; Off         ; --                        ; User                 ; no        ;
+; sw[3]    ; AF10  ; 3A       ; 4            ; 0            ; 51           ; 1                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 3.3-V LVCMOS ; Off         ; --                        ; User                 ; no        ;
+; sw[4]    ; AD11  ; 3A       ; 2            ; 0            ; 40           ; 1                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 3.3-V LVCMOS ; Off         ; --                        ; User                 ; no        ;
+; sw[5]    ; AD12  ; 3A       ; 16           ; 0            ; 17           ; 1                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 3.3-V LVCMOS ; Off         ; --                        ; User                 ; no        ;
+; sw[6]    ; AE11  ; 3A       ; 4            ; 0            ; 34           ; 1                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 3.3-V LVCMOS ; Off         ; --                        ; User                 ; no        ;
+; sw[7]    ; AC9   ; 3A       ; 4            ; 0            ; 0            ; 1                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 3.3-V LVCMOS ; Off         ; --                        ; User                 ; no        ;
++----------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+-----------------+----------+--------------+--------------+-------------+---------------------------+----------------------+-----------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -630,7 +637,7 @@ The pin-out file can be found in /home/jonahfoley/ELEC6234/a_fine_CPU/synthesis/
 ; AD7      ; 62         ; 3A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; AD8      ;            ; 3A             ; VCCIO3A                         ; power  ;              ; 3.3V                ; --           ;                 ; --       ; --           ;
 ; AD9      ; 55         ; 3A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
-; AD10     ; 56         ; 3A             ; ReadyIn                         ; input  ; 3.3-V LVCMOS ;                     ; Column I/O   ; Y               ; no       ; Off          ;
+; AD10     ; 56         ; 3A             ; ready_in                        ; input  ; 2.5 V        ;                     ; Column I/O   ; Y               ; no       ; Off          ;
 ; AD11     ; 54         ; 3A             ; sw[4]                           ; input  ; 3.3-V LVCMOS ;                     ; Column I/O   ; Y               ; no       ; Off          ;
 ; AD12     ; 80         ; 3A             ; sw[5]                           ; input  ; 3.3-V LVCMOS ;                     ; Column I/O   ; Y               ; no       ; Off          ;
 ; AD13     ;            ; 3B             ; VCCIO3B                         ; power  ;              ; 3.3V                ; --           ;                 ; --       ; --           ;
@@ -1416,6 +1423,7 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ; led[5]   ; Missing drive strength and slew rate ;
 ; led[6]   ; Missing drive strength and slew rate ;
 ; led[7]   ; Missing drive strength and slew rate ;
+; ready_in ; Incomplete set of assignments        ;
 +----------+--------------------------------------+
 
 
@@ -1424,108 +1432,105 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +-------------------------------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                      ; ALMs needed [=A-B+C] ; [A] ALMs used in final placement ; [B] Estimate of ALMs recoverable by dense packing ; [C] Estimate of ALMs unavailable ; ALMs used for memory ; Combinational ALUTs ; Dedicated Logic Registers ; I/O Registers ; Block Memory Bits ; M10Ks ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                       ; Entity Name         ; Library Name ;
 +-------------------------------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |CPU_top                                        ; 40.0 (0.5)           ; 51.5 (0.5)                       ; 11.5 (0.0)                                        ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 71 (1)              ; 80 (0)                    ; 0 (0)         ; 64                ; 2     ; 2          ; 19   ; 0            ; |CPU_top                                                                                                  ; CPU_top             ; work         ;
-;    |CPU:cpu0|                                   ; 27.0 (6.3)           ; 38.0 (12.8)                      ; 11.0 (6.6)                                        ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 45 (1)              ; 55 (33)                   ; 0 (0)         ; 64                ; 2     ; 2          ; 0    ; 0            ; |CPU_top|CPU:cpu0                                                                                         ; CPU                 ; work         ;
-;       |ALU:alu|                                 ; 12.3 (8.3)           ; 14.2 (10.2)                      ; 1.8 (1.8)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 16 (8)              ; 16 (16)                   ; 0 (0)         ; 0                 ; 0     ; 2          ; 0    ; 0            ; |CPU_top|CPU:cpu0|ALU:alu                                                                                 ; ALU                 ; work         ;
+; |CPU_top                                        ; 40.0 (0.5)           ; 46.5 (0.5)                       ; 6.5 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 69 (1)              ; 78 (0)                    ; 0 (0)         ; 64                ; 2     ; 2          ; 19   ; 0            ; |CPU_top                                                                                                  ; CPU_top             ; work         ;
+;    |CPU:cpu0|                                   ; 26.5 (6.8)           ; 33.0 (9.5)                       ; 6.5 (2.7)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 43 (1)              ; 53 (33)                   ; 0 (0)         ; 64                ; 2     ; 2          ; 0    ; 0            ; |CPU_top|CPU:cpu0                                                                                         ; CPU                 ; work         ;
+;       |ALU:alu|                                 ; 12.6 (0.0)           ; 12.7 (0.0)                       ; 0.1 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 16 (0)              ; 16 (0)                    ; 0 (0)         ; 0                 ; 0     ; 2          ; 0    ; 0            ; |CPU_top|CPU:cpu0|ALU:alu                                                                                 ; ALU                 ; work         ;
+;          |ALU_regs:alur0|                       ; 8.6 (8.6)            ; 8.7 (8.7)                        ; 0.1 (0.1)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 8 (8)               ; 16 (16)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|ALU:alu|ALU_regs:alur0                                                                  ; ALU_regs            ; work         ;
 ;          |sfixed_adder:a1|                      ; 4.0 (4.0)            ; 4.0 (4.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 8 (8)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|ALU:alu|sfixed_adder:a1                                                                 ; sfixed_adder        ; work         ;
 ;          |sfixed_mult:m0|                       ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 1          ; 0    ; 0            ; |CPU_top|CPU:cpu0|ALU:alu|sfixed_mult:m0                                                                  ; sfixed_mult         ; work         ;
 ;          |sfixed_mult:m1|                       ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 1          ; 0    ; 0            ; |CPU_top|CPU:cpu0|ALU:alu|sfixed_mult:m1                                                                  ; sfixed_mult         ; work         ;
-;       |instruction_decoder:id|                  ; 1.1 (1.1)            ; 1.4 (1.4)                        ; 0.3 (0.3)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 5 (5)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|instruction_decoder:id                                                                  ; instruction_decoder ; work         ;
-;       |program_counter:pc|                      ; 2.3 (2.3)            ; 3.5 (3.5)                        ; 1.2 (1.2)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 4 (4)               ; 6 (6)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|program_counter:pc                                                                      ; program_counter     ; work         ;
-;       |program_memory:pm|                       ; 2.5 (2.5)            ; 3.2 (3.2)                        ; 0.8 (0.8)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 10 (10)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|program_memory:pm                                                                       ; program_memory      ; work         ;
+;       |instruction_decoder:id|                  ; 1.1 (1.1)            ; 1.6 (1.6)                        ; 0.5 (0.5)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 5 (5)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|instruction_decoder:id                                                                  ; instruction_decoder ; work         ;
+;       |program_counter:pc|                      ; 1.8 (1.8)            ; 4.5 (4.5)                        ; 2.7 (2.7)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 4 (4)               ; 4 (4)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|program_counter:pc                                                                      ; program_counter     ; work         ;
+;       |program_memory:pm|                       ; 1.7 (1.7)            ; 2.0 (2.0)                        ; 0.3 (0.3)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 8 (8)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|program_memory:pm                                                                       ; program_memory      ; work         ;
 ;       |register_file:rf|                        ; 2.5 (2.5)            ; 2.8 (2.8)                        ; 0.3 (0.3)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 9 (9)               ; 0 (0)                     ; 0 (0)         ; 64                ; 2     ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|register_file:rf                                                                        ; register_file       ; work         ;
 ;          |dual_port_SRAM:sr0|                   ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 64                ; 2     ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|register_file:rf|dual_port_SRAM:sr0                                                     ; dual_port_SRAM      ; work         ;
 ;             |altsyncram:gpr_rtl_0|              ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 32                ; 1     ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|altsyncram:gpr_rtl_0                                ; altsyncram          ; work         ;
 ;                |altsyncram_97s1:auto_generated| ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 32                ; 1     ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|altsyncram:gpr_rtl_0|altsyncram_97s1:auto_generated ; altsyncram_97s1     ; work         ;
 ;             |altsyncram:gpr_rtl_1|              ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 32                ; 1     ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|altsyncram:gpr_rtl_1                                ; altsyncram          ; work         ;
 ;                |altsyncram_97s1:auto_generated| ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 32                ; 1     ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|altsyncram:gpr_rtl_1|altsyncram_97s1:auto_generated ; altsyncram_97s1     ; work         ;
-;    |clk_divider:cd0|                            ; 12.5 (12.5)          ; 13.0 (13.0)                      ; 0.5 (0.5)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 25 (25)             ; 25 (25)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |CPU_top|clk_divider:cd0                                                                                  ; clk_divider         ; work         ;
+;    |clk_divider:cd0|                            ; 13.0 (13.0)          ; 13.0 (13.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 25 (25)             ; 25 (25)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |CPU_top|clk_divider:cd0                                                                                  ; clk_divider         ; work         ;
 +-------------------------------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+------------------------------------------------------------------------------------------------------------------------+
-; Delay Chain Summary                                                                                                    ;
-+---------+----------+----+------+------+----+------+-------+--------+------------------------+--------------------------+
-; Name    ; Pin Type ; D1 ; D3_0 ; D3_1 ; D4 ; D5   ; D5 OE ; D5 OCT ; T11 (Postamble Gating) ; T11 (Postamble Ungating) ;
-+---------+----------+----+------+------+----+------+-------+--------+------------------------+--------------------------+
-; led[0]  ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
-; led[1]  ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
-; led[2]  ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
-; led[3]  ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
-; led[4]  ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
-; led[5]  ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
-; led[6]  ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
-; led[7]  ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
-; fastclk ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
-; ReadyIn ; Input    ; -- ; --   ; (0)  ; -- ; --   ; --    ; --     ; --                     ; --                       ;
-; n_reset ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
-; sw[0]   ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
-; sw[1]   ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
-; sw[2]   ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
-; sw[3]   ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
-; sw[4]   ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
-; sw[5]   ; Input    ; -- ; --   ; (0)  ; -- ; --   ; --    ; --     ; --                     ; --                       ;
-; sw[6]   ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
-; sw[7]   ; Input    ; -- ; --   ; (0)  ; -- ; --   ; --    ; --     ; --                     ; --                       ;
-+---------+----------+----+------+------+----+------+-------+--------+------------------------+--------------------------+
++-------------------------------------------------------------------------------------------------------------------------+
+; Delay Chain Summary                                                                                                     ;
++----------+----------+----+------+------+----+------+-------+--------+------------------------+--------------------------+
+; Name     ; Pin Type ; D1 ; D3_0 ; D3_1 ; D4 ; D5   ; D5 OE ; D5 OCT ; T11 (Postamble Gating) ; T11 (Postamble Ungating) ;
++----------+----------+----+------+------+----+------+-------+--------+------------------------+--------------------------+
+; led[0]   ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
+; led[1]   ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
+; led[2]   ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
+; led[3]   ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
+; led[4]   ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
+; led[5]   ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
+; led[6]   ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
+; led[7]   ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
+; fastclk  ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
+; ready_in ; Input    ; -- ; --   ; (0)  ; -- ; --   ; --    ; --     ; --                     ; --                       ;
+; n_reset  ; Input    ; -- ; --   ; (0)  ; -- ; --   ; --    ; --     ; --                     ; --                       ;
+; sw[0]    ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
+; sw[1]    ; Input    ; -- ; --   ; (0)  ; -- ; --   ; --    ; --     ; --                     ; --                       ;
+; sw[2]    ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
+; sw[3]    ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
+; sw[4]    ; Input    ; -- ; --   ; (0)  ; -- ; --   ; --    ; --     ; --                     ; --                       ;
+; sw[5]    ; Input    ; -- ; --   ; (0)  ; -- ; --   ; --    ; --     ; --                     ; --                       ;
+; sw[6]    ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
+; sw[7]    ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
++----------+----------+----+------+------+----+------+-------+--------+------------------------+--------------------------+
 
 
-+-------------------------------------------------------------------------------------+
-; Pad To Core Delay Chain Fanout                                                      ;
-+-------------------------------------------------------+-------------------+---------+
-; Source Pin / Fanout                                   ; Pad To Core Index ; Setting ;
-+-------------------------------------------------------+-------------------+---------+
-; fastclk                                               ;                   ;         ;
-;      - clk_divider:cd0|count[24]                      ; 0                 ; 0       ;
-; ReadyIn                                               ;                   ;         ;
-;      - CPU:cpu0|ready_in_p                            ; 1                 ; 0       ;
-;      - CPU:cpu0|PC_en~0                               ; 1                 ; 0       ;
-; n_reset                                               ;                   ;         ;
-;      - CPU:cpu0|program_counter:pc|count[0]           ; 0                 ; 0       ;
-;      - CPU:cpu0|program_counter:pc|count[1]           ; 0                 ; 0       ;
-;      - CPU:cpu0|program_counter:pc|count[2]           ; 0                 ; 0       ;
-;      - CPU:cpu0|program_counter:pc|count[3]           ; 0                 ; 0       ;
-;      - CPU:cpu0|program_counter:pc|count[1]~DUPLICATE ; 0                 ; 0       ;
-;      - CPU:cpu0|program_counter:pc|count[2]~DUPLICATE ; 0                 ; 0       ;
-; sw[0]                                                 ;                   ;         ;
-;      - CPU:cpu0|sw[0][0]                              ; 0                 ; 0       ;
-; sw[1]                                                 ;                   ;         ;
-;      - CPU:cpu0|sw[0][1]                              ; 0                 ; 0       ;
-; sw[2]                                                 ;                   ;         ;
-;      - CPU:cpu0|sw[0][2]                              ; 0                 ; 0       ;
-; sw[3]                                                 ;                   ;         ;
-;      - CPU:cpu0|sw[0][3]~feeder                       ; 0                 ; 0       ;
-; sw[4]                                                 ;                   ;         ;
-;      - CPU:cpu0|sw[0][4]~feeder                       ; 0                 ; 0       ;
-; sw[5]                                                 ;                   ;         ;
-;      - CPU:cpu0|sw[0][5]~feeder                       ; 1                 ; 0       ;
-; sw[6]                                                 ;                   ;         ;
-;      - CPU:cpu0|sw[0][6]~feeder                       ; 0                 ; 0       ;
-; sw[7]                                                 ;                   ;         ;
-;      - CPU:cpu0|sw[0][7]                              ; 1                 ; 0       ;
-+-------------------------------------------------------+-------------------+---------+
++---------------------------------------------------------------------------+
+; Pad To Core Delay Chain Fanout                                            ;
++---------------------------------------------+-------------------+---------+
+; Source Pin / Fanout                         ; Pad To Core Index ; Setting ;
++---------------------------------------------+-------------------+---------+
+; fastclk                                     ;                   ;         ;
+;      - clk_divider:cd0|count[24]            ; 0                 ; 0       ;
+; ready_in                                    ;                   ;         ;
+;      - CPU:cpu0|ready_in_p                  ; 1                 ; 0       ;
+;      - CPU:cpu0|PC_en~0                     ; 1                 ; 0       ;
+; n_reset                                     ;                   ;         ;
+;      - CPU:cpu0|program_counter:pc|count[0] ; 1                 ; 0       ;
+;      - CPU:cpu0|program_counter:pc|count[1] ; 1                 ; 0       ;
+;      - CPU:cpu0|program_counter:pc|count[2] ; 1                 ; 0       ;
+;      - CPU:cpu0|program_counter:pc|count[3] ; 1                 ; 0       ;
+; sw[0]                                       ;                   ;         ;
+;      - CPU:cpu0|sw[0][0]                    ; 0                 ; 0       ;
+; sw[1]                                       ;                   ;         ;
+;      - CPU:cpu0|sw[0][1]                    ; 1                 ; 0       ;
+; sw[2]                                       ;                   ;         ;
+;      - CPU:cpu0|sw[0][2]                    ; 0                 ; 0       ;
+; sw[3]                                       ;                   ;         ;
+;      - CPU:cpu0|sw[0][3]~feeder             ; 0                 ; 0       ;
+; sw[4]                                       ;                   ;         ;
+;      - CPU:cpu0|sw[0][4]~feeder             ; 1                 ; 0       ;
+; sw[5]                                       ;                   ;         ;
+;      - CPU:cpu0|sw[0][5]                    ; 1                 ; 0       ;
+; sw[6]                                       ;                   ;         ;
+;      - CPU:cpu0|sw[0][6]                    ; 0                 ; 0       ;
+; sw[7]                                       ;                   ;         ;
+;      - CPU:cpu0|sw[0][7]                    ; 0                 ; 0       ;
++---------------------------------------------+-------------------+---------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Control Signals                                                                                                                                                     ;
-+---------------------------------------+---------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
-; Name                                  ; Location            ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
-+---------------------------------------+---------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
-; CPU:cpu0|ALU_add                      ; FF_X29_Y2_N14       ; 16      ; Sync. load   ; no     ; --                   ; --               ; --                        ;
-; CPU:cpu0|ALU_reg_en[1]                ; FF_X29_Y2_N10       ; 1       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; CPU:cpu0|ALU_reg_en[3]                ; FF_X29_Y2_N16       ; 1       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; CPU:cpu0|ALU_reg_en[4]                ; FF_X25_Y2_N59       ; 8       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; CPU:cpu0|program_memory:pm|prog_mem~8 ; LABCELL_X29_Y2_N45  ; 3       ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
-; CPU:cpu0|program_memory:pm|prog_mem~9 ; MLABCELL_X25_Y2_N30 ; 2       ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
-; CPU:cpu0|register_file:rf|WideOr1     ; MLABCELL_X28_Y2_N36 ; 8       ; Sync. load   ; no     ; --                   ; --               ; --                        ;
-; CPU:cpu0|we[0]                        ; FF_X25_Y2_N11       ; 10      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; CPU:cpu0|we[1]                        ; FF_X25_Y2_N22       ; 2       ; Write enable ; no     ; --                   ; --               ; --                        ;
-; clk_divider:cd0|count[24]             ; FF_X28_Y2_N41       ; 60      ; Clock        ; no     ; --                   ; --               ; --                        ;
-; fastclk                               ; PIN_AF14            ; 2       ; Clock        ; no     ; --                   ; --               ; --                        ;
-; fastclk                               ; PIN_AF14            ; 24      ; Clock        ; yes    ; Global Clock         ; GCLK6            ; --                        ;
-; n_reset                               ; PIN_AE12            ; 6       ; Async. clear ; no     ; --                   ; --               ; --                        ;
-+---------------------------------------+---------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Control Signals                                                                                                                                                ;
++-----------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
+; Name                              ; Location           ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++-----------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
+; CPU:cpu0|ALU_add                  ; FF_X34_Y2_N26      ; 16      ; Sync. load   ; no     ; --                   ; --               ; --                        ;
+; CPU:cpu0|ALU_reg_en[1]            ; FF_X35_Y2_N49      ; 1       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; CPU:cpu0|ALU_reg_en[3]            ; FF_X36_Y2_N34      ; 1       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; CPU:cpu0|ALU_reg_en[4]            ; FF_X34_Y2_N44      ; 8       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; CPU:cpu0|register_file:rf|WideOr1 ; LABCELL_X35_Y2_N30 ; 8       ; Sync. load   ; no     ; --                   ; --               ; --                        ;
+; CPU:cpu0|we[0]                    ; FF_X36_Y2_N32      ; 10      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; CPU:cpu0|we[1]                    ; FF_X35_Y2_N55      ; 2       ; Write enable ; no     ; --                   ; --               ; --                        ;
+; clk_divider:cd0|count[24]         ; FF_X35_Y2_N35      ; 58      ; Clock        ; no     ; --                   ; --               ; --                        ;
+; fastclk                           ; PIN_AF14           ; 2       ; Clock        ; no     ; --                   ; --               ; --                        ;
+; fastclk                           ; PIN_AF14           ; 24      ; Clock        ; yes    ; Global Clock         ; GCLK6            ; --                        ;
+; n_reset                           ; PIN_AE12           ; 4       ; Async. clear ; no     ; --                   ; --               ; --                        ;
++-----------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
 
 
 +----------------------------------------------------------------------------------------------------+
@@ -1542,8 +1547,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+-------------+-------+-------------------------------------------------+----------------+----------------------+-----------------+-----------------+----------+------------------------+-------------------+
 ; Name                                                                                                        ; Type ; Mode             ; Clock Mode   ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Port A Input Registers ; Port A Output Registers ; Port B Input Registers ; Port B Output Registers ; Size ; Implementation Port A Depth ; Implementation Port A Width ; Implementation Port B Depth ; Implementation Port B Width ; Implementation Bits ; M10K blocks ; MLABs ; MIF                                             ; Location       ; Mixed Width RDW Mode ; Port A RDW Mode ; Port B RDW Mode ; ECC Mode ; ECC Pipeline Registers ; Fits in MLABs     ;
 +-------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+-------------+-------+-------------------------------------------------+----------------+----------------------+-----------------+-----------------+----------+------------------------+-------------------+
-; CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|altsyncram:gpr_rtl_0|altsyncram_97s1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; Single Clock ; 4            ; 8            ; 4            ; 8            ; yes                    ; no                      ; yes                    ; no                      ; 32   ; 4                           ; 8                           ; 4                           ; 8                           ; 32                  ; 1           ; 0     ; db/CPU_top.ram0_dual_port_SRAM_7a2d7751.hdl.mif ; M10K_X38_Y2_N0 ; Old data             ; New data        ; New data        ; Off      ; No                     ; No - ACF Disabled ;
-; CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|altsyncram:gpr_rtl_1|altsyncram_97s1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; Single Clock ; 4            ; 8            ; 4            ; 8            ; yes                    ; no                      ; yes                    ; no                      ; 32   ; 4                           ; 8                           ; 4                           ; 8                           ; 32                  ; 1           ; 0     ; db/CPU_top.ram0_dual_port_SRAM_7a2d7751.hdl.mif ; M10K_X26_Y2_N0 ; Old data             ; New data        ; New data        ; Off      ; No                     ; No - ACF Disabled ;
+; CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|altsyncram:gpr_rtl_0|altsyncram_97s1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; Single Clock ; 4            ; 8            ; 4            ; 8            ; yes                    ; no                      ; yes                    ; no                      ; 32   ; 4                           ; 8                           ; 4                           ; 8                           ; 32                  ; 1           ; 0     ; db/CPU_top.ram0_dual_port_SRAM_7a2d7751.hdl.mif ; M10K_X41_Y2_N0 ; Old data             ; New data        ; New data        ; Off      ; No                     ; No - ACF Disabled ;
+; CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|altsyncram:gpr_rtl_1|altsyncram_97s1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; Single Clock ; 4            ; 8            ; 4            ; 8            ; yes                    ; no                      ; yes                    ; no                      ; 32   ; 4                           ; 8                           ; 4                           ; 8                           ; 32                  ; 1           ; 0     ; db/CPU_top.ram0_dual_port_SRAM_7a2d7751.hdl.mif ; M10K_X38_Y2_N0 ; Old data             ; New data        ; New data        ; Off      ; No                     ; No - ACF Disabled ;
 +-------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+-------------+-------+-------------------------------------------------+----------------+----------------------+-----------------+-----------------+----------+------------------------+-------------------+
 Note: Fitter may spread logical memories into multiple blocks to improve timing. The actual required RAM blocks can be found in the Fitter Resource Usage section.
 
@@ -1566,8 +1571,8 @@ Note: Fitter may spread logical memories into multiple blocks to improve timing.
 +-----------------------------------------+-----------------------+---------------+---------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+-----------------+--------------------------------+---------------------+-------------------------------+------------------------------+------------------------------+
 ; Name                                    ; Mode                  ; Location      ; Sign Representation ; Data AX Input Register ; Data AY Input Register ; Data AZ Input Register ; Data BX Input Register ; Data BY Input Register ; Data BZ Input Register ; Output Register ; Dedicated Shift Register Chain ; Dedicated Pre-Adder ; Dedicated Coefficient Storage ; Dedicated Output Adder Chain ; Dedicated Output Accumulator ;
 +-----------------------------------------+-----------------------+---------------+---------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+-----------------+--------------------------------+---------------------+-------------------------------+------------------------------+------------------------------+
-; CPU:cpu0|ALU:alu|sfixed_mult:m0|Mult0~8 ; Independent 9x9       ; DSP_X20_Y2_N0 ; Mixed               ; yes                    ; yes                    ; --                     ; yes                    ; yes                    ; --                     ; no              ; no                             ; no                  ; no                            ; no                           ; no                           ;
-; CPU:cpu0|ALU:alu|sfixed_mult:m1|Mult0~8 ; Two Independent 18x18 ; DSP_X32_Y2_N0 ; Mixed               ; yes                    ; no                     ; --                     ; --                     ; --                     ; --                     ; no              ; no                             ; no                  ; no                            ; no                           ; no                           ;
+; CPU:cpu0|ALU:alu|sfixed_mult:m0|Mult0~8 ; Independent 9x9       ; DSP_X32_Y2_N0 ; Mixed               ; yes                    ; yes                    ; --                     ; yes                    ; yes                    ; --                     ; no              ; no                             ; no                  ; no                            ; no                           ; no                           ;
+; CPU:cpu0|ALU:alu|sfixed_mult:m1|Mult0~8 ; Two Independent 18x18 ; DSP_X32_Y4_N0 ; Mixed               ; yes                    ; no                     ; --                     ; --                     ; --                     ; --                     ; no              ; no                             ; no                  ; no                            ; no                           ; no                           ;
 +-----------------------------------------+-----------------------+---------------+---------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+-----------------+--------------------------------+---------------------+-------------------------------+------------------------------+------------------------------+
 
 
@@ -1576,14 +1581,14 @@ Note: Fitter may spread logical memories into multiple blocks to improve timing.
 +---------------------------------------------+-------------------------+
 ; Routing Resource Type                       ; Usage                   ;
 +---------------------------------------------+-------------------------+
-; Block interconnects                         ; 174 / 289,320 ( < 1 % ) ;
-; C12 interconnects                           ; 2 / 13,420 ( < 1 % )    ;
-; C2 interconnects                            ; 51 / 119,108 ( < 1 % )  ;
-; C4 interconnects                            ; 17 / 56,300 ( < 1 % )   ;
+; Block interconnects                         ; 179 / 289,320 ( < 1 % ) ;
+; C12 interconnects                           ; 3 / 13,420 ( < 1 % )    ;
+; C2 interconnects                            ; 49 / 119,108 ( < 1 % )  ;
+; C4 interconnects                            ; 28 / 56,300 ( < 1 % )   ;
 ; DQS bus muxes                               ; 0 / 25 ( 0 % )          ;
 ; DQS-18 I/O buses                            ; 0 / 25 ( 0 % )          ;
 ; DQS-9 I/O buses                             ; 0 / 25 ( 0 % )          ;
-; Direct links                                ; 29 / 289,320 ( < 1 % )  ;
+; Direct links                                ; 21 / 289,320 ( < 1 % )  ;
 ; Global clocks                               ; 1 / 16 ( 6 % )          ;
 ; HPS SDRAM PLL inputs                        ; 0 / 1 ( 0 % )           ;
 ; HPS SDRAM PLL outputs                       ; 0 / 1 ( 0 % )           ;
@@ -1639,12 +1644,12 @@ Note: Fitter may spread logical memories into multiple blocks to improve timing.
 ; HPS_INTERFACE_TPIU_TRACE_INPUTs             ; 0 / 2 ( 0 % )           ;
 ; HPS_INTERFACE_TPIU_TRACE_OUTPUTs            ; 0 / 33 ( 0 % )          ;
 ; Horizontal periphery clocks                 ; 0 / 72 ( 0 % )          ;
-; Local interconnects                         ; 55 / 84,580 ( < 1 % )   ;
+; Local interconnects                         ; 42 / 84,580 ( < 1 % )   ;
 ; Quadrant clocks                             ; 0 / 66 ( 0 % )          ;
-; R14 interconnects                           ; 25 / 12,676 ( < 1 % )   ;
-; R14/C12 interconnect drivers                ; 25 / 20,720 ( < 1 % )   ;
-; R3 interconnects                            ; 69 / 130,992 ( < 1 % )  ;
-; R6 interconnects                            ; 153 / 266,960 ( < 1 % ) ;
+; R14 interconnects                           ; 27 / 12,676 ( < 1 % )   ;
+; R14/C12 interconnect drivers                ; 27 / 20,720 ( < 1 % )   ;
+; R3 interconnects                            ; 68 / 130,992 ( < 1 % )  ;
+; R6 interconnects                            ; 126 / 266,960 ( < 1 % ) ;
 ; Spine clocks                                ; 1 / 360 ( < 1 % )       ;
 ; Wire stub REs                               ; 0 / 15,858 ( 0 % )      ;
 +---------------------------------------------+-------------------------+
@@ -1717,7 +1722,7 @@ Note: Fitter may spread logical memories into multiple blocks to improve timing.
 ; led[6]             ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ;
 ; led[7]             ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ;
 ; fastclk            ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ;
-; ReadyIn            ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ;
+; ready_in           ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ;
 ; n_reset            ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ;
 ; sw[0]              ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ;
 ; sw[1]              ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ;
@@ -1787,11 +1792,15 @@ This will disable optimization of problematic paths and expose them for further 
 +---------------------------+---------------------------+-------------------+
 ; Source Register           ; Destination Register      ; Delay Added in ns ;
 +---------------------------+---------------------------+-------------------+
-; clk_divider:cd0|count[0]  ; clk_divider:cd0|count[23] ; 0.489             ;
-; clk_divider:cd0|count[18] ; clk_divider:cd0|count[23] ; 0.012             ;
-; clk_divider:cd0|count[10] ; clk_divider:cd0|count[23] ; 0.012             ;
+; clk_divider:cd0|count[0]  ; clk_divider:cd0|count[23] ; 0.505             ;
+; clk_divider:cd0|count[18] ; clk_divider:cd0|count[23] ; 0.027             ;
+; clk_divider:cd0|count[10] ; clk_divider:cd0|count[23] ; 0.027             ;
+; clk_divider:cd0|count[9]  ; clk_divider:cd0|count[23] ; 0.015             ;
+; clk_divider:cd0|count[12] ; clk_divider:cd0|count[23] ; 0.012             ;
+; clk_divider:cd0|count[6]  ; clk_divider:cd0|count[23] ; 0.012             ;
+; clk_divider:cd0|count[20] ; clk_divider:cd0|count[23] ; 0.011             ;
 +---------------------------+---------------------------+-------------------+
-Note: This table only shows the top 3 path(s) that have the largest delay added for hold.
+Note: This table only shows the top 7 path(s) that have the largest delay added for hold.
 
 
 +-----------------+
@@ -1815,7 +1824,7 @@ Info (184021): Fitter periphery placement operations ending: elapsed time is 00:
 Info (176233): Starting register packing
 Info (332104): Reading SDC File: 'CPU_top.sdc'
 Warning (332060): Node: clk_divider:cd0|count[24] was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register CPU:cpu0|ALU:alu|op_e_reg[0] is being clocked by clk_divider:cd0|count[24]
+    Info (13166): Register CPU:cpu0|ALU:alu|ALU_regs:alur0|op_e_reg[0] is being clocked by clk_divider:cd0|count[24]
 Info (332152): The following assignments are ignored by the derive_clock_uncertainty command
 Info (332129): Detected timing requirements -- optimizing circuit to achieve only the specified requirements
 Info (332111): Found 1 clocks
@@ -1824,30 +1833,31 @@ Info (332111): Found 1 clocks
     Info (332111):   20.000     clk50MHz
 Info (176235): Finished register packing
     Extra Info (176218): Packed 24 registers into blocks of type DSP block
-Info (11798): Fitter preparation operations ending: elapsed time is 00:00:14
+Info (11798): Fitter preparation operations ending: elapsed time is 00:00:09
 Warning (170136): Design uses Placement Effort Multiplier = 4.0.  Using a Placement Effort Multiplier > 1.0 can increase processing time, especially when used during a second or third fitting attempt.
 Info (170189): Fitter placement preparation operations beginning
 Info (14951): The Fitter is using Advanced Physical Optimization.
-Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:05
+Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:03
 Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
-Info (170192): Fitter placement operations ending: elapsed time is 00:00:07
+Info (170192): Fitter placement operations ending: elapsed time is 00:00:05
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 0% of the available device resources
-    Info (170196): Router estimated peak interconnect usage is 1% of the available device resources in the region that extends from location X22_Y0 to location X32_Y10
+    Info (170196): Router estimated peak interconnect usage is 1% of the available device resources in the region that extends from location X33_Y0 to location X44_Y10
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170200): Optimizations that may affect the design's timing were skipped
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:02
-Info (11888): Total time spent on timing analysis during the Fitter is 0.50 seconds.
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:01
+Info (11888): Total time spent on timing analysis during the Fitter is 0.34 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:03
-Info: Quartus Prime Fitter was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 2831 megabytes
-    Info: Processing ended: Sun Apr 16 14:00:38 2023
-    Info: Elapsed time: 00:00:53
-    Info: Total CPU time (on all processors): 00:04:19
+Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:02
+Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
+Info: Quartus Prime Fitter was successful. 0 errors, 6 warnings
+    Info: Peak virtual memory: 2834 megabytes
+    Info: Processing ended: Sat Apr 22 23:29:31 2023
+    Info: Elapsed time: 00:00:34
+    Info: Total CPU time (on all processors): 00:02:17
 
 

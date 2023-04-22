@@ -22,42 +22,25 @@ mux_21 #(
 );
 
 // input registers
+ALU_regs #(
+    BUS_WIDTH
+) alur0 (
+    .clk(clk),
+    .f_add(f_add),
+    .ops(ops),  
+    .op_e(op_e),  
+    .reg_en(reg_en),
+    .op_a_reg(op_a_reg), 
+    .op_b_reg(op_b_reg), 
+    .op_c_reg(op_c_reg), 
+    .op_d_reg(op_d_reg), 
+    .op_e_reg(op_e_reg)
+);
 
-always_ff @( posedge clk ) begin 
-    if (reg_en[0]) begin
-        op_a_reg <= ops[0];
-    end
-end
-
-always_ff @( posedge clk ) begin 
-    if (reg_en[1]) begin
-        if (f_add)
-            op_b_reg <= '0;
-        else 
-            op_b_reg <= ops[1];
-    end
-end
-
-always_ff @( posedge clk ) begin 
-    if (reg_en[2]) begin
-        op_c_reg <= ops[2];
-    end
-end
-
-always_ff @( posedge clk ) begin 
-    if (reg_en[3]) begin
-        if (f_add)
-            op_d_reg <= '0;
-        else 
-            op_d_reg <= ops[3];
-    end
-end
-
-always_ff @(posedge clk)  
-begin
-    if (reg_en[4])
-        op_e_reg <= op_e;
-end
+//assign op_a_reg = ops[0];
+//assign op_b_reg = ops[1];
+//assign op_c_reg = ops[2];
+//assign op_d_reg = ops[3];
 
 // the computational part
 logic[BUS_WIDTH-1:0] mult_a, mult_b, add_a, add_b;

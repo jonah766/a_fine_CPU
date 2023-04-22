@@ -46,7 +46,7 @@ set_global_assignment -name LAST_QUARTUS_VERSION "22.1std.1 Lite Edition"
 
 set_location_assignment PIN_AF14 -to fastclk
 set_location_assignment PIN_AE12 -to n_reset
-set_location_assignment PIN_AD10 -to ReadyIn
+set_location_assignment PIN_AD10 -to ready_in
 set_location_assignment PIN_AB12 -to sw[0]
 set_location_assignment PIN_AC12 -to sw[1]
 set_location_assignment PIN_AF9 -to sw[2]

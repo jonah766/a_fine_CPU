@@ -1,80 +1,55 @@
 [*]
 [*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
-[*] Sun Apr 16 05:06:09 2023
+[*] Mon Apr 17 00:19:37 2023
 [*]
-[dumpfile] "/home/jonahfoley/ELEC6234/a_fine_CPU/simulation/v2/CPU/mux_21.vcd"
-[dumpfile_mtime] "Sun Apr 16 05:01:10 2023"
-[dumpfile_size] 13607
-[savefile] "/home/jonahfoley/ELEC6234/a_fine_CPU/simulation/v2/CPU/wave.gtkw"
-[timestart] 37100
-[size] 1196 827
-[pos] 445 28
-*-16.000000 146200 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[dumpfile] "/home/jonahfoley/ELEC6234/a_fine_CPU/simulation/v3/CPU/mux_21.vcd"
+[dumpfile_mtime] "Sun Apr 16 22:48:51 2023"
+[dumpfile_size] 367929
+[savefile] "/home/jonahfoley/ELEC6234/a_fine_CPU/simulation/v3/CPU/wave.gtkw"
+[timestart] 108300
+[size] 1485 908
+[pos] 314 325
+*-16.000000 102200 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] CPU.
-[treeopen] CPU.alu.
 [sst_width] 214
-[signals_width] 271
+[signals_width] 212
 [sst_expanded] 1
-[sst_vpaned_height] 392
+[sst_vpaned_height] 441
 @28
+CPU.clk
 CPU.n_reset
 @200
--Inputs
-@40000420
-[fpshift_count] 0
-CPU.sw[7:0]
+-I/O
+@420
+CPU.in_port[7:0]
 @28
 CPU.ready_in
-CPU.pattern_match
 @420
 CPU.out_port[7:0]
 @200
--
 -PC
 @24
 CPU.PC_count[3:0]
 @28
 CPU.PC_en
-CPU.PC_wait
 @200
--
--decoder
-@28
-CPU.we
-CPU.id.wr_res
-@200
--
--program_memory
+-program memory
 @22
 CPU.instr[11:0]
 @200
--
--register_file
--
--ALU
+-register file
 @28
-CPU.alu.reg_en[4:0]
-CPU.alu.f_add
-@22
-CPU.alu.ops[39:0]
-@421
-CPU.alu.mult_a[7:0]
+CPU.rf.rd_addr_a[1:0]
 @420
-CPU.alu.mult_b[7:0]
-CPU.alu.add_a[7:0]
-CPU.alu.add_b[7:0]
-CPU.alu.result[7:0]
+CPU.rf.data_a[7:0]
+@28
+CPU.rf.we
+CPU.rf.wr_addr[1:0]
 @200
--m0
-@28
-CPU.alu.m0.en_a
+-ALU
 @22
-CPU.alu.m0.a_reg[7:0]
-@28
-CPU.alu.m0.en_b
-@22
-CPU.alu.op_b[7:0]
-CPU.alu.m0.b_reg[7:0]
-CPU.alu.m0.out[7:0]
+CPU.alu.reg_en[4:0]
+@420
+CPU.alu.result[7:0]
 [pattern_trace] 1
 [pattern_trace] 0
