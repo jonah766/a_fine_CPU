@@ -13,7 +13,7 @@ module ALU #(
 );       
 
 // setting up of add/subtract inputs
-logic [BUS_WIDTH-1:0] op_e, e_add, coeff;
+logic [BUS_WIDTH-1:0] op_e, e_add;
 logic [BUS_WIDTH-1:0] op_a_reg, op_b_reg, op_c_reg, op_d_reg, op_e_reg;
 
 
@@ -38,10 +38,19 @@ mux_21 #(
 mux_21 #(
     BUS_WIDTH
 ) coeff_mux (   
-    .s  (f_add              ), 
-    .a  ({BUS_WIDTH-1{1'b0}}), 
-    .b  (imm                ),
-    .out(coeff              )
+    .s  (f_add), 
+    .a  ('0   ), 
+    .b  (imm  ),
+    .out(coeff)
+);
+
+mux_21 #(
+    BUS_WIDTH
+) op_d_mux (   
+    .s  (f_add), 
+    .a  (e_add), 
+    .b  (imm  ),
+    .out(op_e )
 );
 
 
@@ -67,10 +76,12 @@ always_ff @( posedge clk ) begin
         op_d_reg <= coeff;
 end
 
-always_ff @( posedge clk ) begin
+always_ff @(posedge clk)  
+begin
     if (reg_en[4])
         op_e_reg <= op_e;
 end
+
 
 
 // the computational part
@@ -102,7 +113,7 @@ sfixed_mult #(
     .out(mult_b  )
 );
 
-(* keep *) sfixed_adder #(  
+sfixed_adder #(
     7, 
     0, 
     7, 
@@ -115,14 +126,14 @@ sfixed_mult #(
     .out(add_a )
 );
 
-(* keep *) sfixed_adder #(
+sfixed_adder #(
     7, 
     0, 
     7, 
     0,
     7, 
     0
-) a1 (   /* synthesis keep */
+) a1 (   
     .a  (add_a   ), // int
     .b  (op_e_reg), // int
     .out(result  )
