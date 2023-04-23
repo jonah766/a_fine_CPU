@@ -1,5 +1,5 @@
 Analysis & Synthesis report for CPU_top
-Sat Apr 22 23:28:56 2023
+Sat Apr 22 23:35:51 2023
 Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
 
 
@@ -29,19 +29,17 @@ Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
  21. Parameter Settings for User Entity Instance: CPU:cpu0|register_file:rf|dual_port_SRAM:sr0
  22. Parameter Settings for User Entity Instance: CPU:cpu0|instruction_decoder:id
  23. Parameter Settings for User Entity Instance: CPU:cpu0|ALU:alu
- 24. Parameter Settings for User Entity Instance: CPU:cpu0|ALU:alu|mux_21:e_mux
- 25. Parameter Settings for User Entity Instance: CPU:cpu0|ALU:alu|ALU_regs:alur0
- 26. Parameter Settings for User Entity Instance: CPU:cpu0|ALU:alu|sfixed_mult:m0
- 27. Parameter Settings for User Entity Instance: CPU:cpu0|ALU:alu|sfixed_mult:m1
- 28. Parameter Settings for User Entity Instance: CPU:cpu0|ALU:alu|sfixed_adder:a0
- 29. Parameter Settings for User Entity Instance: CPU:cpu0|ALU:alu|sfixed_adder:a1
- 30. Parameter Settings for Inferred Entity Instance: CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|altsyncram:gpr_rtl_0
- 31. Parameter Settings for Inferred Entity Instance: CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|altsyncram:gpr_rtl_1
- 32. altsyncram Parameter Settings by Entity Instance
- 33. Port Connectivity Checks: "CPU:cpu0|program_memory:pm"
- 34. Post-Synthesis Netlist Statistics for Top Partition
- 35. Elapsed Time Per Partition
- 36. Analysis & Synthesis Messages
+ 24. Parameter Settings for User Entity Instance: CPU:cpu0|ALU:alu|sfixed_mult:m0
+ 25. Parameter Settings for User Entity Instance: CPU:cpu0|ALU:alu|sfixed_mult:m1
+ 26. Parameter Settings for User Entity Instance: CPU:cpu0|ALU:alu|sfixed_adder:a0
+ 27. Parameter Settings for User Entity Instance: CPU:cpu0|ALU:alu|sfixed_adder:a1
+ 28. Parameter Settings for Inferred Entity Instance: CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|altsyncram:gpr_rtl_0
+ 29. Parameter Settings for Inferred Entity Instance: CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|altsyncram:gpr_rtl_1
+ 30. altsyncram Parameter Settings by Entity Instance
+ 31. Port Connectivity Checks: "CPU:cpu0|program_memory:pm"
+ 32. Post-Synthesis Netlist Statistics for Top Partition
+ 33. Elapsed Time Per Partition
+ 34. Analysis & Synthesis Messages
 
 
 
@@ -68,13 +66,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sat Apr 22 23:28:56 2023          ;
+; Analysis & Synthesis Status     ; Successful - Sat Apr 22 23:35:51 2023          ;
 ; Quartus Prime Version           ; 22.1std.1 Build 917 02/14/2023 SC Lite Edition ;
 ; Revision Name                   ; CPU_top                                        ;
 ; Top-level Entity Name           ; CPU_top                                        ;
 ; Family                          ; Cyclone V                                      ;
 ; Logic utilization (in ALMs)     ; N/A                                            ;
-; Total registers                 ; 102                                            ;
+; Total registers                 ; 58                                             ;
 ; Total pins                      ; 19                                             ;
 ; Total virtual pins              ; 0                                              ;
 ; Total block memory bits         ; 64                                             ;
@@ -190,7 +188,8 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-16        ;   0.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -199,7 +198,6 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------+-----------------+-------------------------------------------------------+---------------------------------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path                         ; Used in Netlist ; File Type                                             ; File Name with Absolute Path                                                                      ; Library ;
 +----------------------------------------------------------+-----------------+-------------------------------------------------------+---------------------------------------------------------------------------------------------------+---------+
-; ../../rtl/v3/ALU_regs.sv                                 ; yes             ; User SystemVerilog HDL File                           ; /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/ALU_regs.sv                                           ;         ;
 ; ../../rtl/v3/dual_port_SRAM.sv                           ; yes             ; User SystemVerilog HDL File                           ; /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/dual_port_SRAM.sv                                     ;         ;
 ; ../../rtl/v3/ALU.sv                                      ; yes             ; User SystemVerilog HDL File                           ; /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/ALU.sv                                                ;         ;
 ; ../../rtl/v3/clk_divider.sv                              ; yes             ; User SystemVerilog HDL File                           ; /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/clk_divider.sv                                        ;         ;
@@ -233,16 +231,16 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+---------------------------+
 ; Resource                                    ; Usage                     ;
 +---------------------------------------------+---------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 53                        ;
+; Estimate of Logic utilization (ALMs needed) ; 36                        ;
 ;                                             ;                           ;
-; Combinational ALUT usage for logic          ; 68                        ;
+; Combinational ALUT usage for logic          ; 63                        ;
 ;     -- 7 input functions                    ; 0                         ;
 ;     -- 6 input functions                    ; 1                         ;
 ;     -- 5 input functions                    ; 1                         ;
-;     -- 4 input functions                    ; 21                        ;
-;     -- <=3 input functions                  ; 45                        ;
+;     -- 4 input functions                    ; 26                        ;
+;     -- <=3 input functions                  ; 35                        ;
 ;                                             ;                           ;
-; Dedicated logic registers                   ; 102                       ;
+; Dedicated logic registers                   ; 58                        ;
 ;                                             ;                           ;
 ; I/O pins                                    ; 19                        ;
 ; Total MLAB memory bits                      ; 0                         ;
@@ -251,9 +249,9 @@ https://fpgasoftware.intel.com/eula.
 ; Total DSP Blocks                            ; 2                         ;
 ;                                             ;                           ;
 ; Maximum fan-out node                        ; clk_divider:cd0|count[24] ;
-; Maximum fan-out                             ; 94                        ;
-; Total fan-out                               ; 652                       ;
-; Average fan-out                             ; 2.88                      ;
+; Maximum fan-out                             ; 50                        ;
+; Total fan-out                               ; 491                       ;
+; Average fan-out                             ; 2.77                      ;
 +---------------------------------------------+---------------------------+
 
 
@@ -262,17 +260,16 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                      ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                       ; Entity Name         ; Library Name ;
 +-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |CPU_top                                        ; 68 (0)              ; 102 (0)                   ; 64                ; 2          ; 19   ; 0            ; |CPU_top                                                                                                  ; CPU_top             ; work         ;
-;    |CPU:cpu0|                                   ; 43 (1)              ; 77 (33)                   ; 64                ; 2          ; 0    ; 0            ; |CPU_top|CPU:cpu0                                                                                         ; CPU                 ; work         ;
-;       |ALU:alu|                                 ; 16 (0)              ; 40 (0)                    ; 0                 ; 2          ; 0    ; 0            ; |CPU_top|CPU:cpu0|ALU:alu                                                                                 ; ALU                 ; work         ;
-;          |ALU_regs:alur0|                       ; 8 (8)               ; 40 (40)                   ; 0                 ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|ALU:alu|ALU_regs:alur0                                                                  ; ALU_regs            ; work         ;
+; |CPU_top                                        ; 63 (0)              ; 58 (0)                    ; 64                ; 2          ; 19   ; 0            ; |CPU_top                                                                                                  ; CPU_top             ; work         ;
+;    |CPU:cpu0|                                   ; 38 (1)              ; 33 (29)                   ; 64                ; 2          ; 0    ; 0            ; |CPU_top|CPU:cpu0                                                                                         ; CPU                 ; work         ;
+;       |ALU:alu|                                 ; 8 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |CPU_top|CPU:cpu0|ALU:alu                                                                                 ; ALU                 ; work         ;
 ;          |sfixed_adder:a1|                      ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|ALU:alu|sfixed_adder:a1                                                                 ; sfixed_adder        ; work         ;
 ;          |sfixed_mult:m0|                       ; 0 (0)               ; 0 (0)                     ; 0                 ; 1          ; 0    ; 0            ; |CPU_top|CPU:cpu0|ALU:alu|sfixed_mult:m0                                                                  ; sfixed_mult         ; work         ;
 ;          |sfixed_mult:m1|                       ; 0 (0)               ; 0 (0)                     ; 0                 ; 1          ; 0    ; 0            ; |CPU_top|CPU:cpu0|ALU:alu|sfixed_mult:m1                                                                  ; sfixed_mult         ; work         ;
-;       |instruction_decoder:id|                  ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|instruction_decoder:id                                                                  ; instruction_decoder ; work         ;
+;       |instruction_decoder:id|                  ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|instruction_decoder:id                                                                  ; instruction_decoder ; work         ;
 ;       |program_counter:pc|                      ; 4 (4)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|program_counter:pc                                                                      ; program_counter     ; work         ;
 ;       |program_memory:pm|                       ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|program_memory:pm                                                                       ; program_memory      ; work         ;
-;       |register_file:rf|                        ; 9 (9)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|register_file:rf                                                                        ; register_file       ; work         ;
+;       |register_file:rf|                        ; 16 (16)             ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|register_file:rf                                                                        ; register_file       ; work         ;
 ;          |dual_port_SRAM:sr0|                   ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|register_file:rf|dual_port_SRAM:sr0                                                     ; dual_port_SRAM      ; work         ;
 ;             |altsyncram:gpr_rtl_0|              ; 0 (0)               ; 0 (0)                     ; 32                ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|altsyncram:gpr_rtl_0                                ; altsyncram          ; work         ;
 ;                |altsyncram_97s1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 32                ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|altsyncram:gpr_rtl_0|altsyncram_97s1:auto_generated ; altsyncram_97s1     ; work         ;
@@ -311,15 +308,13 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------------------------------------------+------------------------------------+
 ; Register name                            ; Reason for Removal                 ;
 +------------------------------------------+------------------------------------+
-; CPU:cpu0|ALU_reg_en[2]                   ; Merged with CPU:cpu0|ALU_reg_en[0] ;
 ; CPU:cpu0|ALU_imm[6]                      ; Merged with CPU:cpu0|wr_addr[0][0] ;
 ; CPU:cpu0|register_file:rf|rd_addr_b_p[0] ; Merged with CPU:cpu0|ALU_imm[0]    ;
 ; CPU:cpu0|register_file:rf|rd_addr_b_p[1] ; Merged with CPU:cpu0|ALU_imm[1]    ;
 ; CPU:cpu0|register_file:rf|rd_addr_a_p[0] ; Merged with CPU:cpu0|ALU_imm[3]    ;
 ; CPU:cpu0|register_file:rf|rd_addr_a_p[1] ; Merged with CPU:cpu0|ALU_imm[4]    ;
 ; CPU:cpu0|wr_addr[0][1]                   ; Merged with CPU:cpu0|ALU_imm[7]    ;
-; CPU:cpu0|ALU_reg_en[0]                   ; Merged with CPU:cpu0|we[0]         ;
-; Total Number of Removed Registers = 8    ;                                    ;
+; Total Number of Removed Registers = 6    ;                                    ;
 +------------------------------------------+------------------------------------+
 
 
@@ -328,12 +323,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 102   ;
+; Total registers                              ; 58    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 16    ;
+; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 4     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 40    ;
+; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -460,26 +455,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+-------+--------------------------------------+
 ; BUS_WIDTH      ; 8     ; Signed Integer                       ;
 +----------------+-------+--------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: CPU:cpu0|ALU:alu|mux_21:e_mux ;
-+----------------+-------+---------------------------------------------------+
-; Parameter Name ; Value ; Type                                              ;
-+----------------+-------+---------------------------------------------------+
-; BIT_WIDTH      ; 8     ; Signed Integer                                    ;
-+----------------+-------+---------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: CPU:cpu0|ALU:alu|ALU_regs:alur0 ;
-+----------------+-------+-----------------------------------------------------+
-; Parameter Name ; Value ; Type                                                ;
-+----------------+-------+-----------------------------------------------------+
-; BUS_WIDTH      ; 8     ; Signed Integer                                      ;
-+----------------+-------+-----------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -710,20 +685,18 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 102                         ;
+; arriav_ff             ; 58                          ;
 ;     CLR               ; 4                           ;
-;     ENA               ; 24                          ;
-;     ENA SLD           ; 16                          ;
-;     plain             ; 58                          ;
-; arriav_lcell_comb     ; 68                          ;
+;     plain             ; 54                          ;
+; arriav_lcell_comb     ; 63                          ;
 ;     arith             ; 24                          ;
 ;         1 data inputs ; 23                          ;
 ;         2 data inputs ; 1                           ;
-;     normal            ; 36                          ;
+;     normal            ; 31                          ;
 ;         1 data inputs ; 1                           ;
-;         2 data inputs ; 10                          ;
-;         3 data inputs ; 2                           ;
-;         4 data inputs ; 21                          ;
+;         2 data inputs ; 1                           ;
+;         3 data inputs ; 1                           ;
+;         4 data inputs ; 26                          ;
 ;         5 data inputs ; 1                           ;
 ;         6 data inputs ; 1                           ;
 ;     shared            ; 8                           ;
@@ -733,7 +706,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; stratixv_ram_block    ; 16                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 3.30                        ;
-; Average LUT depth     ; 1.30                        ;
+; Average LUT depth     ; 1.59                        ;
 +-----------------------+-----------------------------+
 
 
@@ -752,7 +725,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
-    Info: Processing started: Sat Apr 22 23:28:49 2023
+    Info: Processing started: Sat Apr 22 23:35:44 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off affine_CPU_v3 -c CPU_top
 Info (16303): Aggressive Area optimization mode selected -- logic area will be prioritized at the potential cost of reduced timing performance
     Info (16304): Mode behavior is affected by advanced setting Physical Synthesis Effort Level (default for this mode is Normal)
@@ -800,10 +773,8 @@ Info (12128): Elaborating entity "register_file" for hierarchy "CPU:cpu0|registe
 Info (12128): Elaborating entity "dual_port_SRAM" for hierarchy "CPU:cpu0|register_file:rf|dual_port_SRAM:sr0" File: /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/register_file.sv Line: 28
 Info (12128): Elaborating entity "instruction_decoder" for hierarchy "CPU:cpu0|instruction_decoder:id" File: /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/CPU.sv Line: 109
 Info (12128): Elaborating entity "ALU" for hierarchy "CPU:cpu0|ALU:alu" File: /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/CPU.sv Line: 131
-Info (12128): Elaborating entity "mux_21" for hierarchy "CPU:cpu0|ALU:alu|mux_21:e_mux" File: /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/ALU.sv Line: 22
-Info (12128): Elaborating entity "ALU_regs" for hierarchy "CPU:cpu0|ALU:alu|ALU_regs:alur0" File: /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/ALU.sv Line: 38
-Info (12128): Elaborating entity "sfixed_mult" for hierarchy "CPU:cpu0|ALU:alu|sfixed_mult:m0" File: /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/ALU.sv Line: 59
-Info (12128): Elaborating entity "sfixed_adder" for hierarchy "CPU:cpu0|ALU:alu|sfixed_adder:a0" File: /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/ALU.sv Line: 85
+Info (12128): Elaborating entity "sfixed_mult" for hierarchy "CPU:cpu0|ALU:alu|sfixed_mult:m0" File: /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/ALU.sv Line: 60
+Info (12128): Elaborating entity "sfixed_adder" for hierarchy "CPU:cpu0|ALU:alu|sfixed_adder:a0" File: /home/jonahfoley/ELEC6234/a_fine_CPU/rtl/v3/ALU.sv Line: 86
 Info (19000): Inferred 2 megafunctions from design logic
     Info (276029): Inferred altsyncram megafunction from the following design logic: "CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|gpr_rtl_0" 
         Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
@@ -863,16 +834,16 @@ Info (270000): Limiting DSP block usage to 1 DSP block(s) for the partition Top
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 169 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 124 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 11 input pins
     Info (21059): Implemented 8 output pins
-    Info (21061): Implemented 132 logic cells
+    Info (21061): Implemented 87 logic cells
     Info (21064): Implemented 16 RAM segments
     Info (21062): Implemented 2 DSP elements
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 557 megabytes
-    Info: Processing ended: Sat Apr 22 23:28:56 2023
+    Info: Peak virtual memory: 546 megabytes
+    Info: Processing ended: Sat Apr 22 23:35:51 2023
     Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:22
+    Info: Total CPU time (on all processors): 00:00:21
 
 

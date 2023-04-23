@@ -206,7 +206,7 @@ VREFB3AN0                    : AD6       : power  :                   :         
 RESERVED_INPUT_WITH_WEAK_PULLUP : AD7       :        :                   :         : 3A        :                
 VCCIO3A                      : AD8       : power  :                   : 3.3V    : 3A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AD9       :        :                   :         : 3A        :                
-ready_in                     : AD10      : input  : 2.5 V             :         : 3A        : Y              
+ready_in                     : AD10      : input  : 3.3-V LVCMOS      :         : 3A        : Y              
 sw[4]                        : AD11      : input  : 3.3-V LVCMOS      :         : 3A        : Y              
 sw[5]                        : AD12      : input  : 3.3-V LVCMOS      :         : 3A        : Y              
 VCCIO3B                      : AD13      : power  :                   : 3.3V    : 3B        :                

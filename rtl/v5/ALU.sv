@@ -1,68 +1,82 @@
 module ALU #(
     parameter BUS_WIDTH  = 8
 ) (
-    input  logic                      clk, 
-    input  logic [4:0][BUS_WIDTH-1:0] ops,    
-    input  logic [4:0]                reg_en,
-    input  logic                      f_add,
-    output logic [BUS_WIDTH-1:0]      result 
+    input  logic                 clk, 
+    input  logic [BUS_WIDTH-1:0] sw,
+    input  logic [BUS_WIDTH-1:0] imm,
+    input  logic [BUS_WIDTH-1:0] data_a,    
+    input  logic [BUS_WIDTH-1:0] data_b,    
+    input  logic [4:0]           reg_en,
+    input  logic                 f_add,
+    input  logic                 f_load,
+    output logic [BUS_WIDTH-1:0] result 
 );       
 
 // setting up of add/subtract inputs
-logic [BUS_WIDTH-1:0] op_e;
+logic [BUS_WIDTH-1:0] op_e, e_add, coeff;
 logic [BUS_WIDTH-1:0] op_a_reg, op_b_reg, op_c_reg, op_d_reg, op_e_reg;
+
 
 mux_21 #(
     BUS_WIDTH
-) e_mux (   
-    .s  (f_add ), 
-    .a  (ops[0]), 
-    .b  (ops[4]),
-    .out(op_e  )
+) e_add_mux (   
+    .s  (f_load), 
+    .a  (sw    ), 
+    .b  (data_a),
+    .out(e_add )
 );
 
-// input registers
+mux_21 #(
+    BUS_WIDTH
+) op_e_mux (   
+    .s  (f_add), 
+    .a  (e_add), 
+    .b  (imm  ),
+    .out(op_e )
+);
 
+mux_21 #(
+    BUS_WIDTH
+) coeff_mux (   
+    .s  (f_add              ), 
+    .a  ({BUS_WIDTH-1{1'b0}}), 
+    .b  (imm                ),
+    .out(coeff              )
+);
+
+
+// input registers
 always_ff @( posedge clk ) begin 
-    if (reg_en[0]) begin
-        op_a_reg <= ops[0];
-    end
+    if (reg_en[0]) 
+        op_a_reg <= data_a;
 end
 
 always_ff @( posedge clk ) begin 
-    if (reg_en[1]) begin
-        if (f_add)
-            op_b_reg <= '0;
-        else 
-            op_b_reg <= ops[1];
-    end
+    if (reg_en[1]) 
+        op_b_reg <= coeff;
 end
 
 always_ff @( posedge clk ) begin 
     if (reg_en[2]) begin
-        op_c_reg <= ops[2];
+        op_c_reg <= data_b;
     end
 end
 
 always_ff @( posedge clk ) begin 
-    if (reg_en[3]) begin
-        if (f_add)
-            op_d_reg <= '0;
-        else 
-            op_d_reg <= ops[3];
-    end
+    if (reg_en[3])
+        op_d_reg <= coeff;
 end
 
-always_ff @(posedge clk)  
-begin
+always_ff @( posedge clk ) begin
     if (reg_en[4])
         op_e_reg <= op_e;
 end
 
-// the computational part
-logic[BUS_WIDTH-1:0] mult_a, mult_b, add_a;
 
-sfixed_mult_independent_9x9 #(
+// the computational part
+logic[BUS_WIDTH-1:0] mult_a, mult_b, add_a, add_b;
+
+sfixed_mult #(
     7, 
     0,
     0, 
@@ -70,18 +84,25 @@ sfixed_mult_independent_9x9 #(
     7,
     0 
 ) m0 (
-    .a_x  (op_a_reg), 
-    .a_y  (op_c_reg),
-    .a_z  ('0      ),
-    .b_x  (op_b_reg), 
-    .b_y  (op_d_reg),
-    .b_z  ('0      ),
-    .out_x(mult_a  ), 
-    .out_y(mult_b  ),
-    .out_z() // unconnected
+    .a  (op_a_reg), // int
+    .b  (op_b_reg), // tf
+    .out(mult_a  )
 );
 
-sfixed_adder #(
+sfixed_mult #(
+    7, 
+    0,
+    0, 
+    7,
+    7, 
+    0
+) m1 (
+    .a  (op_c_reg), // int
+    .b  (op_d_reg), // tf
+    .out(mult_b  )
+);
+
+(* keep *) sfixed_adder #(  
     7, 
     0, 
     7, 
@@ -94,14 +115,14 @@ sfixed_adder #(
     .out(add_a )
 );
 
-sfixed_adder #(
+(* keep *) sfixed_adder #(
     7, 
     0, 
     7, 
     0,
     7, 
     0
-) a1 (   
+) a1 (   /* synthesis keep */
     .a  (add_a   ), // int
     .b  (op_e_reg), // int
     .out(result  )

@@ -30,7 +30,7 @@ logic [1:0][BUS_WIDTH-1:0] sw;
 always_ff @(posedge clk)
     sw <= {sw[0], in_port};
 
-assign pattern_match = ({ready_in_p, ready_in} == 2'b01);
+assign pattern_match = (~ready_in_p & ready_in);
 
 // -- instr counter
 logic [INSTR_ADDR_WIDTH-1:0] PC_count;
@@ -45,7 +45,7 @@ mux_21 #(
     .out(PC_comparator)
 );
 
-assign PC_en = (PC_wait & ~(PC_comparator ^ instr[0])) | ~PC_wait;
+assign PC_en = ~(PC_wait & (PC_comparator ^ instr[0]));
 
 program_counter #(
    INSTR_ADDR_WIDTH
@@ -81,11 +81,10 @@ end
 
 register_file #(
     BUS_WIDTH,
-    REG_ADDR_WIDTH
+    3
 ) rf (
 	.clk      (clk       ),  
     .we       (we[1]     ),
-    .sw       (sw[1]     ),
  	.wr_addr  (wr_addr[1]),
 	.wr_data  (ALU_result),
  	.rd_addr_a(instr[4:3]), 
@@ -95,7 +94,7 @@ register_file #(
 );
 
 // -- decoder
-logic f_add, PC_wait;
+logic f_add, f_load, PC_wait;
 logic [4:0] reg_en; 
 
 instruction_decoder #(
@@ -104,6 +103,7 @@ instruction_decoder #(
     .opcode    (instr[11:9]),                  
     .f_add     (f_add      ), 
     .f_wait    (PC_wait    ),            
+    .f_load    (f_load     ),            
     .wr_res    (wr_res     ),         
     .ALU_reg_en(reg_en     )
 );
@@ -112,10 +112,11 @@ instruction_decoder #(
 logic [BUS_WIDTH-1:0] ALU_result;
 logic [BUS_WIDTH-1:0] ALU_imm;
 logic [4:0]           ALU_reg_en; 
-logic                 ALU_add;
+logic                 ALU_add, ALU_load;
 
 always_ff @(posedge clk) begin
     ALU_imm    <= instr[7:0];
+    ALU_load   <= f_load;
     ALU_add    <= f_add;
     ALU_reg_en <= reg_en;
 end
@@ -123,11 +124,15 @@ end
 ALU #(
     BUS_WIDTH
 ) alu (
-    .clk   (clk                                          ),
-    .ops   ({ALU_imm,ALU_imm,rd_data_b,ALU_imm,rd_data_a}),   
-    .reg_en(ALU_reg_en                                   ),
-    .f_add (ALU_add                                      ),
-    .result(ALU_result                                   )
+    .clk   (clk       ),
+    .sw    (sw[1]     ),
+    .imm   (ALU_imm   ),
+    .data_a(rd_data_a ),
+    .data_b(rd_data_b ),   
+    .reg_en(ALU_reg_en),
+    .f_add (ALU_add   ),
+    .f_load(ALU_load  ),
+    .result(ALU_result)
 );    
 
 assign out_port = ALU_result;

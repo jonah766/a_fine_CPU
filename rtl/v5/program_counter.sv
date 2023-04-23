@@ -11,14 +11,9 @@ begin
     if (~n_reset) 
         count <= '0;
     else begin
-        if (count == (2<<ADDR_WIDTH)-1) 
-            count <= '0;
-        else begin
-            if (en)
-                count <= count + { {ADDR_WIDTH-1{1'b0}}, 1'b1 };
-        end
+        if (en)
+            count <= count + { {ADDR_WIDTH-1{1'b0}}, 1'b1 };
     end
 end
-
 
 endmodule

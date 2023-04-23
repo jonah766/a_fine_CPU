@@ -15,14 +15,13 @@ $(info TEST_BENCH is : $(TEST_BENCH))
 # set source files
 VERILOG_SOURCES ?= $(RTL_DIR)/datatypes.sv  
 VERILOG_SOURCES += $(RTL_DIR)/sfixed_adder.sv 
-VERILOG_SOURCES += $(RTL_DIR)/sfixed_mult_independent_9x9.sv 
+VERILOG_SOURCES += $(RTL_DIR)/sfixed_mult.sv 
 VERILOG_SOURCES += $(RTL_DIR)/dual_port_SRAM.sv 
 VERILOG_SOURCES += $(RTL_DIR)/register_file.sv 
 VERILOG_SOURCES += $(RTL_DIR)/program_memory.sv 
 VERILOG_SOURCES += $(RTL_DIR)/program_counter.sv 
 VERILOG_SOURCES += $(RTL_DIR)/mux_21.sv 
 VERILOG_SOURCES += $(RTL_DIR)/instruction_decoder.sv 
-VERILOG_SOURCES += $(RTL_DIR)/input_regs.sv 
 VERILOG_SOURCES += $(RTL_DIR)/ALU.sv
 VERILOG_SOURCES += $(RTL_DIR)/CPU.sv 
 
@@ -36,6 +35,6 @@ endif
 
 export RANDOM_SEED := 41934129
 export NUM_SAMPLES := 100
-export BUS_WIDTH   := 9
+export BUS_WIDTH   := 8
 
 include $(shell cocotb-config --makefiles)/Makefile.sim	

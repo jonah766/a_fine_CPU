@@ -64,7 +64,7 @@ set_location_assignment PIN_W19 -to led[5]
 set_location_assignment PIN_Y19 -to led[6]
 set_location_assignment PIN_W20 -to led[7]
 
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ReadyIn
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ready_in
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to led[7]
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to led[6]
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to led[5]

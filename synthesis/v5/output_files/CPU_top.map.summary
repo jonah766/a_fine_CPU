@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Sat Apr 22 22:51:33 2023
+Analysis & Synthesis Status : Successful - Sun Apr 23 02:15:32 2023
 Quartus Prime Version : 22.1std.1 Build 917 02/14/2023 SC Lite Edition
 Revision Name : CPU_top
 Top-level Entity Name : CPU_top
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 102
+Total registers : 100
 Total pins : 19
 Total virtual pins : 0
-Total block memory bits : 64
+Total block memory bits : 48
 Total DSP Blocks : 2
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0

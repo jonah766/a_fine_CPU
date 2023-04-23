@@ -1,21 +1,19 @@
 module dual_port_SRAM #(
-    parameter BUS_WIDTH  = 8,
-    parameter ADDR_WIDTH = 3
+    parameter BUS_WIDTH = 8,
+    parameter DEPTH     = 3
 ) (
-	input  logic                  clk, 
-	input  logic                  we,
- 	input  logic [ADDR_WIDTH-1:0] wr_addr,
-	input  logic [BUS_WIDTH-1:0]  wr_data,
- 	input  logic [ADDR_WIDTH-1:0] rd_addr_a, rd_addr_b,
- 	output logic [BUS_WIDTH-1:0]  rd_data_a, rd_data_b
+	input  logic                     clk, 
+	input  logic                     we,
+ 	input  logic [$clog2(DEPTH)-1:0] wr_addr,
+	input  logic [BUS_WIDTH-1:0]     wr_data,
+ 	input  logic [$clog2(DEPTH)-1:0] rd_addr_a, rd_addr_b,
+ 	output logic [BUS_WIDTH-1:0]     rd_data_a, rd_data_b
 );
 
-localparam N = (1 << ADDR_WIDTH);
-
-logic [BUS_WIDTH-1:0] gpr [N-1:0];
+logic [BUS_WIDTH-1:0] gpr [DEPTH-1:0];
 
 initial begin
-	for (int i = 0; i < N; i = i + 1)
+	for (int i = 0; i < DEPTH; i = i + 1)
 		gpr[i] = '0;
 end
 

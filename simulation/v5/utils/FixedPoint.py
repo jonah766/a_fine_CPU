@@ -9,12 +9,12 @@ from cocotb.binary import BinaryValue
 # types
 fadd_t        = Fxp(None, signed=True, dtype=f'fxp-s{BUS_WIDTH+1}/0',                     overflow='wrap')
 fcplx_add_t   = Fxp(None, signed=True, dtype=f'fxp-s{BUS_WIDTH+1}/0-complex',             overflow='wrap')
-fmult_t       = Fxp(None, signed=True, dtype=f'fxp-s18/7',         overflow='wrap')
+fmult_t       = Fxp(None, signed=True, dtype=f'fxp-s{2*BUS_WIDTH}/{BUS_WIDTH-1}',         overflow='wrap')
 fcmplx_mult_t = Fxp(None, signed=True, dtype=f'fxp-s{2*BUS_WIDTH}/{BUS_WIDTH-1}-complex', overflow='wrap')
-fint_t        = Fxp(None, signed=True, dtype=f'fxp-s9/0',                       overflow='wrap')
-fcmplx_int_t  = Fxp(None, signed=True, dtype=f'fxp-s9/0-complex',               overflow='wrap')
-ftf_t         = Fxp(None, signed=True, dtype=f'fxp-s9/7',           overflow='wrap')
-fcmplx_tf_t   = Fxp(None, signed=True, dtype=f'fxp-s9/7-complex',   overflow='wrap')
+fint_t        = Fxp(None, signed=True, dtype=f'fxp-s{BUS_WIDTH}/0',                       overflow='wrap')
+fcmplx_int_t  = Fxp(None, signed=True, dtype=f'fxp-s{BUS_WIDTH}/0-complex',               overflow='wrap')
+ftf_t         = Fxp(None, signed=True, dtype=f'fxp-s{BUS_WIDTH}/{BUS_WIDTH-1}',           overflow='wrap')
+fcmplx_tf_t   = Fxp(None, signed=True, dtype=f'fxp-s{BUS_WIDTH}/{BUS_WIDTH-1}-complex',   overflow='wrap')
 
 def unpack_scomplex8_t(v : BinaryValue):
     v_as_str = v.binstr
