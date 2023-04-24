@@ -21,6 +21,7 @@ VERILOG_SOURCES += $(RTL_DIR)/register_file.sv
 VERILOG_SOURCES += $(RTL_DIR)/program_memory.sv 
 VERILOG_SOURCES += $(RTL_DIR)/program_counter.sv 
 VERILOG_SOURCES += $(RTL_DIR)/mux_21.sv 
+VERILOG_SOURCES += $(RTL_DIR)/input_controller.sv 
 VERILOG_SOURCES += $(RTL_DIR)/instruction_decoder.sv 
 VERILOG_SOURCES += $(RTL_DIR)/ALU_mult_stage.sv
 VERILOG_SOURCES += $(RTL_DIR)/ALU_v2.sv

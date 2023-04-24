@@ -21,32 +21,27 @@ initial begin
 end
 `endif
 
-// input switch handshaking
-logic ready_in_p, pattern_match;
-always_ff @(posedge clk)
-    ready_in_p <= ready_in;
+logic pattern_match, PC_en;
 
+// -- input controller
 logic [1:0][BUS_WIDTH-1:0] sw;
 always_ff @(posedge clk)
     sw <= {sw[0], in_port};
 
-assign pattern_match = (~ready_in_p & ready_in);
-
-// -- instr counter
-logic [INSTR_ADDR_WIDTH-1:0] PC_count;
-logic PC_en, PC_comparator;
-
-mux_21 #(
-    1
-) PC_en_mux (
-    .s  (instr[3]     ), 
-    .a  (pattern_match), 
-    .b  (ready_in     ), 
-    .out(PC_comparator)
+input_controller #(
+    BUS_WIDTH
+) i0 (
+    .clk          (clk          ),
+    .ready_in     (ready_in     ),
+    .f_wait       (f_wait       ),
+    .wait_selector(instr[3]     ),
+    .wait_value   (instr[0]     ),
+    .pattern_match(pattern_match),
+    .PC_en        (PC_en        )
 );
 
-assign PC_en = ~(f_wait & (PC_comparator ^ instr[0]));
-
+// -- prog counter
+logic [INSTR_ADDR_WIDTH-1:0] PC_count;
 program_counter #(
    INSTR_ADDR_WIDTH
 ) pc (
