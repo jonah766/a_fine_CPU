@@ -22,7 +22,9 @@ VERILOG_SOURCES += $(RTL_DIR)/program_memory.sv
 VERILOG_SOURCES += $(RTL_DIR)/program_counter.sv 
 VERILOG_SOURCES += $(RTL_DIR)/mux_21.sv 
 VERILOG_SOURCES += $(RTL_DIR)/instruction_decoder.sv 
+VERILOG_SOURCES += $(RTL_DIR)/ALU_mult_stage.sv
 VERILOG_SOURCES += $(RTL_DIR)/ALU.sv
+VERILOG_SOURCES += $(RTL_DIR)/ALU_v2.sv
 VERILOG_SOURCES += $(RTL_DIR)/CPU.sv 
 
 # Set module parameters

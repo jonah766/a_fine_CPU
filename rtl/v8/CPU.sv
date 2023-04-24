@@ -1,5 +1,5 @@
 module CPU #(
-    parameter INSTR_WIDTH      = 24,
+    parameter INSTR_WIDTH      = 12,
     parameter OPCODE_WIDTH     = 3,
     parameter INSTR_ADDR_WIDTH = 4, 
     parameter REG_ADDR_WIDTH   = 2, 
@@ -39,9 +39,9 @@ logic PC_en, PC_comparator;
 mux_21 #(
     1
 ) PC_en_mux (
-    .s  (instr[3]     ), // differentiate between instr[5:3] == 001 (pattern) / 000 (rdy)
-    .a  (pattern_match), // 001 -> pattern
-    .b  (ready_in     ), // 000 -> ready in 
+    .s  (instr[3]     ), 
+    .a  (pattern_match), 
+    .b  (ready_in     ), 
     .out(PC_comparator)
 );
 
@@ -86,7 +86,7 @@ register_file #(
 	.clk      (clk       ),  
     .we       (we        ),
  	.wr_addr  (wr_addr   ),
-	.wr_data  (ALU_result),
+	.wr_data  (wr_data   ),
  	.rd_addr_a(instr[4:3]), 
     .rd_addr_b(instr[1:0]),
  	.rd_data_a(rd_data_a ), 
@@ -101,7 +101,7 @@ instruction_decoder #(
     OPCODE_WIDTH
 ) id (
     .opcode    (instr[11:9]),                  
-    .f_reg_e   (f_reg_e    ), 
+    .f_move    (f_move     ), 
     .f_wait    (f_wait     ),            
     .f_load    (f_load     ),            
     .f_clr     (f_clr      ),            
@@ -111,26 +111,46 @@ instruction_decoder #(
 
 // -- ALU
 logic [BUS_WIDTH-1:0] ALU_result;
-logic ALU_reg_e;
-
-always_ff @(posedge clk)
-    ALU_reg_e <= f_reg_e;
 
 ALU_v2 #(
     BUS_WIDTH
 ) alu (
     .clk    (clk       ), 
-    .sw     (sw        ), 
     .imm    (instr[7:0]),
     .data_a (rd_data_a ),
     .data_b (rd_data_b ),   
     .reg_en (reg_en    ),
-    .f_reg_e(ALU_reg_e ),
-    .f_load (f_load    ),
     .f_clr  (f_clr     ),
     .result (ALU_result)
 );    
 
-assign out_port = ALU_result;
+logic [BUS_WIDTH-1:0] m1, wr_data;
+logic f_move_p, f_load_p;
+
+always_ff @(posedge clk)
+begin
+    f_move_p <= f_move;
+    f_load_p <= f_load;
+end 
+
+mux_21 #(
+    BUS_WIDTH
+) mov_mux (
+    .s  (f_move_p  ), 
+    .a  (rd_data_a ), 
+    .b  (ALU_result), 
+    .out(m1        )
+);
+
+mux_21 #(
+    BUS_WIDTH
+) sw_mux (
+    .s  (f_load_p), 
+    .a  (sw[1]   ), 
+    .b  (m1      ), 
+    .out(wr_data )
+);
+
+assign out_port = wr_data;
 
 endmodule

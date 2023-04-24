@@ -7,8 +7,8 @@ module ALU_v2 #(
     input  logic [BUS_WIDTH-1:0] data_a,    
     input  logic [BUS_WIDTH-1:0] data_b,    
     input  logic [4:0]           reg_en,
-    input  logic                 f_add,
-    input  logic                 f_load,
+    input  logic                 add,
+    input  logic                 load,
     output logic [BUS_WIDTH-1:0] result 
 );       
 
@@ -20,7 +20,7 @@ logic [BUS_WIDTH-1:0] op_e_reg;
 mux_21 #(
     BUS_WIDTH
 ) e_add_mux (   
-    .s  (f_load), 
+    .s  (load), 
     .a  (sw    ), 
     .b  (data_a),
     .out(e_add )
@@ -29,7 +29,7 @@ mux_21 #(
 mux_21 #(
     BUS_WIDTH
 ) op_e_mux (   
-    .s  (f_add), 
+    .s  (add), 
     .a  (e_add), 
     .b  (imm  ),
     .out(op_e )
@@ -38,7 +38,7 @@ mux_21 #(
 mux_21 #(
     BUS_WIDTH
 ) coeff_mux (   
-    .s  (f_add              ), 
+    .s  (add              ), 
     .a  ({BUS_WIDTH{1'b0}}), 
     .b  (imm                ),
     .out(coeff               )
@@ -64,7 +64,7 @@ ALU_mult_stage #(
     .d_en  (reg_en[3]),
     .data_a(data_a),
     .data_b(data_b),
-    .coeff  (coeff  ),
+    .coeff (coeff  ),
     .mult_a(mult_a),
     .mult_b(mult_b)
 );

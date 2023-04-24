@@ -1,5 +1,5 @@
 module CPU #(
-    parameter INSTR_WIDTH      = 24,
+    parameter INSTR_WIDTH      = 12,
     parameter OPCODE_WIDTH     = 3,
     parameter INSTR_ADDR_WIDTH = 4, 
     parameter REG_ADDR_WIDTH   = 2, 
@@ -94,16 +94,16 @@ register_file #(
 );
 
 // -- decoder
-logic f_add, f_load, PC_wait;
+logic ALU_add, ALU_load, PC_wait;
 logic [4:0] reg_en; 
 
 instruction_decoder #(
     OPCODE_WIDTH
 ) id (
     .opcode    (instr[11:9]),                  
-    .f_add     (f_add      ), 
-    .f_wait    (PC_wait    ),            
-    .f_load    (f_load     ),            
+    .ALU_add   (ALU_add    ), 
+    .PC_wait   (PC_wait    ),            
+    .ALU_load  (ALU_load   ),            
     .wr_res    (wr_res     ),         
     .ALU_reg_en(reg_en     )
 );
@@ -111,28 +111,28 @@ instruction_decoder #(
 // -- ALU
 logic [BUS_WIDTH-1:0] ALU_result;
 logic [BUS_WIDTH-1:0] ALU_imm;
-logic [4:0]           ALU_reg_en; 
-logic                 ALU_add, ALU_load;
+logic [4:0]           ALU_reg_en_p; 
+logic                 ALU_add_p, ALU_load_p;
 
 always_ff @(posedge clk) begin
-    ALU_imm    <= instr[7:0];
-    ALU_load   <= f_load;
-    ALU_add    <= f_add;
-    ALU_reg_en <= reg_en;
+    ALU_imm      <= instr[7:0];
+    ALU_load_p   <= ALU_load;
+    ALU_add_p    <= ALU_add;
+    ALU_reg_en_p <= reg_en;
 end
 
 ALU_v2 #(
     BUS_WIDTH
 ) alu (
-    .clk   (clk       ),
-    .sw    (sw[1]     ),
-    .imm   (ALU_imm   ),
-    .data_a(rd_data_a ),
-    .data_b(rd_data_b ),   
-    .reg_en(ALU_reg_en),
-    .f_add (ALU_add   ),
-    .f_load(ALU_load  ),
-    .result(ALU_result)
+    .clk   (clk         ),
+    .sw    (sw[1]       ),
+    .imm   (ALU_imm     ),
+    .data_a(rd_data_a   ),
+    .data_b(rd_data_b   ),   
+    .reg_en(ALU_reg_en_p),
+    .add   (ALU_add_p   ),
+    .load  (ALU_load_p  ),
+    .result(ALU_result  )
 );    
 
 assign out_port = ALU_result;

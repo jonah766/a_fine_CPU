@@ -9,7 +9,13 @@ module program_memory #(
 (* ramstyle = "mlab" *) logic [INSTR_WIDTH-1:0] prog_mem [(1<<ADDR_WIDTH)-1:0];
 
 initial
+begin
+`ifdef COCOTB_SIM
+    $readmemh("/home/jonahfoley/ELEC6234/a_fine_CPU/programs/prog_3.hex", prog_mem);
+`else
     $readmemh("../../programs/prog_3.hex", prog_mem);
+`endif
+end
    
 always_comb
     instr = prog_mem[addr]; 
