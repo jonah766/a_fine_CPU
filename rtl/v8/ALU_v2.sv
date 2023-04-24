@@ -7,8 +7,7 @@ module ALU_v2 #(
     input  logic [BUS_WIDTH-1:0] data_a,    
     input  logic [BUS_WIDTH-1:0] data_b,    
     input  logic [2:0]           reg_en,
-    input  logic                 f_add,
-    input  logic                 f_load,
+    input  logic                 f_reg_e, f_load, f_clr,
     output logic [BUS_WIDTH-1:0] result 
 );       
 
@@ -18,20 +17,11 @@ logic [BUS_WIDTH-1:0] op_e_reg;
 
 mux_21 #(
     BUS_WIDTH
-) e_add_mux (   
+) op_e_mux (   
     .s  (f_load), 
     .a  (sw    ), 
-    .b  (data_a),
-    .out(e_add )
-);
-
-mux_21 #(
-    BUS_WIDTH
-) op_e_mux (   
-    .s  (f_add), 
-    .a  (e_add), 
-    .b  (imm  ),
-    .out(op_e )
+    .b  (imm   ),
+    .out(op_e  )
 );
 
 // input registers
@@ -41,13 +31,13 @@ always_ff @( posedge clk ) begin
 end
 
 // the computational part
-logic [BUS_WIDTH-1:0] mult_a, mult_b, add_a;
+logic [BUS_WIDTH-1:0] mult_a, mult_b, add_a, add_b;
 
 ALU_mult_stage #(
     BUS_WIDTH
 ) am1 (
-    .clk   (clk      ),
-    .f_add (f_add    ),
+    .clk   (clk       ),
+    .f_clr (f_clr    ),
     .b_en  (reg_en[0]), 
     .d_en  (reg_en[1]),
     .data_a(data_a   ),
@@ -70,6 +60,15 @@ sfixed_adder #(
     .out(add_a )
 );
 
+mux_21 #(
+    BUS_WIDTH
+) reg_e_mux (   
+    .s  (f_reg_e ), 
+    .a  (op_e_reg), 
+    .b  (data_a  ),
+    .out(add_b   )
+);
+
 sfixed_adder #(
     7, 
     0, 
@@ -78,9 +77,9 @@ sfixed_adder #(
     7, 
     0
 ) a1 (  
-    .a  (add_a   ), // int
-    .b  (op_e_reg), // int
-    .out(result  )
+    .a  (add_a ), // int
+    .b  (add_b ), // int
+    .out(result)
 );
 
 endmodule 

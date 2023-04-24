@@ -45,7 +45,7 @@ mux_21 #(
     .out(PC_comparator)
 );
 
-assign PC_en = ~(PC_wait & (PC_comparator ^ instr[0]));
+assign PC_en = ~(f_wait & (PC_comparator ^ instr[0]));
 
 program_counter #(
    INSTR_ADDR_WIDTH
@@ -94,44 +94,41 @@ register_file #(
 );
 
 // -- decoder
-logic f_add, f_load, PC_wait;
+logic f_reg_e, f_load, f_wait;
 logic [2:0] reg_en; 
 
 instruction_decoder #(
     OPCODE_WIDTH
 ) id (
     .opcode    (instr[11:9]),                  
-    .f_add     (f_add      ), 
-    .f_wait    (PC_wait    ),            
+    .f_reg_e   (f_reg_e    ), 
+    .f_wait    (f_wait     ),            
     .f_load    (f_load     ),            
+    .f_clr     (f_clr      ),            
     .wr_res    (wr_res     ),         
     .ALU_reg_en(reg_en     )
 );
 
 // -- ALU
 logic [BUS_WIDTH-1:0] ALU_result;
-logic [BUS_WIDTH-1:0] ALU_imm;
-logic [2:0]           ALU_reg_en; 
-logic                 ALU_add, ALU_load;
+logic ALU_reg_e;
 
-always_ff @(posedge clk) begin
-    ALU_imm    <= instr[7:0];
-    ALU_load   <= f_load;
-    ALU_add    <= f_add;
-    ALU_reg_en <= reg_en;
-end
+always_ff @(posedge clk)
+    ALU_reg_e <= f_reg_e;
 
 ALU_v2 #(
     BUS_WIDTH
 ) alu (
-    .clk   (clk       ),
-    .imm   (ALU_imm   ),
-    .data_a(rd_data_a ),
-    .data_b(rd_data_b ),   
-    .reg_en(ALU_reg_en),
-    .f_add (ALU_add   ),
-    .f_load(ALU_load  ),
-    .result(ALU_result)
+    .clk    (clk       ), 
+    .sw     (sw        ), 
+    .imm    (instr[7:0]),
+    .data_a (rd_data_a ),
+    .data_b (rd_data_b ),   
+    .reg_en (reg_en    ),
+    .f_reg_e(ALU_reg_e ),
+    .f_load (f_load    ),
+    .f_clr  (f_clr     ),
+    .result (ALU_result)
 );    
 
 assign out_port = ALU_result;

@@ -81,7 +81,7 @@ async def CPU_test(dut : SimHandleBase):
             for _ in range(9): await RisingEdge(dut.clk)
         
             # note the first output
-            for _ in range(3): await RisingEdge(dut.clk)
+            for _ in range(2): await RisingEdge(dut.clk)
             outputs[0] = dut.out_port.value.signed_integer
 
             # wait for ready_in == 1
@@ -91,7 +91,7 @@ async def CPU_test(dut : SimHandleBase):
                 await RisingEdge(dut.clk)
 
             # note the second output
-            for _ in range(3): await RisingEdge(dut.clk)
+            for _ in range(2): await RisingEdge(dut.clk)
             outputs[1] = dut.out_port.value.signed_integer
 
             # assert the test

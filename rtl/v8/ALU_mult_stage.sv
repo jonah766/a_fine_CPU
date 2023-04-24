@@ -1,7 +1,7 @@
 module ALU_mult_stage #(
     parameter BUS_WIDTH = 8
 ) (
-    input  logic clk, f_add,
+    input  logic clk, f_clr,
     input  logic b_en, d_en,
     input  logic [BUS_WIDTH-1:0] data_a, data_b, imm,
     output logic [BUS_WIDTH-1:0] mult_a, mult_b
@@ -19,7 +19,7 @@ logic [BUS_WIDTH-1:0] op_b_reg, op_d_reg;
 
 always_ff @( posedge clk ) begin 
     if (b_en) begin
-       if (f_add)
+       if (f_clr)
           op_b_reg <= '0;
        else 
           op_b_reg <= imm;
@@ -28,7 +28,7 @@ end
 
 always_ff @( posedge clk ) begin 
     if (d_en) begin
-        if (f_add)
+        if (f_clr)
           op_d_reg <= '0;
        else 
           op_d_reg <= imm;
