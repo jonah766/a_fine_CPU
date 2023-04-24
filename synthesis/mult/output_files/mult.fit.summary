@@ -1,17 +1,17 @@
-Fitter Status : Successful - Sun Apr 23 12:45:24 2023
-Quartus Prime Version : 22.1std.1 Build 917 02/14/2023 SC Lite Edition
+Fitter Status : Failed - Mon Apr 24 22:45:07 2023
+Quartus Prime Version : 16.1.2 Build 203 01/18/2017 SJ Standard Edition
 Revision Name : mult
 Top-level Entity Name : mult
 Family : Cyclone V
 Device : 5CSEMA5F31C6
 Timing Models : Final
-Logic utilization (in ALMs) : 1 / 32,070 ( < 1 % )
+Logic utilization (in ALMs) : 5 / 32,070 ( < 1 % )
 Total registers : 0
-Total pins : 41 / 457 ( 9 % )
+Total pins : 45 / 457 ( 10 % )
 Total virtual pins : 0
 Total block memory bits : 0 / 4,065,280 ( 0 % )
 Total RAM Blocks : 0 / 397 ( 0 % )
-Total DSP Blocks : 3 / 87 ( 3 % )
+Total DSP Blocks : 2 / 87 ( 2 % )
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0
 Total HSSI TX PCSs : 0

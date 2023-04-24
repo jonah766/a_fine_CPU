@@ -41,7 +41,7 @@ mux_21 #(
     .s  (f_add), 
     .a  ('0   ), 
     .b  (imm  ),
-    .out(coeff)
+    .out(coeff )
 );
 
 mux_21 #(

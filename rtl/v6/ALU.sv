@@ -75,7 +75,7 @@ end
 // the computational part
 logic [BUS_WIDTH-1:0] mult_a, mult_b, add_a;
 
-(* multstyle = "dsp" *) sfixed_mult_9x9_x3 #(
+sfixed_mult_9x9_x3 #(
     7, 
     0,
     0, 

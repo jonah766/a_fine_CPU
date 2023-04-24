@@ -22,43 +22,13 @@ localparam A_SIZE      = (A_LEFT+A_RIGHT+1);
 localparam B_SIZE      = (B_LEFT+B_RIGHT+1);
 localparam OUTPUT_SIZE = (A_LEFT+B_LEFT+1)+(A_RIGHT+B_RIGHT)+1; 
 
-logic [OUTPUT_SIZE-1:0] result_a, result_b;
-
-lpm_mult m0 (
-    .dataa (a_x     ),
-    .datab (b_x     ),
-    .result(result_a),
-    .aclr  (1'b0    ),
-    .clken (1'b1    ),
-    .clock (1'b0    ),
-    .sclr  (1'b0    ),
-    .sum   (1'b0    )
-);
-	defparam
-		m0.lpm_hint           = "DEDICATED_MULTIPLIER_CIRCUITRY=YES,MAXIMIZE_SPEED=0",
-		m0.lpm_representation = "SIGNED",
-		m0.lpm_type           = "LPM_MULT",
-		m0.lpm_widtha         = 8,
-		m0.lpm_widthb         = 8,
-		m0.lpm_widthp         = 16;
-
-lpm_mult m1 (
-    .dataa (a_y     ),
-    .datab (b_y     ),
-    .result(result_b),
-    .aclr  (1'b0    ),
-    .clken (1'b1    ),
-    .clock (1'b0    ),
-    .sclr  (1'b0    ),
-    .sum   (1'b0    )
-);
-	defparam
-		m1.lpm_hint           = "DEDICATED_MULTIPLIER_CIRCUITRY=YES,MAXIMIZE_SPEED=0",
-		m1.lpm_representation = "SIGNED",
-		m1.lpm_type           = "LPM_MULT",
-		m1.lpm_widtha         = 8,
-		m1.lpm_widthb         = 8,
-		m1.lpm_widthp         = 16;
+logic signed [OUTPUT_SIZE-1:0] result_a, result_b;
+		
+always_comb 
+begin   
+    result_a = a_x * b_x;
+    result_b = a_y * b_y;
+end
 
 assign out_x = result_a[(A_RIGHT+B_RIGHT)+OUT_LEFT:(A_RIGHT+B_RIGHT)-OUT_RIGHT];
 assign out_y = result_b[(A_RIGHT+B_RIGHT)+OUT_LEFT:(A_RIGHT+B_RIGHT)-OUT_RIGHT]; 

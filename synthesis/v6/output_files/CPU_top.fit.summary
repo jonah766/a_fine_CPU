@@ -1,17 +1,17 @@
-Fitter Status : Successful - Sun Apr 23 12:13:51 2023
-Quartus Prime Version : 22.1std.1 Build 917 02/14/2023 SC Lite Edition
+Fitter Status : Successful - Mon Apr 24 22:55:20 2023
+Quartus Prime Version : 16.1.2 Build 203 01/18/2017 SJ Standard Edition
 Revision Name : CPU_top
 Top-level Entity Name : CPU_top
 Family : Cyclone V
 Device : 5CSEMA5F31C6
 Timing Models : Final
-Logic utilization (in ALMs) : 34 / 32,070 ( < 1 % )
-Total registers : 70
+Logic utilization (in ALMs) : 40 / 32,070 ( < 1 % )
+Total registers : 93
 Total pins : 19 / 457 ( 4 % )
 Total virtual pins : 0
 Total block memory bits : 48 / 4,065,280 ( < 1 % )
 Total RAM Blocks : 2 / 397 ( < 1 % )
-Total DSP Blocks : 2 / 87 ( 2 % )
+Total DSP Blocks : 1 / 87 ( 1 % )
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0
 Total HSSI TX PCSs : 0

@@ -1,6 +1,6 @@
 Flow report for CPU_top
-Sun Apr 23 12:13:51 2023
-Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
+Mon Apr 24 22:55:20 2023
+Quartus Prime Version 16.1.2 Build 203 01/18/2017 SJ Standard Edition
 
 
 ---------------------
@@ -21,46 +21,46 @@ Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2023  Intel Corporation. All rights reserved.
+Copyright (C) 2017  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
-and other software and tools, and any partner logic 
+and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
 to the terms and conditions of the Intel Program License 
 Subscription Agreement, the Intel Quartus Prime License Agreement,
-the Intel FPGA IP License Agreement, or other applicable license
-agreement, including, without limitation, that your use is for
-the sole purpose of programming logic devices manufactured by
-Intel and sold by Intel or its authorized distributors.  Please
-refer to the applicable agreement for further details, at
-https://fpgasoftware.intel.com/eula.
+the Intel MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Intel and sold by Intel or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
 
 
 
-+----------------------------------------------------------------------------------+
-; Flow Summary                                                                     ;
-+---------------------------------+------------------------------------------------+
-; Flow Status                     ; Successful - Sun Apr 23 12:13:51 2023          ;
-; Quartus Prime Version           ; 22.1std.1 Build 917 02/14/2023 SC Lite Edition ;
-; Revision Name                   ; CPU_top                                        ;
-; Top-level Entity Name           ; CPU_top                                        ;
-; Family                          ; Cyclone V                                      ;
-; Device                          ; 5CSEMA5F31C6                                   ;
-; Timing Models                   ; Final                                          ;
-; Logic utilization (in ALMs)     ; 34 / 32,070 ( < 1 % )                          ;
-; Total registers                 ; 70                                             ;
-; Total pins                      ; 19 / 457 ( 4 % )                               ;
-; Total virtual pins              ; 0                                              ;
-; Total block memory bits         ; 48 / 4,065,280 ( < 1 % )                       ;
-; Total DSP Blocks                ; 2 / 87 ( 2 % )                                 ;
-; Total HSSI RX PCSs              ; 0                                              ;
-; Total HSSI PMA RX Deserializers ; 0                                              ;
-; Total HSSI TX PCSs              ; 0                                              ;
-; Total HSSI PMA TX Serializers   ; 0                                              ;
-; Total PLLs                      ; 0 / 6 ( 0 % )                                  ;
-; Total DLLs                      ; 0 / 4 ( 0 % )                                  ;
-+---------------------------------+------------------------------------------------+
++-----------------------------------------------------------------------------------+
+; Flow Summary                                                                      ;
++---------------------------------+-------------------------------------------------+
+; Flow Status                     ; Successful - Mon Apr 24 22:55:20 2023           ;
+; Quartus Prime Version           ; 16.1.2 Build 203 01/18/2017 SJ Standard Edition ;
+; Revision Name                   ; CPU_top                                         ;
+; Top-level Entity Name           ; CPU_top                                         ;
+; Family                          ; Cyclone V                                       ;
+; Device                          ; 5CSEMA5F31C6                                    ;
+; Timing Models                   ; Final                                           ;
+; Logic utilization (in ALMs)     ; 40 / 32,070 ( < 1 % )                           ;
+; Total registers                 ; 93                                              ;
+; Total pins                      ; 19 / 457 ( 4 % )                                ;
+; Total virtual pins              ; 0                                               ;
+; Total block memory bits         ; 48 / 4,065,280 ( < 1 % )                        ;
+; Total DSP Blocks                ; 1 / 87 ( 1 % )                                  ;
+; Total HSSI RX PCSs              ; 0                                               ;
+; Total HSSI PMA RX Deserializers ; 0                                               ;
+; Total HSSI TX PCSs              ; 0                                               ;
+; Total HSSI PMA TX Serializers   ; 0                                               ;
+; Total PLLs                      ; 0 / 6 ( 0 % )                                   ;
+; Total DLLs                      ; 0 / 4 ( 0 % )                                   ;
++---------------------------------+-------------------------------------------------+
 
 
 +-----------------------------------------+
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/23/2023 12:13:17 ;
+; Start date & time ; 04/24/2023 19:50:20 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; CPU_top             ;
 +-------------------+---------------------+
@@ -79,27 +79,28 @@ https://fpgasoftware.intel.com/eula.
 +-----------------------------------------------+----------------------------------------+--------------------+-------------+------------+
 ; Assignment Name                               ; Value                                  ; Default Value      ; Entity Name ; Section Id ;
 +-----------------------------------------------+----------------------------------------+--------------------+-------------+------------+
-; ADVANCED_PHYSICAL_OPTIMIZATION                ; Off                                    ; On                 ; --          ; --         ;
 ; ALLOW_ANY_RAM_SIZE_FOR_RECOGNITION            ; On                                     ; Off                ; --          ; --         ;
 ; ALLOW_ANY_ROM_SIZE_FOR_RECOGNITION            ; On                                     ; Off                ; --          ; --         ;
 ; ALLOW_ANY_SHIFT_REGISTER_SIZE_FOR_RECOGNITION ; On                                     ; Off                ; --          ; --         ;
 ; ALM_REGISTER_PACKING_EFFORT                   ; High                                   ; Medium             ; --          ; --         ;
 ; AUTO_RESOURCE_SHARING                         ; On                                     ; Off                ; --          ; --         ;
 ; BLOCK_RAM_TO_MLAB_CELL_CONVERSION             ; Off                                    ; On                 ; --          ; --         ;
-; COMPILER_SIGNATURE_ID                         ; 91762964745.168224839702046            ; --                 ; --          ; --         ;
+; COMPILER_SIGNATURE_ID                         ; 345050572627.168236222025565           ; --                 ; --          ; --         ;
 ; DSP_BLOCK_BALANCING                           ; Simple Multipliers                     ; Auto               ; --          ; --         ;
 ; FINAL_PLACEMENT_OPTIMIZATION                  ; Always                                 ; Automatically      ; --          ; --         ;
+; FITTER_EFFORT                                 ; Standard Fit                           ; Auto Fit           ; --          ; --         ;
 ; MAX_BALANCING_DSP_BLOCKS                      ; 1                                      ; -1 (Unlimited)     ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP                        ; 85                                     ; --                 ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP                        ; 0                                      ; --                 ; --          ; --         ;
 ; OPTIMIZATION_MODE                             ; Aggressive Area                        ; Balanced           ; --          ; --         ;
 ; OPTIMIZATION_TECHNIQUE                        ; Area                                   ; Balanced           ; --          ; --         ;
-; OPTIMIZE_POWER_DURING_FITTING                 ; Off                                    ; Normal compilation ; --          ; --         ;
+; OPTIMIZE_POWER_DURING_FITTING                 ; Extra effort                           ; Normal compilation ; --          ; --         ;
 ; PARTITION_COLOR                               ; -- (Not supported for targeted family) ; --                 ; --          ; Top        ;
 ; PARTITION_FITTER_PRESERVATION_LEVEL           ; -- (Not supported for targeted family) ; --                 ; --          ; Top        ;
 ; PARTITION_NETLIST_TYPE                        ; -- (Not supported for targeted family) ; --                 ; --          ; Top        ;
 ; PHYSICAL_SYNTHESIS_COMBO_LOGIC_FOR_AREA       ; On                                     ; Off                ; --          ; --         ;
-; PLACEMENT_EFFORT_MULTIPLIER                   ; 1                                      ; 1.0                ; --          ; --         ;
+; PHYSICAL_SYNTHESIS_EFFORT                     ; Extra                                  ; Normal             ; --          ; --         ;
+; PLACEMENT_EFFORT_MULTIPLIER                   ; 8                                      ; 1.0                ; --          ; --         ;
 ; POWER_BOARD_THERMAL_MODEL                     ; None (CONSERVATIVE)                    ; --                 ; --          ; --         ;
 ; POWER_PRESET_COOLING_SOLUTION                 ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --                 ; --          ; --         ;
 ; PROJECT_OUTPUT_DIRECTORY                      ; output_files                           ; --                 ; --          ; --         ;
@@ -115,27 +116,45 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:08     ; 1.0                     ; 531 MB              ; 00:00:25                           ;
-; Fitter               ; 00:00:25     ; 1.0                     ; 2678 MB             ; 00:01:06                           ;
-; Total                ; 00:00:33     ; --                      ; --                  ; 00:01:31                           ;
+; Analysis & Synthesis ; 00:00:18     ; 1.0                     ; 1228 MB             ; 00:00:38                           ;
+; Analysis & Synthesis ; 00:00:14     ; 1.0                     ; 1222 MB             ; 00:00:37                           ;
+; Partition Merge      ; 00:00:01     ; 1.0                     ; 1332 MB             ; 00:00:01                           ;
+; Fitter               ; 00:00:19     ; 1.0                     ; 1800 MB             ; 00:00:19                           ;
+; Analysis & Synthesis ; 00:00:16     ; 1.0                     ; 1233 MB             ; 00:00:36                           ;
+; Partition Merge      ; 00:00:01     ; 1.0                     ; 1330 MB             ; 00:00:01                           ;
+; Fitter               ; 00:01:33     ; 1.0                     ; 2634 MB             ; 00:04:00                           ;
+; Fitter               ; 00:01:33     ; 1.0                     ; 2628 MB             ; 00:03:49                           ;
+; Total                ; 00:04:15     ; --                      ; --                  ; 00:10:01                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
-+----------------------------------------------------------------------------------------+
-; Flow OS Summary                                                                        ;
-+----------------------+------------------+----------------+------------+----------------+
-; Module Name          ; Machine Hostname ; OS Name        ; OS Version ; Processor type ;
-+----------------------+------------------+----------------+------------+----------------+
-; Analysis & Synthesis ; Jonahs-Laptop    ; Ubuntu 20.04.6 ; 20         ; x86_64         ;
-; Fitter               ; Jonahs-Laptop    ; Ubuntu 20.04.6 ; 20         ; x86_64         ;
-+----------------------+------------------+----------------+------------+----------------+
++---------------------------------------------------------------------------------+
+; Flow OS Summary                                                                 ;
++----------------------+------------------+---------+------------+----------------+
+; Module Name          ; Machine Hostname ; OS Name ; OS Version ; Processor type ;
++----------------------+------------------+---------+------------+----------------+
+; Analysis & Synthesis ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
+; Analysis & Synthesis ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
+; Partition Merge      ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
+; Fitter               ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
+; Analysis & Synthesis ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
+; Partition Merge      ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
+; Fitter               ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
+; Fitter               ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
++----------------------+------------------+---------+------------+----------------+
 
 
 ------------
 ; Flow Log ;
 ------------
 quartus_map --read_settings_files=on --write_settings_files=off affine_CPU_v6 -c CPU_top
+quartus_map --read_settings_files=on --write_settings_files=off affine_CPU_v6 -c CPU_top
+quartus_cdb --read_settings_files=off --write_settings_files=off affine_CPU_v6 -c CPU_top --merge=on
 quartus_fit --read_settings_files=off --write_settings_files=off affine_CPU_v6 -c CPU_top
+quartus_map --read_settings_files=on --write_settings_files=off affine_CPU_v6 -c CPU_top
+quartus_cdb --read_settings_files=off --write_settings_files=off affine_CPU_v6 -c CPU_top --merge=on
+quartus_fit --read_settings_files=off --write_settings_files=off affine_CPU_v6 -c CPU_top
+quartus_fit --read_settings_files=on --write_settings_files=off affine_CPU_v6 -c CPU_top
 
 
 

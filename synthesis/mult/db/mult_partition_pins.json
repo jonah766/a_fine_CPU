@@ -2,6 +2,10 @@
 	"partitions" : [
 		{
 			"name" : "Top",
+			"pins" : []
+		},
+		{
+			"name" : "adder:adder0",
 			"pins" : [
 				{
 					"name" : "result[0]",
@@ -34,7 +38,12 @@
 				{
 					"name" : "result[7]",
 					"strict" : false
-				},
+				}
+			]
+		},
+		{
+			"name" : "multer:multer0",
+			"pins" : [
 				{
 					"name" : "a[0]",
 					"strict" : false
@@ -65,6 +74,38 @@
 				},
 				{
 					"name" : "a[7]",
+					"strict" : false
+				},
+				{
+					"name" : "b[0]",
+					"strict" : false
+				},
+				{
+					"name" : "b[1]",
+					"strict" : false
+				},
+				{
+					"name" : "b[2]",
+					"strict" : false
+				},
+				{
+					"name" : "b[3]",
+					"strict" : false
+				},
+				{
+					"name" : "b[4]",
+					"strict" : false
+				},
+				{
+					"name" : "b[5]",
+					"strict" : false
+				},
+				{
+					"name" : "b[6]",
+					"strict" : false
+				},
+				{
+					"name" : "b[7]",
 					"strict" : false
 				},
 				{
@@ -100,6 +141,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
 					"name" : "d[0]",
 					"strict" : false
 				},
@@ -132,35 +177,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "b[0]",
+					"name" : "en[0]",
 					"strict" : false
 				},
 				{
-					"name" : "b[1]",
-					"strict" : false
-				},
-				{
-					"name" : "b[2]",
-					"strict" : false
-				},
-				{
-					"name" : "b[3]",
-					"strict" : false
-				},
-				{
-					"name" : "b[4]",
-					"strict" : false
-				},
-				{
-					"name" : "b[5]",
-					"strict" : false
-				},
-				{
-					"name" : "b[6]",
-					"strict" : false
-				},
-				{
-					"name" : "b[7]",
+					"name" : "en[1]",
 					"strict" : false
 				}
 			]

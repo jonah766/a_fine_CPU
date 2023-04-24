@@ -1,6 +1,6 @@
 Flow report for mult
-Sun Apr 23 12:45:24 2023
-Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
+Mon Apr 24 22:45:07 2023
+Quartus Prime Version 16.1.2 Build 203 01/18/2017 SJ Standard Edition
 
 
 ---------------------
@@ -21,46 +21,46 @@ Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2023  Intel Corporation. All rights reserved.
+Copyright (C) 2017  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
-and other software and tools, and any partner logic 
+and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
 to the terms and conditions of the Intel Program License 
 Subscription Agreement, the Intel Quartus Prime License Agreement,
-the Intel FPGA IP License Agreement, or other applicable license
-agreement, including, without limitation, that your use is for
-the sole purpose of programming logic devices manufactured by
-Intel and sold by Intel or its authorized distributors.  Please
-refer to the applicable agreement for further details, at
-https://fpgasoftware.intel.com/eula.
+the Intel MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Intel and sold by Intel or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
 
 
 
-+----------------------------------------------------------------------------------+
-; Flow Summary                                                                     ;
-+---------------------------------+------------------------------------------------+
-; Flow Status                     ; Successful - Sun Apr 23 12:45:24 2023          ;
-; Quartus Prime Version           ; 22.1std.1 Build 917 02/14/2023 SC Lite Edition ;
-; Revision Name                   ; mult                                           ;
-; Top-level Entity Name           ; mult                                           ;
-; Family                          ; Cyclone V                                      ;
-; Device                          ; 5CSEMA5F31C6                                   ;
-; Timing Models                   ; Final                                          ;
-; Logic utilization (in ALMs)     ; 1 / 32,070 ( < 1 % )                           ;
-; Total registers                 ; 0                                              ;
-; Total pins                      ; 41 / 457 ( 9 % )                               ;
-; Total virtual pins              ; 0                                              ;
-; Total block memory bits         ; 0 / 4,065,280 ( 0 % )                          ;
-; Total DSP Blocks                ; 3 / 87 ( 3 % )                                 ;
-; Total HSSI RX PCSs              ; 0                                              ;
-; Total HSSI PMA RX Deserializers ; 0                                              ;
-; Total HSSI TX PCSs              ; 0                                              ;
-; Total HSSI PMA TX Serializers   ; 0                                              ;
-; Total PLLs                      ; 0 / 6 ( 0 % )                                  ;
-; Total DLLs                      ; 0 / 4 ( 0 % )                                  ;
-+---------------------------------+------------------------------------------------+
++-----------------------------------------------------------------------------------+
+; Flow Summary                                                                      ;
++---------------------------------+-------------------------------------------------+
+; Flow Status                     ; Flow Failed - Mon Apr 24 22:45:07 2023          ;
+; Quartus Prime Version           ; 16.1.2 Build 203 01/18/2017 SJ Standard Edition ;
+; Revision Name                   ; mult                                            ;
+; Top-level Entity Name           ; mult                                            ;
+; Family                          ; Cyclone V                                       ;
+; Device                          ; 5CSEMA5F31C6                                    ;
+; Timing Models                   ; Final                                           ;
+; Logic utilization (in ALMs)     ; 5 / 32,070 ( < 1 % )                            ;
+; Total registers                 ; 0                                               ;
+; Total pins                      ; 45 / 457 ( 10 % )                               ;
+; Total virtual pins              ; 0                                               ;
+; Total block memory bits         ; 0 / 4,065,280 ( 0 % )                           ;
+; Total DSP Blocks                ; 2 / 87 ( 2 % )                                  ;
+; Total HSSI RX PCSs              ; 0                                               ;
+; Total HSSI PMA RX Deserializers ; 0                                               ;
+; Total HSSI TX PCSs              ; 0                                               ;
+; Total HSSI PMA TX Serializers   ; 0                                               ;
+; Total PLLs                      ; 0 / 6 ( 0 % )                                   ;
+; Total DLLs                      ; 0 / 4 ( 0 % )                                   ;
++---------------------------------+-------------------------------------------------+
 
 
 +-----------------------------------------+
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/23/2023 12:44:48 ;
+; Start date & time ; 04/24/2023 17:22:34 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; mult                ;
 +-------------------+---------------------+
@@ -80,8 +80,8 @@ https://fpgasoftware.intel.com/eula.
 ; Assignment Name                         ; Value                                  ; Default Value  ; Entity Name ; Section Id ;
 +-----------------------------------------+----------------------------------------+----------------+-------------+------------+
 ; ALM_REGISTER_PACKING_EFFORT             ; High                                   ; Medium         ; --          ; --         ;
-; COMPILER_SIGNATURE_ID                   ; 91762964745.168225028812062            ; --             ; --          ; --         ;
-; MAX_BALANCING_DSP_BLOCKS                ; 1                                      ; -1 (Unlimited) ; --          ; --         ;
+; COMPILER_SIGNATURE_ID                   ; 345050572627.168235335438039           ; --             ; --          ; --         ;
+; MAX_BALANCING_DSP_BLOCKS                ; -1                                     ; -1 (Unlimited) ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP                  ; 85                                     ; --             ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP                  ; 0                                      ; --             ; --          ; --         ;
 ; OPTIMIZATION_MODE                       ; Aggressive Area                        ; Balanced       ; --          ; --         ;
@@ -102,26 +102,101 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:08     ; 1.0                     ; 429 MB              ; 00:00:24                           ;
-; Fitter               ; 00:00:27     ; 1.0                     ; 2691 MB             ; 00:01:51                           ;
-; Total                ; 00:00:35     ; --                      ; --                  ; 00:02:15                           ;
+; Analysis & Synthesis ; 00:00:46     ; 1.0                     ; 1214 MB             ; 00:00:30                           ;
+; Analysis & Synthesis ; 00:01:00     ; 1.2                     ; 1194 MB             ; 00:00:48                           ;
+; Analysis & Synthesis ; 00:00:43     ; 1.0                     ; 1181 MB             ; 00:00:32                           ;
+; Partition Merge      ; 00:00:03     ; 1.0                     ; 1322 MB             ; 00:00:01                           ;
+; Fitter               ; 00:02:52     ; 1.0                     ; 2523 MB             ; 00:15:51                           ;
+; Design Assistant     ; 00:00:04     ; 1.0                     ; 1149 MB             ; 00:00:01                           ;
+; Analysis & Synthesis ; 00:00:38     ; 1.0                     ; 1176 MB             ; 00:00:31                           ;
+; Partition Merge      ; 00:00:03     ; 1.0                     ; 1333 MB             ; 00:00:01                           ;
+; Fitter               ; 00:03:33     ; 1.0                     ; 2521 MB             ; 00:11:30                           ;
+; Analysis & Synthesis ; 00:00:16     ; 1.0                     ; 1208 MB             ; 00:00:33                           ;
+; Partition Merge      ; 00:00:01     ; 1.0                     ; 1331 MB             ; 00:00:01                           ;
+; Fitter               ; 00:03:18     ; 1.0                     ; 2523 MB             ; 00:20:13                           ;
+; Fitter               ; 00:00:41     ; 1.0                     ; 2531 MB             ; 00:01:55                           ;
+; Analysis & Synthesis ; 00:00:14     ; 1.0                     ; 1049 MB             ; 00:00:37                           ;
+; Analysis & Synthesis ; 00:00:16     ; 1.0                     ; 1246 MB             ; 00:00:38                           ;
+; Partition Merge      ; 00:00:01     ; 1.0                     ; 1334 MB             ; 00:00:01                           ;
+; Fitter               ; 00:00:19     ; 1.0                     ; 1700 MB             ; 00:00:18                           ;
+; Fitter               ; 00:00:39     ; 1.0                     ; 2561 MB             ; 00:01:59                           ;
+; Analysis & Synthesis ; 00:00:19     ; 1.0                     ; 1217 MB             ; 00:00:40                           ;
+; Partition Merge      ; 00:00:02     ; 1.0                     ; 1330 MB             ; 00:00:01                           ;
+; Fitter               ; 00:00:19     ; 1.0                     ; 1729 MB             ; 00:00:18                           ;
+; Analysis & Synthesis ; 00:00:18     ; 1.0                     ; 1217 MB             ; 00:00:38                           ;
+; Partition Merge      ; 00:00:01     ; 1.0                     ; 1330 MB             ; 00:00:01                           ;
+; Fitter               ; 00:00:40     ; 1.0                     ; 2554 MB             ; 00:01:56                           ;
+; Analysis & Synthesis ; 00:00:18     ; 1.0                     ; 1217 MB             ; 00:00:39                           ;
+; Partition Merge      ; 00:00:01     ; 1.0                     ; 1331 MB             ; 00:00:01                           ;
+; Fitter               ; 00:00:18     ; 1.0                     ; 1726 MB             ; 00:00:18                           ;
+; Total                ; 00:17:43     ; --                      ; --                  ; 01:00:32                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
-+----------------------------------------------------------------------------------------+
-; Flow OS Summary                                                                        ;
-+----------------------+------------------+----------------+------------+----------------+
-; Module Name          ; Machine Hostname ; OS Name        ; OS Version ; Processor type ;
-+----------------------+------------------+----------------+------------+----------------+
-; Analysis & Synthesis ; Jonahs-Laptop    ; Ubuntu 20.04.6 ; 20         ; x86_64         ;
-; Fitter               ; Jonahs-Laptop    ; Ubuntu 20.04.6 ; 20         ; x86_64         ;
-+----------------------+------------------+----------------+------------+----------------+
++---------------------------------------------------------------------------------+
+; Flow OS Summary                                                                 ;
++----------------------+------------------+---------+------------+----------------+
+; Module Name          ; Machine Hostname ; OS Name ; OS Version ; Processor type ;
++----------------------+------------------+---------+------------+----------------+
+; Analysis & Synthesis ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
+; Analysis & Synthesis ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
+; Analysis & Synthesis ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
+; Partition Merge      ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
+; Fitter               ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
+; Design Assistant     ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
+; Analysis & Synthesis ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
+; Partition Merge      ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
+; Fitter               ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
+; Analysis & Synthesis ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
+; Partition Merge      ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
+; Fitter               ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
+; Fitter               ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
+; Analysis & Synthesis ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
+; Analysis & Synthesis ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
+; Partition Merge      ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
+; Fitter               ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
+; Fitter               ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
+; Analysis & Synthesis ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
+; Partition Merge      ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
+; Fitter               ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
+; Analysis & Synthesis ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
+; Partition Merge      ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
+; Fitter               ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
+; Analysis & Synthesis ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
+; Partition Merge      ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
+; Fitter               ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
++----------------------+------------------+---------+------------+----------------+
 
 
 ------------
 ; Flow Log ;
 ------------
 quartus_map --read_settings_files=on --write_settings_files=off mult -c mult
+quartus_map --read_settings_files=on --write_settings_files=off mult -c mult
+quartus_map --read_settings_files=on --write_settings_files=off mult -c mult
+quartus_cdb --read_settings_files=on --write_settings_files=off mult -c mult --merge=on
+quartus_fit --read_settings_files=off --write_settings_files=off mult -c mult
+quartus_drc --read_settings_files=off --write_settings_files=off mult -c mult
+quartus_map --read_settings_files=on --write_settings_files=off mult -c mult
+quartus_cdb --read_settings_files=on --write_settings_files=off mult -c mult --merge=on
+quartus_fit --read_settings_files=off --write_settings_files=off mult -c mult
+quartus_map --read_settings_files=on --write_settings_files=off mult -c mult
+quartus_cdb --read_settings_files=on --write_settings_files=off mult -c mult --merge=on
+quartus_fit --read_settings_files=off --write_settings_files=off mult -c mult
+quartus_fit --read_settings_files=on --write_settings_files=off mult -c mult
+quartus_map --read_settings_files=on --write_settings_files=off mult -c mult
+quartus_map --read_settings_files=on --write_settings_files=off mult -c mult
+quartus_cdb --read_settings_files=on --write_settings_files=off mult -c mult --merge=on
+quartus_fit --read_settings_files=off --write_settings_files=off mult -c mult
+quartus_fit --read_settings_files=on --write_settings_files=off mult -c mult
+quartus_map --read_settings_files=on --write_settings_files=off mult -c mult
+quartus_cdb --read_settings_files=on --write_settings_files=off mult -c mult --merge=on
+quartus_fit --read_settings_files=off --write_settings_files=off mult -c mult
+quartus_map --read_settings_files=on --write_settings_files=off mult -c mult
+quartus_cdb --read_settings_files=on --write_settings_files=off mult -c mult --merge=on
+quartus_fit --read_settings_files=off --write_settings_files=off mult -c mult
+quartus_map --read_settings_files=on --write_settings_files=off mult -c mult
+quartus_cdb --read_settings_files=on --write_settings_files=off mult -c mult --merge=on
 quartus_fit --read_settings_files=off --write_settings_files=off mult -c mult
 
 

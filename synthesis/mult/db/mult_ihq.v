@@ -1,24 +1,24 @@
 //lpm_mult CBX_DECLARE_ALL_CONNECTED_PORTS="OFF" DEDICATED_MULTIPLIER_CIRCUITRY="YES" DEVICE_FAMILY="Cyclone V" DSP_BLOCK_BALANCING="Auto" LPM_REPRESENTATION="SIGNED" LPM_WIDTHA=8 LPM_WIDTHB=8 LPM_WIDTHP=16 MAXIMIZE_SPEED=0 dataa datab result CARRY_CHAIN="MANUAL" CARRY_CHAIN_LENGTH=48
-//VERSION_BEGIN 22.1 cbx_cycloneii 2023:02:14:18:02:23:SC cbx_lpm_add_sub 2023:02:14:18:02:23:SC cbx_lpm_mult 2023:02:14:18:02:23:SC cbx_mgl 2023:02:14:18:15:38:SC cbx_nadder 2023:02:14:18:02:23:SC cbx_padd 2023:02:14:18:02:23:SC cbx_stratix 2023:02:14:18:02:23:SC cbx_stratixii 2023:02:14:18:02:23:SC cbx_util_mgl 2023:02:14:18:02:23:SC  VERSION_END
+//VERSION_BEGIN 16.1 cbx_cycloneii 2017:01:11:18:30:33:SJ cbx_lpm_add_sub 2017:01:11:18:30:33:SJ cbx_lpm_mult 2017:01:11:18:30:33:SJ cbx_mgl 2017:01:11:19:37:47:SJ cbx_nadder 2017:01:11:18:30:33:SJ cbx_padd 2017:01:11:18:30:33:SJ cbx_stratix 2017:01:11:18:30:33:SJ cbx_stratixii 2017:01:11:18:30:33:SJ cbx_util_mgl 2017:01:11:18:30:33:SJ  VERSION_END
 // synthesis VERILOG_INPUT_VERSION VERILOG_2001
 // altera message_off 10463
 
 
 
-// Copyright (C) 2023  Intel Corporation. All rights reserved.
+// Copyright (C) 2017  Intel Corporation. All rights reserved.
 //  Your use of Intel Corporation's design tools, logic functions 
-//  and other software and tools, and any partner logic 
+//  and other software and tools, and its AMPP partner logic 
 //  functions, and any output files from any of the foregoing 
 //  (including device programming or simulation files), and any 
 //  associated documentation or information are expressly subject 
 //  to the terms and conditions of the Intel Program License 
 //  Subscription Agreement, the Intel Quartus Prime License Agreement,
-//  the Intel FPGA IP License Agreement, or other applicable license
-//  agreement, including, without limitation, that your use is for
-//  the sole purpose of programming logic devices manufactured by
-//  Intel and sold by Intel or its authorized distributors.  Please
-//  refer to the applicable agreement for further details, at
-//  https://fpgasoftware.intel.com/eula.
+//  the Intel MegaCore Function License Agreement, or other 
+//  applicable license agreement, including, without limitation, 
+//  that your use is for the sole purpose of programming logic 
+//  devices manufactured by Intel and sold by Intel or its 
+//  authorized distributors.  Please refer to the applicable 
+//  agreement for further details.
 
 
 

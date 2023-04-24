@@ -1,5 +1,5 @@
 module CPU #(
-    parameter INSTR_WIDTH      = 12,
+    parameter INSTR_WIDTH      = 24,
     parameter OPCODE_WIDTH     = 3,
     parameter INSTR_ADDR_WIDTH = 4, 
     parameter REG_ADDR_WIDTH   = 2, 

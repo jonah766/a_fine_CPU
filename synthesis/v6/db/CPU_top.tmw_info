@@ -1,3 +1,2 @@
-start_analysis_synthesis:s:00:00:10
-start_analysis_elaboration:s
-start_fitter:s:00:00:26
+start_partition_merge:s
+start_fitter:s:00:01:34

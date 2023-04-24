@@ -80,6 +80,10 @@
 					"strict" : false
 				}
 			]
+		},
+		{
+			"name" : "sfixed_mult_9x9_x3:m0",
+			"pins" : []
 		}
 	]
 }

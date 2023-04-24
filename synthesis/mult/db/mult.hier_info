@@ -1,21 +1,13 @@
 |mult
-clk => ~NO_FANOUT~
-a[0] => a[0].IN2
-a[1] => a[1].IN2
-a[2] => a[2].IN2
-a[3] => a[3].IN2
-a[4] => a[4].IN2
-a[5] => a[5].IN2
-a[6] => a[6].IN2
-a[7] => a[7].IN2
-c[0] => c[0].IN2
-c[1] => c[1].IN2
-c[2] => c[2].IN2
-c[3] => c[3].IN2
-c[4] => c[4].IN2
-c[5] => c[5].IN2
-c[6] => c[6].IN2
-c[7] => c[7].IN2
+clk => clk.IN1
+a[0] => a[0].IN1
+a[1] => a[1].IN1
+a[2] => a[2].IN1
+a[3] => a[3].IN1
+a[4] => a[4].IN1
+a[5] => a[5].IN1
+a[6] => a[6].IN1
+a[7] => a[7].IN1
 b[0] => b[0].IN1
 b[1] => b[1].IN1
 b[2] => b[2].IN1
@@ -24,6 +16,14 @@ b[4] => b[4].IN1
 b[5] => b[5].IN1
 b[6] => b[6].IN1
 b[7] => b[7].IN1
+c[0] => c[0].IN1
+c[1] => c[1].IN1
+c[2] => c[2].IN1
+c[3] => c[3].IN1
+c[4] => c[4].IN1
+c[5] => c[5].IN1
+c[6] => c[6].IN1
+c[7] => c[7].IN1
 d[0] => d[0].IN1
 d[1] => d[1].IN1
 d[2] => d[2].IN1
@@ -32,17 +32,122 @@ d[4] => d[4].IN1
 d[5] => d[5].IN1
 d[6] => d[6].IN1
 d[7] => d[7].IN1
-result[0] <= lpm_mult:m2.result
-result[1] <= lpm_mult:m2.result
-result[2] <= lpm_mult:m1.result
-result[3] <= lpm_mult:m1.result
-result[4] <= lpm_mult:m1.result
-result[5] <= lpm_mult:m0.result
-result[6] <= lpm_mult:m0.result
-result[7] <= lpm_mult:m0.result
+en[0] => en[0].IN1
+en[1] => en[1].IN1
+en[2] => en[2].IN1
+en[3] => en[3].IN1
+result[0] << adder:adder0.result
+result[1] << adder:adder0.result
+result[2] << adder:adder0.result
+result[3] << adder:adder0.result
+result[4] << adder:adder0.result
+result[5] << adder:adder0.result
+result[6] << adder:adder0.result
+result[7] << adder:adder0.result
 
 
-|mult|lpm_mult:m0
+|mult|multer:multer0
+clk => c_reg[0].CLK
+clk => c_reg[1].CLK
+clk => c_reg[2].CLK
+clk => c_reg[3].CLK
+clk => c_reg[4].CLK
+clk => c_reg[5].CLK
+clk => c_reg[6].CLK
+clk => c_reg[7].CLK
+clk => a_reg[0].CLK
+clk => a_reg[1].CLK
+clk => a_reg[2].CLK
+clk => a_reg[3].CLK
+clk => a_reg[4].CLK
+clk => a_reg[5].CLK
+clk => a_reg[6].CLK
+clk => a_reg[7].CLK
+en[0] => a_reg.OUTPUTSELECT
+en[0] => a_reg.OUTPUTSELECT
+en[0] => a_reg.OUTPUTSELECT
+en[0] => a_reg.OUTPUTSELECT
+en[0] => a_reg.OUTPUTSELECT
+en[0] => a_reg.OUTPUTSELECT
+en[0] => a_reg.OUTPUTSELECT
+en[0] => a_reg.OUTPUTSELECT
+en[1] => c_reg.OUTPUTSELECT
+en[1] => c_reg.OUTPUTSELECT
+en[1] => c_reg.OUTPUTSELECT
+en[1] => c_reg.OUTPUTSELECT
+en[1] => c_reg.OUTPUTSELECT
+en[1] => c_reg.OUTPUTSELECT
+en[1] => c_reg.OUTPUTSELECT
+en[1] => c_reg.OUTPUTSELECT
+en[2] => ~NO_FANOUT~
+en[3] => ~NO_FANOUT~
+a[0] => a_reg.DATAB
+a[1] => a_reg.DATAB
+a[2] => a_reg.DATAB
+a[3] => a_reg.DATAB
+a[4] => a_reg.DATAB
+a[5] => a_reg.DATAB
+a[6] => a_reg.DATAB
+a[7] => a_reg.DATAB
+b[0] => b[0].IN1
+b[1] => b[1].IN1
+b[2] => b[2].IN1
+b[3] => b[3].IN1
+b[4] => b[4].IN1
+b[5] => b[5].IN1
+b[6] => b[6].IN1
+b[7] => b[7].IN1
+c[0] => c_reg.DATAB
+c[1] => c_reg.DATAB
+c[2] => c_reg.DATAB
+c[3] => c_reg.DATAB
+c[4] => c_reg.DATAB
+c[5] => c_reg.DATAB
+c[6] => c_reg.DATAB
+c[7] => c_reg.DATAB
+d[0] => d[0].IN1
+d[1] => d[1].IN1
+d[2] => d[2].IN1
+d[3] => d[3].IN1
+d[4] => d[4].IN1
+d[5] => d[5].IN1
+d[6] => d[6].IN1
+d[7] => d[7].IN1
+result_a[0] <= lpm_mult:m0.result
+result_a[1] <= lpm_mult:m0.result
+result_a[2] <= lpm_mult:m0.result
+result_a[3] <= lpm_mult:m0.result
+result_a[4] <= lpm_mult:m0.result
+result_a[5] <= lpm_mult:m0.result
+result_a[6] <= lpm_mult:m0.result
+result_a[7] <= lpm_mult:m0.result
+result_a[8] <= lpm_mult:m0.result
+result_a[9] <= lpm_mult:m0.result
+result_a[10] <= lpm_mult:m0.result
+result_a[11] <= lpm_mult:m0.result
+result_a[12] <= lpm_mult:m0.result
+result_a[13] <= lpm_mult:m0.result
+result_a[14] <= lpm_mult:m0.result
+result_a[15] <= lpm_mult:m0.result
+result_b[0] <= lpm_mult:m1.result
+result_b[1] <= lpm_mult:m1.result
+result_b[2] <= lpm_mult:m1.result
+result_b[3] <= lpm_mult:m1.result
+result_b[4] <= lpm_mult:m1.result
+result_b[5] <= lpm_mult:m1.result
+result_b[6] <= lpm_mult:m1.result
+result_b[7] <= lpm_mult:m1.result
+result_b[8] <= lpm_mult:m1.result
+result_b[9] <= lpm_mult:m1.result
+result_b[10] <= lpm_mult:m1.result
+result_b[11] <= lpm_mult:m1.result
+result_b[12] <= lpm_mult:m1.result
+result_b[13] <= lpm_mult:m1.result
+result_b[14] <= lpm_mult:m1.result
+result_b[15] <= lpm_mult:m1.result
+
+
+|mult|multer:multer0|lpm_mult:m0
 dataa[0] => mult_ihq:auto_generated.dataa[0]
 dataa[1] => mult_ihq:auto_generated.dataa[1]
 dataa[2] => mult_ihq:auto_generated.dataa[2]
@@ -82,7 +187,7 @@ result[14] <= mult_ihq:auto_generated.result[14]
 result[15] <= mult_ihq:auto_generated.result[15]
 
 
-|mult|lpm_mult:m0|mult_ihq:auto_generated
+|mult|multer:multer0|lpm_mult:m0|mult_ihq:auto_generated
 dataa[0] => Mult0.IN7
 dataa[1] => Mult0.IN6
 dataa[2] => Mult0.IN5
@@ -117,7 +222,7 @@ result[14] <= Mult0.DB_MAX_OUTPUT_PORT_TYPE
 result[15] <= Mult0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mult|lpm_mult:m1
+|mult|multer:multer0|lpm_mult:m1
 dataa[0] => mult_ihq:auto_generated.dataa[0]
 dataa[1] => mult_ihq:auto_generated.dataa[1]
 dataa[2] => mult_ihq:auto_generated.dataa[2]
@@ -157,7 +262,7 @@ result[14] <= mult_ihq:auto_generated.result[14]
 result[15] <= mult_ihq:auto_generated.result[15]
 
 
-|mult|lpm_mult:m1|mult_ihq:auto_generated
+|mult|multer:multer0|lpm_mult:m1|mult_ihq:auto_generated
 dataa[0] => Mult0.IN7
 dataa[1] => Mult0.IN6
 dataa[2] => Mult0.IN5
@@ -192,78 +297,91 @@ result[14] <= Mult0.DB_MAX_OUTPUT_PORT_TYPE
 result[15] <= Mult0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mult|lpm_mult:m2
-dataa[0] => mult_ihq:auto_generated.dataa[0]
-dataa[1] => mult_ihq:auto_generated.dataa[1]
-dataa[2] => mult_ihq:auto_generated.dataa[2]
-dataa[3] => mult_ihq:auto_generated.dataa[3]
-dataa[4] => mult_ihq:auto_generated.dataa[4]
-dataa[5] => mult_ihq:auto_generated.dataa[5]
-dataa[6] => mult_ihq:auto_generated.dataa[6]
-dataa[7] => mult_ihq:auto_generated.dataa[7]
-datab[0] => mult_ihq:auto_generated.datab[0]
-datab[1] => mult_ihq:auto_generated.datab[1]
-datab[2] => mult_ihq:auto_generated.datab[2]
-datab[3] => mult_ihq:auto_generated.datab[3]
-datab[4] => mult_ihq:auto_generated.datab[4]
-datab[5] => mult_ihq:auto_generated.datab[5]
-datab[6] => mult_ihq:auto_generated.datab[6]
-datab[7] => mult_ihq:auto_generated.datab[7]
-sum[0] => ~NO_FANOUT~
-aclr => ~NO_FANOUT~
-sclr => ~NO_FANOUT~
+|mult|adder:adder0
+a[0] => a[0].IN1
+a[1] => a[1].IN1
+a[2] => a[2].IN1
+a[3] => a[3].IN1
+a[4] => a[4].IN1
+a[5] => a[5].IN1
+a[6] => a[6].IN1
+a[7] => a[7].IN1
+b[0] => b[0].IN1
+b[1] => b[1].IN1
+b[2] => b[2].IN1
+b[3] => b[3].IN1
+b[4] => b[4].IN1
+b[5] => b[5].IN1
+b[6] => b[6].IN1
+b[7] => b[7].IN1
+result[0] <= lpm_add_sub:a1.result
+result[1] <= lpm_add_sub:a1.result
+result[2] <= lpm_add_sub:a1.result
+result[3] <= lpm_add_sub:a1.result
+result[4] <= lpm_add_sub:a1.result
+result[5] <= lpm_add_sub:a1.result
+result[6] <= lpm_add_sub:a1.result
+result[7] <= lpm_add_sub:a1.result
+
+
+|mult|adder:adder0|lpm_add_sub:a1
+dataa[0] => add_sub_dah:auto_generated.dataa[0]
+dataa[1] => add_sub_dah:auto_generated.dataa[1]
+dataa[2] => add_sub_dah:auto_generated.dataa[2]
+dataa[3] => add_sub_dah:auto_generated.dataa[3]
+dataa[4] => add_sub_dah:auto_generated.dataa[4]
+dataa[5] => add_sub_dah:auto_generated.dataa[5]
+dataa[6] => add_sub_dah:auto_generated.dataa[6]
+dataa[7] => add_sub_dah:auto_generated.dataa[7]
+datab[0] => add_sub_dah:auto_generated.datab[0]
+datab[1] => add_sub_dah:auto_generated.datab[1]
+datab[2] => add_sub_dah:auto_generated.datab[2]
+datab[3] => add_sub_dah:auto_generated.datab[3]
+datab[4] => add_sub_dah:auto_generated.datab[4]
+datab[5] => add_sub_dah:auto_generated.datab[5]
+datab[6] => add_sub_dah:auto_generated.datab[6]
+datab[7] => add_sub_dah:auto_generated.datab[7]
+cin => ~NO_FANOUT~
+add_sub => ~NO_FANOUT~
 clock => ~NO_FANOUT~
+aclr => ~NO_FANOUT~
 clken => ~NO_FANOUT~
-result[0] <= mult_ihq:auto_generated.result[0]
-result[1] <= mult_ihq:auto_generated.result[1]
-result[2] <= mult_ihq:auto_generated.result[2]
-result[3] <= mult_ihq:auto_generated.result[3]
-result[4] <= mult_ihq:auto_generated.result[4]
-result[5] <= mult_ihq:auto_generated.result[5]
-result[6] <= mult_ihq:auto_generated.result[6]
-result[7] <= mult_ihq:auto_generated.result[7]
-result[8] <= mult_ihq:auto_generated.result[8]
-result[9] <= mult_ihq:auto_generated.result[9]
-result[10] <= mult_ihq:auto_generated.result[10]
-result[11] <= mult_ihq:auto_generated.result[11]
-result[12] <= mult_ihq:auto_generated.result[12]
-result[13] <= mult_ihq:auto_generated.result[13]
-result[14] <= mult_ihq:auto_generated.result[14]
-result[15] <= mult_ihq:auto_generated.result[15]
+result[0] <= add_sub_dah:auto_generated.result[0]
+result[1] <= add_sub_dah:auto_generated.result[1]
+result[2] <= add_sub_dah:auto_generated.result[2]
+result[3] <= add_sub_dah:auto_generated.result[3]
+result[4] <= add_sub_dah:auto_generated.result[4]
+result[5] <= add_sub_dah:auto_generated.result[5]
+result[6] <= add_sub_dah:auto_generated.result[6]
+result[7] <= add_sub_dah:auto_generated.result[7]
+cout <= <GND>
+overflow <= <GND>
 
 
-|mult|lpm_mult:m2|mult_ihq:auto_generated
-dataa[0] => Mult0.IN7
-dataa[1] => Mult0.IN6
-dataa[2] => Mult0.IN5
-dataa[3] => Mult0.IN4
-dataa[4] => Mult0.IN3
-dataa[5] => Mult0.IN2
-dataa[6] => Mult0.IN1
-dataa[7] => Mult0.IN0
-datab[0] => Mult0.IN15
-datab[1] => Mult0.IN14
-datab[2] => Mult0.IN13
-datab[3] => Mult0.IN12
-datab[4] => Mult0.IN11
-datab[5] => Mult0.IN10
-datab[6] => Mult0.IN9
-datab[7] => Mult0.IN8
-result[0] <= Mult0.DB_MAX_OUTPUT_PORT_TYPE
-result[1] <= Mult0.DB_MAX_OUTPUT_PORT_TYPE
-result[2] <= Mult0.DB_MAX_OUTPUT_PORT_TYPE
-result[3] <= Mult0.DB_MAX_OUTPUT_PORT_TYPE
-result[4] <= Mult0.DB_MAX_OUTPUT_PORT_TYPE
-result[5] <= Mult0.DB_MAX_OUTPUT_PORT_TYPE
-result[6] <= Mult0.DB_MAX_OUTPUT_PORT_TYPE
-result[7] <= Mult0.DB_MAX_OUTPUT_PORT_TYPE
-result[8] <= Mult0.DB_MAX_OUTPUT_PORT_TYPE
-result[9] <= Mult0.DB_MAX_OUTPUT_PORT_TYPE
-result[10] <= Mult0.DB_MAX_OUTPUT_PORT_TYPE
-result[11] <= Mult0.DB_MAX_OUTPUT_PORT_TYPE
-result[12] <= Mult0.DB_MAX_OUTPUT_PORT_TYPE
-result[13] <= Mult0.DB_MAX_OUTPUT_PORT_TYPE
-result[14] <= Mult0.DB_MAX_OUTPUT_PORT_TYPE
-result[15] <= Mult0.DB_MAX_OUTPUT_PORT_TYPE
+|mult|adder:adder0|lpm_add_sub:a1|add_sub_dah:auto_generated
+dataa[0] => op_1.IN14
+dataa[1] => op_1.IN12
+dataa[2] => op_1.IN10
+dataa[3] => op_1.IN8
+dataa[4] => op_1.IN6
+dataa[5] => op_1.IN4
+dataa[6] => op_1.IN2
+dataa[7] => op_1.IN0
+datab[0] => op_1.IN15
+datab[1] => op_1.IN13
+datab[2] => op_1.IN11
+datab[3] => op_1.IN9
+datab[4] => op_1.IN7
+datab[5] => op_1.IN5
+datab[6] => op_1.IN3
+datab[7] => op_1.IN1
+result[0] <= op_1.DB_MAX_OUTPUT_PORT_TYPE
+result[1] <= op_1.DB_MAX_OUTPUT_PORT_TYPE
+result[2] <= op_1.DB_MAX_OUTPUT_PORT_TYPE
+result[3] <= op_1.DB_MAX_OUTPUT_PORT_TYPE
+result[4] <= op_1.DB_MAX_OUTPUT_PORT_TYPE
+result[5] <= op_1.DB_MAX_OUTPUT_PORT_TYPE
+result[6] <= op_1.DB_MAX_OUTPUT_PORT_TYPE
+result[7] <= op_1.DB_MAX_OUTPUT_PORT_TYPE
 
 

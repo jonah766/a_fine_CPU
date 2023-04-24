@@ -9,7 +9,7 @@ module program_memory #(
 (* ramstyle = "mlab" *) logic [INSTR_WIDTH-1:0] prog_mem [(1<<ADDR_WIDTH)-1:0];
 
 initial
-    $readmemh("/home/jonahfoley/ELEC6234/a_fine_CPU/programs/prog_3.hex", prog_mem);
+    $readmemh("../../programs/prog_3.hex", prog_mem);
    
 always_comb
     instr = prog_mem[addr]; 
