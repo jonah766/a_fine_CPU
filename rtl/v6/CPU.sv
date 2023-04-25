@@ -121,7 +121,7 @@ always_ff @(posedge clk) begin
     ALU_reg_en <= reg_en;
 end
 
-ALU #(
+ALU_v2 #(
     BUS_WIDTH
 ) alu (
     .clk   (clk       ),

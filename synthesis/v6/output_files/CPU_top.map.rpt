@@ -1,5 +1,5 @@
 Analysis & Synthesis report for CPU_top
-Mon Apr 24 19:52:28 2023
+Tue Apr 25 02:05:15 2023
 Quartus Prime Version 16.1.2 Build 203 01/18/2017 SJ Standard Edition
 
 
@@ -14,37 +14,35 @@ Quartus Prime Version 16.1.2 Build 203 01/18/2017 SJ Standard Edition
   6. Partition Status Summary
   7. Partition for Top-Level Resource Utilization by Entity
   8. Registers Removed During Synthesis
-  9. Removed Registers Triggering Further Register Optimizations
- 10. Registers Packed Into Inferred Megafunctions
- 11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Source assignments for CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|altsyncram:gpr_rtl_0|altsyncram_37s1:auto_generated
- 13. Source assignments for CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|altsyncram:gpr_rtl_1|altsyncram_37s1:auto_generated
- 14. Parameter Settings for User Entity Instance: clk_divider:cd0
- 15. Parameter Settings for User Entity Instance: CPU:cpu0
- 16. Parameter Settings for User Entity Instance: CPU:cpu0|mux_21:PC_en_mux
- 17. Parameter Settings for User Entity Instance: CPU:cpu0|program_counter:pc
- 18. Parameter Settings for User Entity Instance: CPU:cpu0|program_memory:pm
- 19. Parameter Settings for User Entity Instance: CPU:cpu0|register_file:rf
- 20. Parameter Settings for User Entity Instance: CPU:cpu0|register_file:rf|dual_port_SRAM:sr0
- 21. Parameter Settings for User Entity Instance: CPU:cpu0|instruction_decoder:id
- 22. Parameter Settings for User Entity Instance: CPU:cpu0|ALU:alu
- 23. Parameter Settings for User Entity Instance: CPU:cpu0|ALU:alu|mux_21:e_add_mux
- 24. Parameter Settings for User Entity Instance: CPU:cpu0|ALU:alu|mux_21:op_e_mux
- 25. Parameter Settings for User Entity Instance: CPU:cpu0|ALU:alu|mux_21:coeff_mux
- 26. Parameter Settings for User Entity Instance: CPU:cpu0|ALU:alu|sfixed_adder:a0
- 27. Parameter Settings for User Entity Instance: CPU:cpu0|ALU:alu|sfixed_adder:a1
- 28. Parameter Settings for Inferred Entity Instance: CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|altsyncram:gpr_rtl_0
- 29. Parameter Settings for Inferred Entity Instance: CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|altsyncram:gpr_rtl_1
- 30. Partition Dependent Files
- 31. Post-Synthesis Netlist Statistics for Top Partition
- 32. Partition "sfixed_mult_9x9_x3:m0" Resource Utilization by Entity
- 33. Parameter Settings for User Entity Instance: CPU:cpu0|ALU:alu|sfixed_mult_9x9_x3:m0
- 34. Partition Dependent Files
- 35. Post-Synthesis Netlist Statistics for Partition sfixed_mult_9x9_x3:m0
- 36. Port Connectivity Checks: "CPU:cpu0|ALU:alu|mux_21:coeff_mux"
- 37. Port Connectivity Checks: "CPU:cpu0|program_memory:pm"
- 38. Elapsed Time Per Partition
- 39. Analysis & Synthesis Messages
+  9. Registers Packed Into Inferred Megafunctions
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Source assignments for CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|altsyncram:gpr_rtl_0|altsyncram_37s1:auto_generated
+ 12. Source assignments for CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|altsyncram:gpr_rtl_1|altsyncram_37s1:auto_generated
+ 13. Parameter Settings for User Entity Instance: clk_divider:cd0
+ 14. Parameter Settings for User Entity Instance: CPU:cpu0
+ 15. Parameter Settings for User Entity Instance: CPU:cpu0|mux_21:PC_en_mux
+ 16. Parameter Settings for User Entity Instance: CPU:cpu0|program_counter:pc
+ 17. Parameter Settings for User Entity Instance: CPU:cpu0|program_memory:pm
+ 18. Parameter Settings for User Entity Instance: CPU:cpu0|register_file:rf
+ 19. Parameter Settings for User Entity Instance: CPU:cpu0|register_file:rf|dual_port_SRAM:sr0
+ 20. Parameter Settings for User Entity Instance: CPU:cpu0|instruction_decoder:id
+ 21. Parameter Settings for User Entity Instance: CPU:cpu0|ALU_v2:alu
+ 22. Parameter Settings for User Entity Instance: CPU:cpu0|ALU_v2:alu|mux_21:e_add_mux
+ 23. Parameter Settings for User Entity Instance: CPU:cpu0|ALU_v2:alu|mux_21:op_e_mux
+ 24. Parameter Settings for User Entity Instance: CPU:cpu0|ALU_v2:alu|mux_21:coeff_mux
+ 25. Parameter Settings for User Entity Instance: CPU:cpu0|ALU_v2:alu|sfixed_adder:a0
+ 26. Parameter Settings for User Entity Instance: CPU:cpu0|ALU_v2:alu|sfixed_adder:a1
+ 27. Parameter Settings for Inferred Entity Instance: CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|altsyncram:gpr_rtl_0
+ 28. Parameter Settings for Inferred Entity Instance: CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|altsyncram:gpr_rtl_1
+ 29. Partition Dependent Files
+ 30. Post-Synthesis Netlist Statistics for Top Partition
+ 31. Parameter Settings for User Entity Instance: CPU:cpu0|ALU_v2:alu|ALU_mult_stage:am1
+ 32. Parameter Settings for User Entity Instance: CPU:cpu0|ALU_v2:alu|ALU_mult_stage:am1|sfixed_mult_9x9_x3:m0
+ 33. Partition Dependent Files
+ 34. Port Connectivity Checks: "CPU:cpu0|ALU_v2:alu|mux_21:coeff_mux"
+ 35. Port Connectivity Checks: "CPU:cpu0|program_memory:pm"
+ 36. Elapsed Time Per Partition
+ 37. Analysis & Synthesis Messages
 
 
 
@@ -71,7 +69,7 @@ agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Apr 24 19:52:28 2023           ;
+; Analysis & Synthesis Status     ; Successful - Tue Apr 25 02:05:14 2023           ;
 ; Quartus Prime Version           ; 16.1.2 Build 203 01/18/2017 SJ Standard Edition ;
 ; Revision Name                   ; CPU_top                                         ;
 ; Top-level Entity Name           ; CPU_top                                         ;
@@ -202,7 +200,8 @@ agreement for further details.
 +-----------------------------------------------------------------------------+-----------------+-------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path                                            ; Used in Netlist ; File Type                                             ; File Name with Absolute Path                                                                                         ; Library ;
 +-----------------------------------------------------------------------------+-----------------+-------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------+---------+
-; ../../rtl/v6/ALU.sv                                                         ; yes             ; User SystemVerilog HDL File                           ; /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v6/ALU.sv                                                ;         ;
+; ../../rtl/v6/ALU_v2.sv                                                      ; yes             ; User SystemVerilog HDL File                           ; /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v6/ALU_v2.sv                                             ;         ;
+; ../../rtl/v6/ALU_mult_stage.sv                                              ; yes             ; User SystemVerilog HDL File                           ; /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v6/ALU_mult_stage.sv                                     ;         ;
 ; ../../rtl/v6/clk_divider.sv                                                 ; yes             ; User SystemVerilog HDL File                           ; /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v6/clk_divider.sv                                        ;         ;
 ; ../../rtl/v6/CPU.sv                                                         ; yes             ; User SystemVerilog HDL File                           ; /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v6/CPU.sv                                                ;         ;
 ; ../../rtl/v6/CPU_top.sv                                                     ; yes             ; User SystemVerilog HDL File                           ; /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v6/CPU_top.sv                                            ;         ;
@@ -230,14 +229,14 @@ agreement for further details.
 +-----------------------------------------------------------------------------+-----------------+-------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------+---------+
 
 
-+------------------------------------------------------------------+
-; Partition Status Summary                                         ;
-+-----------------------+-------------+----------------------------+
-; Partition Name        ; Synthesized ; Reason                     ;
-+-----------------------+-------------+----------------------------+
-; Top                   ; yes         ; netlist type = Source File ;
-; sfixed_mult_9x9_x3:m0 ; yes         ; Dependent files changed    ;
-+-----------------------+-------------+----------------------------+
++---------------------------------------------------------------+
+; Partition Status Summary                                      ;
++--------------------+-------------+----------------------------+
+; Partition Name     ; Synthesized ; Reason                     ;
++--------------------+-------------+----------------------------+
+; Top                ; yes         ; netlist type = Source File ;
+; ALU_mult_stage:am1 ; no          ; No relevant changes        ;
++--------------------+-------------+----------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -245,12 +244,12 @@ agreement for further details.
 +-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                      ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                       ; Entity Name         ; Library Name ;
 +-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |CPU_top                                        ; 67 (1)              ; 100 (0)                   ; 48                ; 0          ; 0    ; 0            ; |CPU_top                                                                                                  ; CPU_top             ; work         ;
-;    |CPU:cpu0|                                   ; 41 (1)              ; 75 (33)                   ; 48                ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0                                                                                         ; CPU                 ; work         ;
-;       |ALU:alu|                                 ; 23 (0)              ; 38 (38)                   ; 0                 ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|ALU:alu                                                                                 ; ALU                 ; work         ;
-;          |mux_21:coeff_mux|                     ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|ALU:alu|mux_21:coeff_mux                                                                ; mux_21              ; work         ;
-;          |mux_21:op_e_mux|                      ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|ALU:alu|mux_21:op_e_mux                                                                 ; mux_21              ; work         ;
-;          |sfixed_adder:a1|                      ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|ALU:alu|sfixed_adder:a1                                                                 ; sfixed_adder        ; work         ;
+; |CPU_top                                        ; 67 (1)              ; 70 (0)                    ; 48                ; 0          ; 0    ; 0            ; |CPU_top                                                                                                  ; CPU_top             ; work         ;
+;    |CPU:cpu0|                                   ; 41 (1)              ; 45 (33)                   ; 48                ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0                                                                                         ; CPU                 ; work         ;
+;       |ALU_v2:alu|                              ; 23 (0)              ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|ALU_v2:alu                                                                              ; ALU_v2              ; work         ;
+;          |mux_21:coeff_mux|                     ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|ALU_v2:alu|mux_21:coeff_mux                                                             ; mux_21              ; work         ;
+;          |mux_21:op_e_mux|                      ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|ALU_v2:alu|mux_21:op_e_mux                                                              ; mux_21              ; work         ;
+;          |sfixed_adder:a1|                      ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|ALU_v2:alu|sfixed_adder:a1                                                              ; sfixed_adder        ; work         ;
 ;       |instruction_decoder:id|                  ; 6 (6)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|instruction_decoder:id                                                                  ; instruction_decoder ; work         ;
 ;       |program_counter:pc|                      ; 4 (4)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|program_counter:pc                                                                      ; program_counter     ; work         ;
 ;       |program_memory:pm|                       ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU_top|CPU:cpu0|program_memory:pm                                                                       ; program_memory      ; work         ;
@@ -275,20 +274,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; CPU:cpu0|ALU_imm[6]                   ; Merged with CPU:cpu0|wr_addr[0][0]     ;
 ; CPU:cpu0|wr_addr[0][1]                ; Merged with CPU:cpu0|ALU_imm[7]        ;
 ; CPU:cpu0|ALU_imm[1]                   ; Stuck at GND due to stuck port data_in ;
-; CPU:cpu0|ALU:alu|op_b_reg[1]          ; Stuck at GND due to stuck port data_in ;
-; CPU:cpu0|ALU:alu|op_d_reg[1]          ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 7 ;                                        ;
+; Total Number of Removed Registers = 5 ;                                        ;
 +---------------------------------------+----------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                  ;
-+---------------------+---------------------------+------------------------------------------------------------+
-; Register name       ; Reason for Removal        ; Registers Removed due to This Register                     ;
-+---------------------+---------------------------+------------------------------------------------------------+
-; CPU:cpu0|ALU_imm[1] ; Stuck at GND              ; CPU:cpu0|ALU:alu|op_b_reg[1], CPU:cpu0|ALU:alu|op_d_reg[1] ;
-;                     ; due to stuck port data_in ;                                                            ;
-+---------------------+---------------------------+------------------------------------------------------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------+
@@ -301,13 +288,13 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------------------------------------------------+--------------------------------------------------------+------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                      ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output            ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------+
-; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |CPU_top|CPU:cpu0|ALU:alu|op_e_reg[7] ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------+
+; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |CPU_top|CPU:cpu0|ALU_v2:alu|op_e_reg[7] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------+
@@ -343,7 +330,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------------+-------+----------------------------+
 ; Parameter Name   ; Value ; Type                       ;
 +------------------+-------+----------------------------+
-; INSTR_WIDTH      ; 12    ; Signed Integer             ;
+; INSTR_WIDTH      ; 24    ; Signed Integer             ;
 ; OPCODE_WIDTH     ; 3     ; Signed Integer             ;
 ; INSTR_ADDR_WIDTH ; 4     ; Signed Integer             ;
 ; REG_ADDR_WIDTH   ; 2     ; Signed Integer             ;
@@ -378,7 +365,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Parameter Name ; Value ; Type                                           ;
 +----------------+-------+------------------------------------------------+
 ; ADDR_WIDTH     ; 4     ; Signed Integer                                 ;
-; INSTR_WIDTH    ; 12    ; Signed Integer                                 ;
+; INSTR_WIDTH    ; 24    ; Signed Integer                                 ;
 +----------------+-------+------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -415,73 +402,73 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: CPU:cpu0|ALU:alu ;
-+----------------+-------+--------------------------------------+
-; Parameter Name ; Value ; Type                                 ;
-+----------------+-------+--------------------------------------+
-; BUS_WIDTH      ; 8     ; Signed Integer                       ;
-+----------------+-------+--------------------------------------+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:cpu0|ALU_v2:alu ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; BUS_WIDTH      ; 8     ; Signed Integer                          ;
++----------------+-------+-----------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+--------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: CPU:cpu0|ALU:alu|mux_21:e_add_mux ;
-+----------------+-------+-------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                  ;
-+----------------+-------+-------------------------------------------------------+
-; BIT_WIDTH      ; 8     ; Signed Integer                                        ;
-+----------------+-------+-------------------------------------------------------+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:cpu0|ALU_v2:alu|mux_21:e_add_mux ;
++----------------+-------+----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                     ;
++----------------+-------+----------------------------------------------------------+
+; BIT_WIDTH      ; 8     ; Signed Integer                                           ;
++----------------+-------+----------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: CPU:cpu0|ALU:alu|mux_21:op_e_mux ;
-+----------------+-------+------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                 ;
-+----------------+-------+------------------------------------------------------+
-; BIT_WIDTH      ; 8     ; Signed Integer                                       ;
-+----------------+-------+------------------------------------------------------+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:cpu0|ALU_v2:alu|mux_21:op_e_mux ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; BIT_WIDTH      ; 8     ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+--------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: CPU:cpu0|ALU:alu|mux_21:coeff_mux ;
-+----------------+-------+-------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                  ;
-+----------------+-------+-------------------------------------------------------+
-; BIT_WIDTH      ; 8     ; Signed Integer                                        ;
-+----------------+-------+-------------------------------------------------------+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:cpu0|ALU_v2:alu|mux_21:coeff_mux ;
++----------------+-------+----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                     ;
++----------------+-------+----------------------------------------------------------+
+; BIT_WIDTH      ; 8     ; Signed Integer                                           ;
++----------------+-------+----------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: CPU:cpu0|ALU:alu|sfixed_adder:a0 ;
-+----------------+-------+------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                 ;
-+----------------+-------+------------------------------------------------------+
-; A_LEFT         ; 7     ; Signed Integer                                       ;
-; A_RIGHT        ; 0     ; Signed Integer                                       ;
-; B_LEFT         ; 7     ; Signed Integer                                       ;
-; B_RIGHT        ; 0     ; Signed Integer                                       ;
-; OUT_LEFT       ; 7     ; Signed Integer                                       ;
-; OUT_RIGHT      ; 0     ; Signed Integer                                       ;
-+----------------+-------+------------------------------------------------------+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:cpu0|ALU_v2:alu|sfixed_adder:a0 ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; A_LEFT         ; 7     ; Signed Integer                                          ;
+; A_RIGHT        ; 0     ; Signed Integer                                          ;
+; B_LEFT         ; 7     ; Signed Integer                                          ;
+; B_RIGHT        ; 0     ; Signed Integer                                          ;
+; OUT_LEFT       ; 7     ; Signed Integer                                          ;
+; OUT_RIGHT      ; 0     ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: CPU:cpu0|ALU:alu|sfixed_adder:a1 ;
-+----------------+-------+------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                 ;
-+----------------+-------+------------------------------------------------------+
-; A_LEFT         ; 7     ; Signed Integer                                       ;
-; A_RIGHT        ; 0     ; Signed Integer                                       ;
-; B_LEFT         ; 7     ; Signed Integer                                       ;
-; B_RIGHT        ; 0     ; Signed Integer                                       ;
-; OUT_LEFT       ; 7     ; Signed Integer                                       ;
-; OUT_RIGHT      ; 0     ; Signed Integer                                       ;
-+----------------+-------+------------------------------------------------------+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:cpu0|ALU_v2:alu|sfixed_adder:a1 ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; A_LEFT         ; 7     ; Signed Integer                                          ;
+; A_RIGHT        ; 0     ; Signed Integer                                          ;
+; B_LEFT         ; 7     ; Signed Integer                                          ;
+; B_RIGHT        ; 0     ; Signed Integer                                          ;
+; OUT_LEFT       ; 7     ; Signed Integer                                          ;
+; OUT_RIGHT      ; 0     ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -613,8 +600,8 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; File                                ; Location          ; Library ; Checksum                         ;
 +-------------------------------------+-------------------+---------+----------------------------------+
 ; ../../programs/prog_3.hex           ; Project Directory ; work    ; 146fc4ee63211d8145a35f404adef94c ;
-; ../../rtl/v6/ALU.sv                 ; Project Directory ; work    ; 2160861cfde59da71405511500dd3b04 ;
-; ../../rtl/v6/CPU.sv                 ; Project Directory ; work    ; 070761fb8b97be331bd66752c42805b6 ;
+; ../../rtl/v6/ALU_v2.sv              ; Project Directory ; work    ; 5049f8af795b402c8d08670761abdc27 ;
+; ../../rtl/v6/CPU.sv                 ; Project Directory ; work    ; 4cd82c73b45596017079267beb6d0890 ;
 ; ../../rtl/v6/CPU_top.sv             ; Project Directory ; work    ; 5aac06aea997cceba560bf53b798733e ;
 ; ../../rtl/v6/clk_divider.sv         ; Project Directory ; work    ; d94af286c5bdfadcb0d0cd6e6de6c565 ;
 ; ../../rtl/v6/dual_port_SRAM.sv      ; Project Directory ; work    ; 7b463be1667d0ece4d457d9a72b9a09d ;
@@ -630,62 +617,59 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
-+----------------------------------+------------------+
-; Type                             ; Count            ;
-+----------------------------------+------------------+
-; arriav_ff                        ; 100              ;
-;     CLR                          ; 4                ;
-;     ENA                          ; 38               ;
-;     plain                        ; 58               ;
-; arriav_lcell_comb                ; 67               ;
-;     arith                        ; 24               ;
-;         1 data inputs            ; 23               ;
-;         2 data inputs            ; 1                ;
-;     normal                       ; 35               ;
-;         0 data inputs            ; 1                ;
-;         1 data inputs            ; 1                ;
-;         2 data inputs            ; 8                ;
-;         3 data inputs            ; 3                ;
-;         4 data inputs            ; 13               ;
-;         5 data inputs            ; 8                ;
-;         6 data inputs            ; 1                ;
-;     shared                       ; 8                ;
-;         3 data inputs            ; 8                ;
-; blackbox                         ; 1                ;
-;             fixed_mult_9x9_x3:m0 ; 1                ;
-; boundary_port                    ; 19               ;
-; stratixv_ram_block               ; 16               ;
-;                                  ;                  ;
-; Max LUT depth                    ; 3.30             ;
-; Average LUT depth                ; 1.31             ;
-+----------------------------------+------------------+
-
-
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Partition "sfixed_mult_9x9_x3:m0" Resource Utilization by Entity                                                                                                                                                                ;
-+----------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------+--------------------+--------------+
-; Compilation Hierarchy Node       ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                             ; Entity Name        ; Library Name ;
-+----------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------+--------------------+--------------+
-; |CPU_top                         ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |CPU_top                                        ; CPU_top            ; work         ;
-;    |CPU:cpu0|                    ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |CPU_top|CPU:cpu0                               ; CPU                ; work         ;
-;       |ALU:alu|                  ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |CPU_top|CPU:cpu0|ALU:alu                       ; ALU                ; work         ;
-;          |sfixed_mult_9x9_x3:m0| ; 0 (0)               ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |CPU_top|CPU:cpu0|ALU:alu|sfixed_mult_9x9_x3:m0 ; sfixed_mult_9x9_x3 ; work         ;
-+----------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------+--------------------+--------------+
-Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
++-------------------------------+---------------------+
+; Type                          ; Count               ;
++-------------------------------+---------------------+
+; arriav_ff                     ; 70                  ;
+;     CLR                       ; 4                   ;
+;     ENA                       ; 8                   ;
+;     plain                     ; 58                  ;
+; arriav_lcell_comb             ; 67                  ;
+;     arith                     ; 24                  ;
+;         1 data inputs         ; 23                  ;
+;         2 data inputs         ; 1                   ;
+;     normal                    ; 35                  ;
+;         0 data inputs         ; 1                   ;
+;         1 data inputs         ; 1                   ;
+;         2 data inputs         ; 8                   ;
+;         3 data inputs         ; 3                   ;
+;         4 data inputs         ; 13                  ;
+;         5 data inputs         ; 8                   ;
+;         6 data inputs         ; 1                   ;
+;     shared                    ; 8                   ;
+;         3 data inputs         ; 8                   ;
+; blackbox                      ; 1                   ;
+;             LU_mult_stage:am1 ; 1                   ;
+; boundary_port                 ; 19                  ;
+; stratixv_ram_block            ; 16                  ;
+;                               ;                     ;
+; Max LUT depth                 ; 3.30                ;
+; Average LUT depth             ; 1.49                ;
++-------------------------------+---------------------+
 
 
 +-------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: CPU:cpu0|ALU:alu|sfixed_mult_9x9_x3:m0 ;
+; Parameter Settings for User Entity Instance: CPU:cpu0|ALU_v2:alu|ALU_mult_stage:am1 ;
 +----------------+-------+------------------------------------------------------------+
 ; Parameter Name ; Value ; Type                                                       ;
 +----------------+-------+------------------------------------------------------------+
-; A_LEFT         ; 7     ; Signed Integer                                             ;
-; A_RIGHT        ; 0     ; Signed Integer                                             ;
-; B_LEFT         ; 0     ; Signed Integer                                             ;
-; B_RIGHT        ; 7     ; Signed Integer                                             ;
-; OUT_LEFT       ; 7     ; Signed Integer                                             ;
-; OUT_RIGHT      ; 0     ; Signed Integer                                             ;
+; BUS_WIDTH      ; 8     ; Signed Integer                                             ;
 +----------------+-------+------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:cpu0|ALU_v2:alu|ALU_mult_stage:am1|sfixed_mult_9x9_x3:m0 ;
++----------------+-------+----------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                             ;
++----------------+-------+----------------------------------------------------------------------------------+
+; A_LEFT         ; 7     ; Signed Integer                                                                   ;
+; A_RIGHT        ; 0     ; Signed Integer                                                                   ;
+; B_LEFT         ; 0     ; Signed Integer                                                                   ;
+; B_RIGHT        ; 7     ; Signed Integer                                                                   ;
+; OUT_LEFT       ; 7     ; Signed Integer                                                                   ;
+; OUT_RIGHT      ; 0     ; Signed Integer                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -694,25 +678,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------------------------------+-------------------+---------+----------------------------------+
 ; File                               ; Location          ; Library ; Checksum                         ;
 +------------------------------------+-------------------+---------+----------------------------------+
+; ../../rtl/v6/ALU_mult_stage.sv     ; Project Directory ; work    ; 7fb71e87df91e16602ddfb178d40e16c ;
 ; ../../rtl/v6/sfixed_mult_9x9_x3.sv ; Project Directory ; work    ; 1a7dd906089d50cbfe50eb1a6a9f570b ;
 +------------------------------------+-------------------+---------+----------------------------------+
 
 
-+-----------------------------------------------------------------------+
-; Post-Synthesis Netlist Statistics for Partition sfixed_mult_9x9_x3:m0 ;
-+-------------------+---------------------------------------------------+
-; Type              ; Count                                             ;
-+-------------------+---------------------------------------------------+
-; arriav_mac        ; 2                                                 ;
-; boundary_port     ; 48                                                ;
-;                   ;                                                   ;
-; Max LUT depth     ; 0.00                                              ;
-; Average LUT depth ; 0.00                                              ;
-+-------------------+---------------------------------------------------+
-
-
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "CPU:cpu0|ALU:alu|mux_21:coeff_mux"                                                                                                       ;
+; Port Connectivity Checks: "CPU:cpu0|ALU_v2:alu|mux_21:coeff_mux"                                                                                                    ;
 +------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port ; Type  ; Severity ; Details                                                                                                                                   ;
 +------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
@@ -721,23 +693,23 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "CPU:cpu0|program_memory:pm"                                                             ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; Port     ; Type   ; Severity ; Details                                                                             ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; instr[8] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CPU:cpu0|program_memory:pm"                                                                  ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; instr[23..12] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; instr[8]      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+--------------------------------------+
-; Elapsed Time Per Partition           ;
-+-----------------------+--------------+
-; Partition Name        ; Elapsed Time ;
-+-----------------------+--------------+
-; Top                   ; 00:00:00     ;
-; sfixed_mult_9x9_x3:m0 ; 00:00:00     ;
-+-----------------------+--------------+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
 
 
 +-------------------------------+
@@ -746,12 +718,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.1.2 Build 203 01/18/2017 SJ Standard Edition
-    Info: Processing started: Mon Apr 24 19:52:12 2023
+    Info: Processing started: Tue Apr 25 02:04:57 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off affine_CPU_v6 -c CPU_top
 Info (16303): Aggressive Area optimization mode selected -- logic area will be prioritized at the potential cost of reduced timing performance
     Info (16304): Mode behavior is affected by advanced setting Physical Synthesis Effort Level (default for this mode is Normal)
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 24 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v6/ALU_v2.sv
+    Info (12023): Found entity 1: ALU_v2 File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v6/ALU_v2.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v6/ALU_mult_stage.sv
     Info (12023): Found entity 1: ALU_mult_stage File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v6/ALU_mult_stage.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v6/ALU.sv
@@ -795,22 +769,21 @@ Warning (10030): Net "prog_mem.we_a" at program_memory.sv(9) has no driver or in
 Info (12128): Elaborating entity "register_file" for hierarchy "CPU:cpu0|register_file:rf" File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v6/CPU.sv Line: 94
 Info (12128): Elaborating entity "dual_port_SRAM" for hierarchy "CPU:cpu0|register_file:rf|dual_port_SRAM:sr0" File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v6/register_file.sv Line: 25
 Info (12128): Elaborating entity "instruction_decoder" for hierarchy "CPU:cpu0|instruction_decoder:id" File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v6/CPU.sv Line: 109
-Info (12128): Elaborating entity "ALU" for hierarchy "CPU:cpu0|ALU:alu" File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v6/CPU.sv Line: 136
-Info (12128): Elaborating entity "mux_21" for hierarchy "CPU:cpu0|ALU:alu|mux_21:e_add_mux" File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v6/ALU.sv Line: 27
-Info (12128): Elaborating entity "sfixed_mult_9x9_x3" for hierarchy "CPU:cpu0|ALU:alu|sfixed_mult_9x9_x3:m0" File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v6/ALU.sv Line: 92
-Info (12128): Elaborating entity "sfixed_adder" for hierarchy "CPU:cpu0|ALU:alu|sfixed_adder:a0" File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v6/ALU.sv Line: 105
-Info (12206): 2 design partitions require synthesis
+Info (12128): Elaborating entity "ALU_v2" for hierarchy "CPU:cpu0|ALU_v2:alu" File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v6/CPU.sv Line: 136
+Info (12128): Elaborating entity "mux_21" for hierarchy "CPU:cpu0|ALU_v2:alu|mux_21:e_add_mux" File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v6/ALU_v2.sv Line: 27
+Info (12128): Elaborating entity "ALU_mult_stage" for hierarchy "CPU:cpu0|ALU_v2:alu|ALU_mult_stage:am1" File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v6/ALU_v2.sv Line: 70
+Info (12128): Elaborating entity "sfixed_mult_9x9_x3" for hierarchy "CPU:cpu0|ALU_v2:alu|ALU_mult_stage:am1|sfixed_mult_9x9_x3:m0" File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v6/ALU_mult_stage.sv Line: 55
+Info (12128): Elaborating entity "sfixed_adder" for hierarchy "CPU:cpu0|ALU_v2:alu|sfixed_adder:a0" File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v6/ALU_v2.sv Line: 84
+Info (12205): 1 design partition requires Analysis and Synthesis
     Info (12210): Partition "Top" requires synthesis because its netlist type is Source File
-    Info (12211): Partition "sfixed_mult_9x9_x3:m0" requires synthesis because there were changes to its dependent source files
-Info (12209): No design partitions will skip synthesis in the current incremental compilation
+Info (12207): 1 design partition does not require synthesis
+    Info (12229): Partition "ALU_mult_stage:am1" does not require synthesis because there were no relevant design changes
 Info (13005): Duplicate registers merged to single register
     Info (13350): Duplicate register "CPU:cpu0|ALU_reg_en[2]" merged to single register "CPU:cpu0|ALU_reg_en[0]" File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v6/CPU.sv Line: 117
     Info (13350): Duplicate register "CPU:cpu0|we[0]" merged to single register "CPU:cpu0|ALU_reg_en[0]" File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v6/CPU.sv Line: 76
     Info (13350): Duplicate register "CPU:cpu0|ALU_imm[6]" merged to single register "CPU:cpu0|wr_addr[0][0]" File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v6/CPU.sv Line: 117
     Info (13350): Duplicate register "CPU:cpu0|wr_addr[0][1]" merged to single register "CPU:cpu0|ALU_imm[7]" File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v6/CPU.sv Line: 76
 Warning (14130): Reduced register "CPU:cpu0|ALU_imm[1]" with stuck data_in port to stuck value GND File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v6/CPU.sv Line: 117
-Warning (14130): Reduced register "CPU:cpu0|ALU:alu|op_b_reg[1]" with stuck data_in port to stuck value GND File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v6/ALU.sv Line: 54
-Warning (14130): Reduced register "CPU:cpu0|ALU:alu|op_d_reg[1]" with stuck data_in port to stuck value GND File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v6/ALU.sv Line: 65
 Info (19000): Inferred 2 megafunctions from design logic
     Info (276029): Inferred altsyncram megafunction from the following design logic: "CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|gpr_rtl_0" 
         Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
@@ -885,25 +858,19 @@ Info (12133): Instantiated megafunction "CPU:cpu0|register_file:rf|dual_port_SRA
     Info (12134): Parameter "INIT_FILE" = "db/CPU_top.ram0_dual_port_SRAM_439b62d0.hdl.mif"
     Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
 Info (270000): Limiting DSP block usage to 1 DSP block(s) for the partition Top
-Info (270000): Limiting DSP block usage to 1 DSP block(s) for the partition CPU:cpu0|ALU:alu|sfixed_mult_9x9_x3:m0
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (281020): Starting Logic Optimization and Technology Mapping for Top Partition
 Info (286031): Timing-Driven Synthesis is running on partition "Top"
-Info (21057): Implemented 156 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 126 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 11 input pins
     Info (21059): Implemented 8 output pins
-    Info (21061): Implemented 120 logic cells
+    Info (21061): Implemented 90 logic cells
     Info (21064): Implemented 16 RAM segments
     Info (21071): Implemented 1 partitions
-Info (281019): Starting Logic Optimization and Technology Mapping for Partition sfixed_mult_9x9_x3:m0 File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v6/ALU.sv Line: 92
-Info (21057): Implemented 50 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 32 input pins
-    Info (21059): Implemented 16 output pins
-    Info (21062): Implemented 2 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 8 warnings
-    Info: Peak virtual memory: 1233 megabytes
-    Info: Processing ended: Mon Apr 24 19:52:28 2023
-    Info: Elapsed time: 00:00:16
-    Info: Total CPU time (on all processors): 00:00:36
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 6 warnings
+    Info: Peak virtual memory: 1223 megabytes
+    Info: Processing ended: Tue Apr 25 02:05:15 2023
+    Info: Elapsed time: 00:00:18
+    Info: Total CPU time (on all processors): 00:00:40
 
 

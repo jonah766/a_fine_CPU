@@ -1,5 +1,5 @@
 Flow report for CPU_top
-Mon Apr 24 22:55:20 2023
+Tue Apr 25 02:06:48 2023
 Quartus Prime Version 16.1.2 Build 203 01/18/2017 SJ Standard Edition
 
 
@@ -41,19 +41,19 @@ agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Flow Summary                                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Flow Status                     ; Successful - Mon Apr 24 22:55:20 2023           ;
+; Flow Status                     ; Successful - Tue Apr 25 02:06:48 2023           ;
 ; Quartus Prime Version           ; 16.1.2 Build 203 01/18/2017 SJ Standard Edition ;
 ; Revision Name                   ; CPU_top                                         ;
 ; Top-level Entity Name           ; CPU_top                                         ;
 ; Family                          ; Cyclone V                                       ;
 ; Device                          ; 5CSEMA5F31C6                                    ;
 ; Timing Models                   ; Final                                           ;
-; Logic utilization (in ALMs)     ; 40 / 32,070 ( < 1 % )                           ;
-; Total registers                 ; 93                                              ;
+; Logic utilization (in ALMs)     ; 35 / 32,070 ( < 1 % )                           ;
+; Total registers                 ; 70                                              ;
 ; Total pins                      ; 19 / 457 ( 4 % )                                ;
 ; Total virtual pins              ; 0                                               ;
 ; Total block memory bits         ; 48 / 4,065,280 ( < 1 % )                        ;
-; Total DSP Blocks                ; 1 / 87 ( 1 % )                                  ;
+; Total DSP Blocks                ; 2 / 87 ( 2 % )                                  ;
 ; Total HSSI RX PCSs              ; 0                                               ;
 ; Total HSSI PMA RX Deserializers ; 0                                               ;
 ; Total HSSI TX PCSs              ; 0                                               ;
@@ -68,7 +68,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/24/2023 19:50:20 ;
+; Start date & time ; 04/25/2023 02:01:27 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; CPU_top             ;
 +-------------------+---------------------+
@@ -85,7 +85,7 @@ agreement for further details.
 ; ALM_REGISTER_PACKING_EFFORT                   ; High                                   ; Medium             ; --          ; --         ;
 ; AUTO_RESOURCE_SHARING                         ; On                                     ; Off                ; --          ; --         ;
 ; BLOCK_RAM_TO_MLAB_CELL_CONVERSION             ; Off                                    ; On                 ; --          ; --         ;
-; COMPILER_SIGNATURE_ID                         ; 345050572627.168236222025565           ; --                 ; --          ; --         ;
+; COMPILER_SIGNATURE_ID                         ; 345050572627.168238448517359           ; --                 ; --          ; --         ;
 ; DSP_BLOCK_BALANCING                           ; Simple Multipliers                     ; Auto               ; --          ; --         ;
 ; FINAL_PLACEMENT_OPTIMIZATION                  ; Always                                 ; Automatically      ; --          ; --         ;
 ; FITTER_EFFORT                                 ; Standard Fit                           ; Auto Fit           ; --          ; --         ;
@@ -116,15 +116,12 @@ agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:18     ; 1.0                     ; 1228 MB             ; 00:00:38                           ;
-; Analysis & Synthesis ; 00:00:14     ; 1.0                     ; 1222 MB             ; 00:00:37                           ;
-; Partition Merge      ; 00:00:01     ; 1.0                     ; 1332 MB             ; 00:00:01                           ;
-; Fitter               ; 00:00:19     ; 1.0                     ; 1800 MB             ; 00:00:19                           ;
-; Analysis & Synthesis ; 00:00:16     ; 1.0                     ; 1233 MB             ; 00:00:36                           ;
-; Partition Merge      ; 00:00:01     ; 1.0                     ; 1330 MB             ; 00:00:01                           ;
-; Fitter               ; 00:01:33     ; 1.0                     ; 2634 MB             ; 00:04:00                           ;
-; Fitter               ; 00:01:33     ; 1.0                     ; 2628 MB             ; 00:03:49                           ;
-; Total                ; 00:04:15     ; --                      ; --                  ; 00:10:01                           ;
+; Analysis & Synthesis ; 00:00:38     ; 1.0                     ; 1227 MB             ; 00:00:39                           ;
+; Fitter               ; 00:01:27     ; 1.0                     ; 2591 MB             ; 00:03:51                           ;
+; Analysis & Synthesis ; 00:00:17     ; 1.0                     ; 1223 MB             ; 00:00:40                           ;
+; Partition Merge      ; 00:00:01     ; 1.0                     ; 1325 MB             ; 00:00:01                           ;
+; Fitter               ; 00:01:29     ; 1.0                     ; 2619 MB             ; 00:03:56                           ;
+; Total                ; 00:03:52     ; --                      ; --                  ; 00:09:07                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -134,12 +131,9 @@ agreement for further details.
 ; Module Name          ; Machine Hostname ; OS Name ; OS Version ; Processor type ;
 +----------------------+------------------+---------+------------+----------------+
 ; Analysis & Synthesis ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
-; Analysis & Synthesis ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
-; Partition Merge      ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
 ; Fitter               ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
 ; Analysis & Synthesis ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
 ; Partition Merge      ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
-; Fitter               ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
 ; Fitter               ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
 +----------------------+------------------+---------+------------+----------------+
 
@@ -148,13 +142,10 @@ agreement for further details.
 ; Flow Log ;
 ------------
 quartus_map --read_settings_files=on --write_settings_files=off affine_CPU_v6 -c CPU_top
-quartus_map --read_settings_files=on --write_settings_files=off affine_CPU_v6 -c CPU_top
-quartus_cdb --read_settings_files=off --write_settings_files=off affine_CPU_v6 -c CPU_top --merge=on
-quartus_fit --read_settings_files=off --write_settings_files=off affine_CPU_v6 -c CPU_top
-quartus_map --read_settings_files=on --write_settings_files=off affine_CPU_v6 -c CPU_top
-quartus_cdb --read_settings_files=off --write_settings_files=off affine_CPU_v6 -c CPU_top --merge=on
-quartus_fit --read_settings_files=off --write_settings_files=off affine_CPU_v6 -c CPU_top
 quartus_fit --read_settings_files=on --write_settings_files=off affine_CPU_v6 -c CPU_top
+quartus_map --read_settings_files=on --write_settings_files=off affine_CPU_v6 -c CPU_top
+quartus_cdb --read_settings_files=off --write_settings_files=off affine_CPU_v6 -c CPU_top --merge=on
+quartus_fit --read_settings_files=off --write_settings_files=off affine_CPU_v6 -c CPU_top
 
 
 

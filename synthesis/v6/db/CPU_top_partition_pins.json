@@ -82,7 +82,7 @@
 			]
 		},
 		{
-			"name" : "sfixed_mult_9x9_x3:m0",
+			"name" : "ALU_mult_stage:am1",
 			"pins" : []
 		}
 	]

@@ -62,7 +62,6 @@ ALU_mult_stage #(
     .b_en  (reg_en[1]), 
     .c_en  (reg_en[2]), 
     .d_en  (reg_en[3]),
-    .mult_a(mult_a), 
     .data_a(data_a),
     .data_b(data_b),
     .coeff  (coeff  ),
