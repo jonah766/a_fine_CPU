@@ -1,5 +1,5 @@
 Analysis & Synthesis report for CPU_top
-Tue Apr 25 02:05:15 2023
+Wed Apr 26 00:41:09 2023
 Quartus Prime Version 16.1.2 Build 203 01/18/2017 SJ Standard Edition
 
 
@@ -69,7 +69,7 @@ agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Tue Apr 25 02:05:14 2023           ;
+; Analysis & Synthesis Status     ; Successful - Wed Apr 26 00:41:09 2023           ;
 ; Quartus Prime Version           ; 16.1.2 Build 203 01/18/2017 SJ Standard Edition ;
 ; Revision Name                   ; CPU_top                                         ;
 ; Top-level Entity Name           ; CPU_top                                         ;
@@ -99,8 +99,9 @@ agreement for further details.
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; Verilog Show LMF Mapping Messages                                               ; Off                ;                    ;
 ; Verilog Version                                                                 ; SystemVerilog_2005 ; Verilog_2001       ;
-; DSP Block Balancing                                                             ; Simple Multipliers ; Auto               ;
 ; Maximum DSP Block Usage                                                         ; 1                  ; -1 (Unlimited)     ;
+; Remove Redundant Logic Cells                                                    ; On                 ; Off                ;
+; Ignore LCELL Buffers                                                            ; On                 ; Off                ;
 ; Optimization Technique                                                          ; Area               ; Balanced           ;
 ; Auto Resource Sharing                                                           ; On                 ; Off                ;
 ; Allow Any RAM Size For Recognition                                              ; On                 ; Off                ;
@@ -126,15 +127,14 @@ agreement for further details.
 ; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
 ; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
 ; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
 ; NOT Gate Push-Back                                                              ; On                 ; On                 ;
 ; Power-Up Don't Care                                                             ; On                 ; On                 ;
-; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
 ; Remove Duplicate Registers                                                      ; On                 ; On                 ;
 ; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
 ; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
 ; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
 ; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
-; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
 ; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
 ; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
 ; Carry Chain Length                                                              ; 70                 ; 70                 ;
@@ -269,8 +269,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------------+----------------------------------------+
 ; Register name                         ; Reason for Removal                     ;
 +---------------------------------------+----------------------------------------+
-; CPU:cpu0|ALU_reg_en[2]                ; Merged with CPU:cpu0|ALU_reg_en[0]     ;
-; CPU:cpu0|we[0]                        ; Merged with CPU:cpu0|ALU_reg_en[0]     ;
+; CPU:cpu0|ALU_reg_en_p[2]              ; Merged with CPU:cpu0|ALU_reg_en_p[0]   ;
+; CPU:cpu0|we[0]                        ; Merged with CPU:cpu0|ALU_reg_en_p[0]   ;
 ; CPU:cpu0|ALU_imm[6]                   ; Merged with CPU:cpu0|wr_addr[0][0]     ;
 ; CPU:cpu0|wr_addr[0][1]                ; Merged with CPU:cpu0|ALU_imm[7]        ;
 ; CPU:cpu0|ALU_imm[1]                   ; Stuck at GND due to stuck port data_in ;
@@ -330,7 +330,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------------+-------+----------------------------+
 ; Parameter Name   ; Value ; Type                       ;
 +------------------+-------+----------------------------+
-; INSTR_WIDTH      ; 24    ; Signed Integer             ;
+; INSTR_WIDTH      ; 12    ; Signed Integer             ;
 ; OPCODE_WIDTH     ; 3     ; Signed Integer             ;
 ; INSTR_ADDR_WIDTH ; 4     ; Signed Integer             ;
 ; REG_ADDR_WIDTH   ; 2     ; Signed Integer             ;
@@ -365,7 +365,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Parameter Name ; Value ; Type                                           ;
 +----------------+-------+------------------------------------------------+
 ; ADDR_WIDTH     ; 4     ; Signed Integer                                 ;
-; INSTR_WIDTH    ; 24    ; Signed Integer                                 ;
+; INSTR_WIDTH    ; 12    ; Signed Integer                                 ;
 +----------------+-------+------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -599,17 +599,17 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------------+-------------------+---------+----------------------------------+
 ; File                                ; Location          ; Library ; Checksum                         ;
 +-------------------------------------+-------------------+---------+----------------------------------+
-; ../../programs/prog_3.hex           ; Project Directory ; work    ; 146fc4ee63211d8145a35f404adef94c ;
-; ../../rtl/v6/ALU_v2.sv              ; Project Directory ; work    ; 5049f8af795b402c8d08670761abdc27 ;
-; ../../rtl/v6/CPU.sv                 ; Project Directory ; work    ; 4cd82c73b45596017079267beb6d0890 ;
+; ../../programs/prog_3.hex           ; Project Directory ; work    ; 3dd19da7b2a4d12ca5fe2b63e67a6c0b ;
+; ../../rtl/v6/ALU_v2.sv              ; Project Directory ; work    ; a43e003d6173639d100bdff0bfd60aec ;
+; ../../rtl/v6/CPU.sv                 ; Project Directory ; work    ; daaaeccbaf552362c702b6a3f863a87b ;
 ; ../../rtl/v6/CPU_top.sv             ; Project Directory ; work    ; 5aac06aea997cceba560bf53b798733e ;
 ; ../../rtl/v6/clk_divider.sv         ; Project Directory ; work    ; d94af286c5bdfadcb0d0cd6e6de6c565 ;
 ; ../../rtl/v6/dual_port_SRAM.sv      ; Project Directory ; work    ; 7b463be1667d0ece4d457d9a72b9a09d ;
-; ../../rtl/v6/instruction_decoder.sv ; Project Directory ; work    ; 58d69689a6b8f1219f73d1cd7aceaa92 ;
+; ../../rtl/v6/instruction_decoder.sv ; Project Directory ; work    ; 043c0b2045be1fe031b611e7c9b286df ;
 ; ../../rtl/v6/mux_21.sv              ; Project Directory ; work    ; 52f08a77c0834786444f376627a181ca ;
 ; ../../rtl/v6/opcodes.sv             ; Project Directory ; work    ; 61153a5f0099706d31fd88dff2dc43b3 ;
 ; ../../rtl/v6/program_counter.sv     ; Project Directory ; work    ; 8726230e08ad155569c9eb0c873b096a ;
-; ../../rtl/v6/program_memory.sv      ; Project Directory ; work    ; 15244edd13862fc9e6ae0bf4981d3f22 ;
+; ../../rtl/v6/program_memory.sv      ; Project Directory ; work    ; bed521d13483bd3fbf5db7023d84aeaf ;
 ; ../../rtl/v6/register_file.sv       ; Project Directory ; work    ; b266d9497eacefc9e030baa3beca1f78 ;
 ; ../../rtl/v6/sfixed_adder.sv        ; Project Directory ; work    ; 6fc00609ff7d72b5d83d802aa8bcc837 ;
 +-------------------------------------+-------------------+---------+----------------------------------+
@@ -683,24 +683,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------------------------------+-------------------+---------+----------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "CPU:cpu0|ALU_v2:alu|mux_21:coeff_mux"                                                                                                    ;
-+------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type  ; Severity ; Details                                                                                                                                   ;
-+------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
-; a    ; Input ; Warning  ; Input port expression (7 bits) is smaller than the input port (8 bits) it drives.  Extra input bit(s) "a[7..7]" will be connected to GND. ;
-; a    ; Input ; Info     ; Stuck at GND                                                                                                                              ;
-+------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
++------------------------------------------------------------------+
+; Port Connectivity Checks: "CPU:cpu0|ALU_v2:alu|mux_21:coeff_mux" ;
++------+-------+----------+----------------------------------------+
+; Port ; Type  ; Severity ; Details                                ;
++------+-------+----------+----------------------------------------+
+; a    ; Input ; Info     ; Stuck at GND                           ;
++------+-------+----------+----------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "CPU:cpu0|program_memory:pm"                                                                  ;
-+---------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port          ; Type   ; Severity ; Details                                                                             ;
-+---------------+--------+----------+-------------------------------------------------------------------------------------+
-; instr[23..12] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; instr[8]      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+---------------+--------+----------+-------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CPU:cpu0|program_memory:pm"                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; instr[8] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-------------------------------+
@@ -718,7 +716,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.1.2 Build 203 01/18/2017 SJ Standard Edition
-    Info: Processing started: Tue Apr 25 02:04:57 2023
+    Info: Processing started: Wed Apr 26 00:40:51 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off affine_CPU_v6 -c CPU_top
 Info (16303): Aggressive Area optimization mode selected -- logic area will be prioritized at the potential cost of reduced timing performance
     Info (16304): Mode behavior is affected by advanced setting Physical Synthesis Effort Level (default for this mode is Normal)
@@ -779,8 +777,8 @@ Info (12205): 1 design partition requires Analysis and Synthesis
 Info (12207): 1 design partition does not require synthesis
     Info (12229): Partition "ALU_mult_stage:am1" does not require synthesis because there were no relevant design changes
 Info (13005): Duplicate registers merged to single register
-    Info (13350): Duplicate register "CPU:cpu0|ALU_reg_en[2]" merged to single register "CPU:cpu0|ALU_reg_en[0]" File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v6/CPU.sv Line: 117
-    Info (13350): Duplicate register "CPU:cpu0|we[0]" merged to single register "CPU:cpu0|ALU_reg_en[0]" File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v6/CPU.sv Line: 76
+    Info (13350): Duplicate register "CPU:cpu0|ALU_reg_en_p[2]" merged to single register "CPU:cpu0|ALU_reg_en_p[0]" File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v6/CPU.sv Line: 117
+    Info (13350): Duplicate register "CPU:cpu0|we[0]" merged to single register "CPU:cpu0|ALU_reg_en_p[0]" File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v6/CPU.sv Line: 76
     Info (13350): Duplicate register "CPU:cpu0|ALU_imm[6]" merged to single register "CPU:cpu0|wr_addr[0][0]" File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v6/CPU.sv Line: 117
     Info (13350): Duplicate register "CPU:cpu0|wr_addr[0][1]" merged to single register "CPU:cpu0|ALU_imm[7]" File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v6/CPU.sv Line: 76
 Warning (14130): Reduced register "CPU:cpu0|ALU_imm[1]" with stuck data_in port to stuck value GND File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v6/CPU.sv Line: 117
@@ -858,7 +856,6 @@ Info (12133): Instantiated megafunction "CPU:cpu0|register_file:rf|dual_port_SRA
     Info (12134): Parameter "INIT_FILE" = "db/CPU_top.ram0_dual_port_SRAM_439b62d0.hdl.mif"
     Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
 Info (270000): Limiting DSP block usage to 1 DSP block(s) for the partition Top
-Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (281020): Starting Logic Optimization and Technology Mapping for Top Partition
 Info (286031): Timing-Driven Synthesis is running on partition "Top"
 Info (21057): Implemented 126 device resources after synthesis - the final resource count might be different
@@ -867,10 +864,10 @@ Info (21057): Implemented 126 device resources after synthesis - the final resou
     Info (21061): Implemented 90 logic cells
     Info (21064): Implemented 16 RAM segments
     Info (21071): Implemented 1 partitions
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 1223 megabytes
-    Info: Processing ended: Tue Apr 25 02:05:15 2023
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 1218 megabytes
+    Info: Processing ended: Wed Apr 26 00:41:09 2023
     Info: Elapsed time: 00:00:18
-    Info: Total CPU time (on all processors): 00:00:40
+    Info: Total CPU time (on all processors): 00:00:38
 
 

@@ -1,5 +1,5 @@
 Flow report for CPU_top
-Tue Apr 25 02:06:48 2023
+Wed Apr 26 00:42:08 2023
 Quartus Prime Version 16.1.2 Build 203 01/18/2017 SJ Standard Edition
 
 
@@ -41,7 +41,7 @@ agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Flow Summary                                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Flow Status                     ; Successful - Tue Apr 25 02:06:48 2023           ;
+; Flow Status                     ; Successful - Wed Apr 26 00:42:08 2023           ;
 ; Quartus Prime Version           ; 16.1.2 Build 203 01/18/2017 SJ Standard Edition ;
 ; Revision Name                   ; CPU_top                                         ;
 ; Top-level Entity Name           ; CPU_top                                         ;
@@ -121,7 +121,13 @@ agreement for further details.
 ; Analysis & Synthesis ; 00:00:17     ; 1.0                     ; 1223 MB             ; 00:00:40                           ;
 ; Partition Merge      ; 00:00:01     ; 1.0                     ; 1325 MB             ; 00:00:01                           ;
 ; Fitter               ; 00:01:29     ; 1.0                     ; 2619 MB             ; 00:03:56                           ;
-; Total                ; 00:03:52     ; --                      ; --                  ; 00:09:07                           ;
+; Analysis & Synthesis ; 00:00:18     ; 1.0                     ; 1228 MB             ; 00:00:36                           ;
+; Partition Merge      ; 00:00:01     ; 1.0                     ; 1322 MB             ; 00:00:01                           ;
+; Fitter               ; 00:01:45     ; 1.0                     ; 2586 MB             ; 00:06:20                           ;
+; Analysis & Synthesis ; 00:00:18     ; 1.0                     ; 1218 MB             ; 00:00:38                           ;
+; Partition Merge      ; 00:00:01     ; 1.0                     ; 1325 MB             ; 00:00:01                           ;
+; Fitter               ; 00:00:55     ; 1.0                     ; 2560 MB             ; 00:02:52                           ;
+; Total                ; 00:07:10     ; --                      ; --                  ; 00:19:35                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -135,6 +141,12 @@ agreement for further details.
 ; Analysis & Synthesis ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
 ; Partition Merge      ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
 ; Fitter               ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
+; Analysis & Synthesis ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
+; Partition Merge      ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
+; Fitter               ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
+; Analysis & Synthesis ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
+; Partition Merge      ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
+; Fitter               ; srv02749         ; Red Hat ; Red Hat    ; x86_64         ;
 +----------------------+------------------+---------+------------+----------------+
 
 
@@ -143,6 +155,12 @@ agreement for further details.
 ------------
 quartus_map --read_settings_files=on --write_settings_files=off affine_CPU_v6 -c CPU_top
 quartus_fit --read_settings_files=on --write_settings_files=off affine_CPU_v6 -c CPU_top
+quartus_map --read_settings_files=on --write_settings_files=off affine_CPU_v6 -c CPU_top
+quartus_cdb --read_settings_files=off --write_settings_files=off affine_CPU_v6 -c CPU_top --merge=on
+quartus_fit --read_settings_files=off --write_settings_files=off affine_CPU_v6 -c CPU_top
+quartus_map --read_settings_files=on --write_settings_files=off affine_CPU_v6 -c CPU_top
+quartus_cdb --read_settings_files=on --write_settings_files=off affine_CPU_v6 -c CPU_top --merge=on
+quartus_fit --read_settings_files=off --write_settings_files=off affine_CPU_v6 -c CPU_top
 quartus_map --read_settings_files=on --write_settings_files=off affine_CPU_v6 -c CPU_top
 quartus_cdb --read_settings_files=off --write_settings_files=off affine_CPU_v6 -c CPU_top --merge=on
 quartus_fit --read_settings_files=off --write_settings_files=off affine_CPU_v6 -c CPU_top

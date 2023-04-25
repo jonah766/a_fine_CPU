@@ -1,5 +1,5 @@
 Partition Merge report for CPU_top
-Tue Apr 25 15:21:06 2023
+Tue Apr 25 18:34:02 2023
 Quartus Prime Version 16.1.2 Build 203 01/18/2017 SJ Standard Edition
 
 
@@ -42,13 +42,13 @@ agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Partition Merge Summary                                                           ;
 +---------------------------------+-------------------------------------------------+
-; Partition Merge Status          ; Successful - Tue Apr 25 15:21:06 2023           ;
+; Partition Merge Status          ; Successful - Tue Apr 25 18:34:02 2023           ;
 ; Quartus Prime Version           ; 16.1.2 Build 203 01/18/2017 SJ Standard Edition ;
 ; Revision Name                   ; CPU_top                                         ;
 ; Top-level Entity Name           ; CPU_top                                         ;
 ; Family                          ; Cyclone V                                       ;
 ; Logic utilization (in ALMs)     ; N/A                                             ;
-; Total registers                 ; 67                                              ;
+; Total registers                 ; 58                                              ;
 ; Total pins                      ; 19                                              ;
 ; Total virtual pins              ; 0                                               ;
 ; Total block memory bits         ; 48                                              ;
@@ -88,19 +88,19 @@ Note: The Incremental Compilation Advisor can be used to get more detailed recom
 +---------------------------------------------+-----+--------------------+--------------------------------+
 ; Statistic                                   ; Top ; ALU_mult_stage:am1 ; hard_block:auto_generated_inst ;
 +---------------------------------------------+-----+--------------------+--------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 29  ; 7                  ; 0                              ;
+; Estimate of Logic utilization (ALMs needed) ; 30  ; 7                  ; 0                              ;
 ;                                             ;     ;                    ;                                ;
-; Combinational ALUT usage for logic          ; 60  ; 8                  ; 0                              ;
+; Combinational ALUT usage for logic          ; 61  ; 8                  ; 0                              ;
 ;     -- 7 input functions                    ; 0   ; 0                  ; 0                              ;
 ;     -- 6 input functions                    ; 1   ; 0                  ; 0                              ;
 ;     -- 5 input functions                    ; 1   ; 0                  ; 0                              ;
-;     -- 4 input functions                    ; 19  ; 0                  ; 0                              ;
+;     -- 4 input functions                    ; 20  ; 0                  ; 0                              ;
 ;     -- <=3 input functions                  ; 39  ; 8                  ; 0                              ;
 ; Memory ALUT usage                           ; 0   ; 0                  ; 0                              ;
 ;     -- 64-address deep                      ; 0   ; 0                  ; 0                              ;
 ;     -- 32-address deep                      ; 0   ; 0                  ; 0                              ;
 ;                                             ;     ;                    ;                                ;
-; Dedicated logic registers                   ; 51  ; 16                 ; 0                              ;
+; Dedicated logic registers                   ; 42  ; 16                 ; 0                              ;
 ;                                             ;     ;                    ;                                ;
 ;                                             ;     ;                    ;                                ;
 ; I/O pins                                    ; 19  ; 0                  ; 0                              ;
@@ -113,11 +113,11 @@ Note: The Incremental Compilation Advisor can be used to get more detailed recom
 ;     -- Input Connections                    ; 16  ; 64                 ; 0                              ;
 ;     -- Registered Input Connections         ; 0   ; 32                 ; 0                              ;
 ;     -- Output Connections                   ; 64  ; 16                 ; 0                              ;
-;     -- Registered Output Connections        ; 47  ; 0                  ; 0                              ;
+;     -- Registered Output Connections        ; 16  ; 0                  ; 0                              ;
 ;                                             ;     ;                    ;                                ;
 ; Internal Connections                        ;     ;                    ;                                ;
-;     -- Total Connections                    ; 505 ; 112                ; 0                              ;
-;     -- Registered Connections               ; 267 ; 48                 ; 0                              ;
+;     -- Total Connections                    ; 489 ; 112                ; 0                              ;
+;     -- Registered Connections               ; 214 ; 48                 ; 0                              ;
 ;                                             ;     ;                    ;                                ;
 ; External Connections                        ;     ;                    ;                                ;
 ;     -- Top                                  ; 0   ; 80                 ; 0                              ;
@@ -235,16 +235,16 @@ Note: Resource usage numbers presented for Partitions containing post-synthesis 
 +---------------------------------------------+---------------------------+
 ; Resource                                    ; Usage                     ;
 +---------------------------------------------+---------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 36                        ;
+; Estimate of Logic utilization (ALMs needed) ; 37                        ;
 ;                                             ;                           ;
-; Combinational ALUT usage for logic          ; 68                        ;
+; Combinational ALUT usage for logic          ; 69                        ;
 ;     -- 7 input functions                    ; 0                         ;
 ;     -- 6 input functions                    ; 1                         ;
 ;     -- 5 input functions                    ; 1                         ;
-;     -- 4 input functions                    ; 19                        ;
+;     -- 4 input functions                    ; 20                        ;
 ;     -- <=3 input functions                  ; 47                        ;
 ;                                             ;                           ;
-; Dedicated logic registers                   ; 67                        ;
+; Dedicated logic registers                   ; 58                        ;
 ;                                             ;                           ;
 ; I/O pins                                    ; 19                        ;
 ; Total MLAB memory bits                      ; 0                         ;
@@ -253,9 +253,9 @@ Note: Resource usage numbers presented for Partitions containing post-synthesis 
 ; Total DSP Blocks                            ; 2                         ;
 ;                                             ;                           ;
 ; Maximum fan-out node                        ; clk_divider:cd0|count[24] ;
-; Maximum fan-out                             ; 59                        ;
-; Total fan-out                               ; 530                       ;
-; Average fan-out                             ; 2.77                      ;
+; Maximum fan-out                             ; 50                        ;
+; Total fan-out                               ; 514                       ;
+; Average fan-out                             ; 2.81                      ;
 +---------------------------------------------+---------------------------+
 
 
@@ -287,11 +287,11 @@ Note: Resource usage numbers presented for Partitions containing post-synthesis 
 Info: *******************************************************************
 Info: Running Quartus Prime Partition Merge
     Info: Version 16.1.2 Build 203 01/18/2017 SJ Standard Edition
-    Info: Processing started: Tue Apr 25 15:21:05 2023
+    Info: Processing started: Tue Apr 25 18:34:01 2023
 Info: Command: quartus_cdb --read_settings_files=on --write_settings_files=off affine_CPU_v8 -c CPU_top --merge=on
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (35007): Using synthesis netlist for partition "Top"
-Info (35007): Using synthesis netlist for partition "ALU_mult_stage:am1" File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v8/ALU_v2.sv Line: 58
+Info (35007): Using synthesis netlist for partition "ALU_mult_stage:am1" File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v8/ALU_v2.sv Line: 30
 Info (35002): Resolved and merged 2 partition(s)
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
@@ -305,15 +305,15 @@ Warning (21074): Design contains 8 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "sw[5]" File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v8/CPU_top.sv Line: 5
     Warning (15610): No output dependent on input pin "sw[6]" File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v8/CPU_top.sv Line: 5
     Warning (15610): No output dependent on input pin "sw[7]" File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v8/CPU_top.sv Line: 5
-Info (21057): Implemented 125 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 132 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 11 input pins
     Info (21059): Implemented 8 output pins
-    Info (21061): Implemented 88 logic cells
+    Info (21061): Implemented 95 logic cells
     Info (21064): Implemented 16 RAM segments
     Info (21062): Implemented 2 DSP elements
 Info: Quartus Prime Partition Merge was successful. 0 errors, 10 warnings
     Info: Peak virtual memory: 1326 megabytes
-    Info: Processing ended: Tue Apr 25 15:21:06 2023
+    Info: Processing ended: Tue Apr 25 18:34:02 2023
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 

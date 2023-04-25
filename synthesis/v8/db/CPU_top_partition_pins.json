@@ -36,15 +36,15 @@
 					"strict" : false
 				},
 				{
-					"name" : "fastclk",
-					"strict" : false
-				},
-				{
 					"name" : "ready_in",
 					"strict" : false
 				},
 				{
 					"name" : "n_reset",
+					"strict" : false
+				},
+				{
+					"name" : "fastclk",
 					"strict" : false
 				}
 			]

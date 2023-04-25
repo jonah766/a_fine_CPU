@@ -1,10 +1,10 @@
-Partition Merge Status : Successful - Tue Apr 25 15:21:06 2023
+Partition Merge Status : Successful - Tue Apr 25 18:34:02 2023
 Quartus Prime Version : 16.1.2 Build 203 01/18/2017 SJ Standard Edition
 Revision Name : CPU_top
 Top-level Entity Name : CPU_top
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 67
+Total registers : 58
 Total pins : 19
 Total virtual pins : 0
 Total block memory bits : 48

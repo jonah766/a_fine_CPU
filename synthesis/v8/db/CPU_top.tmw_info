@@ -1,4 +1,4 @@
-start_analysis_synthesis:s:00:00:19
+start_analysis_synthesis:s:00:00:18
 start_analysis_elaboration:s
-start_partition_merge:s:00:00:03
-start_fitter:s:00:01:48
+start_partition_merge:s:00:00:02
+start_fitter:s:00:01:37
