@@ -1,9 +1,9 @@
 module ALU_mult_stage #(
     parameter BUS_WIDTH = 8
 ) (
-    input  logic clk,
-    input  logic a_en, b_en, c_en, d_en,
-    input  logic [BUS_WIDTH-1:0] data_a, data_b, coeff,
+    input  logic clk, f_add,
+    input  logic b_en, d_en,
+    input  logic [BUS_WIDTH-1:0] data_a, data_b, imm,
     output logic [BUS_WIDTH-1:0] mult_a, mult_b
 );
 `ifdef COCOTB_SIM
@@ -18,13 +18,21 @@ end
 logic [BUS_WIDTH-1:0] op_b_reg, op_d_reg;
 
 always_ff @( posedge clk ) begin 
-    if (b_en) 
-        op_b_reg <= coeff;
+    if (b_en) begin
+       if (f_add)
+          op_b_reg <= '0;
+       else 
+          op_b_reg <= imm;
+    end   
 end
 
 always_ff @( posedge clk ) begin 
-    if (d_en)
-        op_d_reg <= coeff;
+    if (d_en) begin
+        if (f_add)
+          op_d_reg <= '0;
+       else 
+          op_d_reg <= imm;
+    end
 end
 
 sfixed_mult #(

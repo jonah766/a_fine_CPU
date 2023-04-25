@@ -86,7 +86,7 @@ register_file #(
 	.clk      (clk       ),  
     .we       (we        ),
  	.wr_addr  (wr_addr   ),
-	.wr_data  (wr_data   ),
+	.wr_data  (ALU_result),
  	.rd_addr_a(instr[4:3]), 
     .rd_addr_b(instr[1:0]),
  	.rd_data_a(rd_data_a ), 
@@ -130,19 +130,9 @@ ALU_v2 #(
     .data_b(rd_data_b ),   
     .reg_en(ALU_reg_en),
     .f_add (ALU_add   ),
+    .f_load(ALU_load  ),
     .result(ALU_result)
 );    
-
-logic [BUS_WIDTH-1:0] wr_data;
-
-mux_21 #(
-    BUS_WIDTH
-) ALU_res_mux (   
-    .s  (ALU_load  ), 
-    .a  (sw[1]     ), 
-    .b  (ALU_result),
-    .out(wr_data   )
-);
 
 assign out_port = ALU_result;
 

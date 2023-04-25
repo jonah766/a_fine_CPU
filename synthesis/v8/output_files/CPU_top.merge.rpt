@@ -1,0 +1,320 @@
+Partition Merge report for CPU_top
+Tue Apr 25 15:21:06 2023
+Quartus Prime Version 16.1.2 Build 203 01/18/2017 SJ Standard Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Partition Merge Summary
+  3. Partition Merge Netlist Types Used
+  4. Partition Merge Partition Warnings
+  5. Partition Merge Partition Statistics
+  6. Partition Merge Partition Pin Processing
+  7. Partition Merge Resource Usage Summary
+  8. Partition Merge RAM Summary
+  9. Partition Merge DSP Block Usage Summary
+ 10. Partition Merge Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2017  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Intel and sold by Intel or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++-----------------------------------------------------------------------------------+
+; Partition Merge Summary                                                           ;
++---------------------------------+-------------------------------------------------+
+; Partition Merge Status          ; Successful - Tue Apr 25 15:21:06 2023           ;
+; Quartus Prime Version           ; 16.1.2 Build 203 01/18/2017 SJ Standard Edition ;
+; Revision Name                   ; CPU_top                                         ;
+; Top-level Entity Name           ; CPU_top                                         ;
+; Family                          ; Cyclone V                                       ;
+; Logic utilization (in ALMs)     ; N/A                                             ;
+; Total registers                 ; 67                                              ;
+; Total pins                      ; 19                                              ;
+; Total virtual pins              ; 0                                               ;
+; Total block memory bits         ; 48                                              ;
+; Total DSP Blocks                ; 2                                               ;
+; Total HSSI RX PCSs              ; 0                                               ;
+; Total HSSI PMA RX Deserializers ; 0                                               ;
+; Total HSSI TX PCSs              ; 0                                               ;
+; Total HSSI PMA TX Serializers   ; 0                                               ;
+; Total PLLs                      ; 0                                               ;
+; Total DLLs                      ; 0                                               ;
++---------------------------------+-------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------+
+; Partition Merge Netlist Types Used                                                                                                    ;
++--------------------------------+----------------+-------------------+------------------------+----------------------------------------+
+; Partition Name                 ; Partition Type ; Netlist Type Used ; Netlist Type Requested ; Partition Contents                     ;
++--------------------------------+----------------+-------------------+------------------------+----------------------------------------+
+; Top                            ; User-created   ; Source File       ; Source File            ;                                        ;
+; ALU_mult_stage:am1             ; User-created   ; Post-Synthesis    ; Post-Synthesis         ; CPU:cpu0|ALU_v2:alu|ALU_mult_stage:am1 ;
+; hard_block:auto_generated_inst ; Auto-generated ; Source File       ; Source File            ; hard_block:auto_generated_inst         ;
++--------------------------------+----------------+-------------------+------------------------+----------------------------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Partition Merge Partition Warnings                                                          ;
++-----------------------------------------------+--------------------+------------------------+
+; Port                                          ; Partition          ; Info                   ;
++-----------------------------------------------+--------------------+------------------------+
+; CPU:cpu0|ALU_v2:alu|ALU_mult_stage:am1|imm[1] ; ALU_mult_stage:am1 ; Driven by constant GND ;
++-----------------------------------------------+--------------------+------------------------+
+Note: The Incremental Compilation Advisor can be used to get more detailed recommendations.
+
+
++---------------------------------------------------------------------------------------------------------+
+; Partition Merge Partition Statistics                                                                    ;
++---------------------------------------------+-----+--------------------+--------------------------------+
+; Statistic                                   ; Top ; ALU_mult_stage:am1 ; hard_block:auto_generated_inst ;
++---------------------------------------------+-----+--------------------+--------------------------------+
+; Estimate of Logic utilization (ALMs needed) ; 29  ; 7                  ; 0                              ;
+;                                             ;     ;                    ;                                ;
+; Combinational ALUT usage for logic          ; 60  ; 8                  ; 0                              ;
+;     -- 7 input functions                    ; 0   ; 0                  ; 0                              ;
+;     -- 6 input functions                    ; 1   ; 0                  ; 0                              ;
+;     -- 5 input functions                    ; 1   ; 0                  ; 0                              ;
+;     -- 4 input functions                    ; 19  ; 0                  ; 0                              ;
+;     -- <=3 input functions                  ; 39  ; 8                  ; 0                              ;
+; Memory ALUT usage                           ; 0   ; 0                  ; 0                              ;
+;     -- 64-address deep                      ; 0   ; 0                  ; 0                              ;
+;     -- 32-address deep                      ; 0   ; 0                  ; 0                              ;
+;                                             ;     ;                    ;                                ;
+; Dedicated logic registers                   ; 51  ; 16                 ; 0                              ;
+;                                             ;     ;                    ;                                ;
+;                                             ;     ;                    ;                                ;
+; I/O pins                                    ; 19  ; 0                  ; 0                              ;
+; I/O registers                               ; 0   ; 0                  ; 0                              ;
+; Total block memory bits                     ; 48  ; 0                  ; 0                              ;
+; Total block memory implementation bits      ; 0   ; 0                  ; 0                              ;
+; DSP block                                   ; 0   ; 2                  ; 0                              ;
+;                                             ;     ;                    ;                                ;
+; Connections                                 ;     ;                    ;                                ;
+;     -- Input Connections                    ; 16  ; 64                 ; 0                              ;
+;     -- Registered Input Connections         ; 0   ; 32                 ; 0                              ;
+;     -- Output Connections                   ; 64  ; 16                 ; 0                              ;
+;     -- Registered Output Connections        ; 47  ; 0                  ; 0                              ;
+;                                             ;     ;                    ;                                ;
+; Internal Connections                        ;     ;                    ;                                ;
+;     -- Total Connections                    ; 505 ; 112                ; 0                              ;
+;     -- Registered Connections               ; 267 ; 48                 ; 0                              ;
+;                                             ;     ;                    ;                                ;
+; External Connections                        ;     ;                    ;                                ;
+;     -- Top                                  ; 0   ; 80                 ; 0                              ;
+;     -- ALU_mult_stage:am1                   ; 80  ; 0                  ; 0                              ;
+;     -- hard_block:auto_generated_inst       ; 0   ; 0                  ; 0                              ;
+;                                             ;     ;                    ;                                ;
+; Partition Interface                         ;     ;                    ;                                ;
+;     -- Input Ports                          ; 11  ; 28                 ; 0                              ;
+;     -- Output Ports                         ; 8   ; 16                 ; 0                              ;
+;     -- Bidir Ports                          ; 0   ; 0                  ; 0                              ;
+;                                             ;     ;                    ;                                ;
+; Registered Ports                            ;     ;                    ;                                ;
+;     -- Registered Input Ports               ; 0   ; 3                  ; 0                              ;
+;     -- Registered Output Ports              ; 0   ; 0                  ; 0                              ;
+;                                             ;     ;                    ;                                ;
+; Port Connectivity                           ;     ;                    ;                                ;
+;     -- Input Ports driven by GND            ; 0   ; 1                  ; 0                              ;
+;     -- Output Ports driven by GND           ; 0   ; 0                  ; 0                              ;
+;     -- Input Ports driven by VCC            ; 0   ; 0                  ; 0                              ;
+;     -- Output Ports driven by VCC           ; 0   ; 0                  ; 0                              ;
+;     -- Input Ports with no Source           ; 0   ; 0                  ; 0                              ;
+;     -- Output Ports with no Source          ; 0   ; 0                  ; 0                              ;
+;     -- Input Ports with no Fanout           ; 0   ; 0                  ; 0                              ;
+;     -- Output Ports with no Fanout          ; 0   ; 0                  ; 0                              ;
++---------------------------------------------+-----+--------------------+--------------------------------+
+Note: Resource usage numbers presented for Partitions containing post-synthesis logic are estimates.  For Partitions containing post-fit logic, resource usage numbers are accurate based on previous placement information.  Actual Fitter results may vary depending on current Fitter Preservation Level assignments.
+
+
++----------------------------------------------------------------------------+
+; Partition Merge Partition Pin Processing                                   ;
++-----------------------+-----------+---------------+----------+-------------+
+; Name                  ; Partition ; Type          ; Location ; Status      ;
++-----------------------+-----------+---------------+----------+-------------+
+; fastclk               ; Top       ; Input Port    ; n/a      ;             ;
+;     -- fastclk        ; Top       ; Input Pad     ; Unplaced ; Synthesized ;
+;     -- fastclk~input  ; Top       ; Input Buffer  ; Unplaced ; Synthesized ;
+;                       ;           ;               ;          ;             ;
+; led[0]                ; Top       ; Output Port   ; n/a      ;             ;
+;     -- led[0]         ; Top       ; Output Pad    ; Unplaced ; Synthesized ;
+;     -- led[0]~output  ; Top       ; Output Buffer ; Unplaced ; Synthesized ;
+;                       ;           ;               ;          ;             ;
+; led[1]                ; Top       ; Output Port   ; n/a      ;             ;
+;     -- led[1]         ; Top       ; Output Pad    ; Unplaced ; Synthesized ;
+;     -- led[1]~output  ; Top       ; Output Buffer ; Unplaced ; Synthesized ;
+;                       ;           ;               ;          ;             ;
+; led[2]                ; Top       ; Output Port   ; n/a      ;             ;
+;     -- led[2]         ; Top       ; Output Pad    ; Unplaced ; Synthesized ;
+;     -- led[2]~output  ; Top       ; Output Buffer ; Unplaced ; Synthesized ;
+;                       ;           ;               ;          ;             ;
+; led[3]                ; Top       ; Output Port   ; n/a      ;             ;
+;     -- led[3]         ; Top       ; Output Pad    ; Unplaced ; Synthesized ;
+;     -- led[3]~output  ; Top       ; Output Buffer ; Unplaced ; Synthesized ;
+;                       ;           ;               ;          ;             ;
+; led[4]                ; Top       ; Output Port   ; n/a      ;             ;
+;     -- led[4]         ; Top       ; Output Pad    ; Unplaced ; Synthesized ;
+;     -- led[4]~output  ; Top       ; Output Buffer ; Unplaced ; Synthesized ;
+;                       ;           ;               ;          ;             ;
+; led[5]                ; Top       ; Output Port   ; n/a      ;             ;
+;     -- led[5]         ; Top       ; Output Pad    ; Unplaced ; Synthesized ;
+;     -- led[5]~output  ; Top       ; Output Buffer ; Unplaced ; Synthesized ;
+;                       ;           ;               ;          ;             ;
+; led[6]                ; Top       ; Output Port   ; n/a      ;             ;
+;     -- led[6]         ; Top       ; Output Pad    ; Unplaced ; Synthesized ;
+;     -- led[6]~output  ; Top       ; Output Buffer ; Unplaced ; Synthesized ;
+;                       ;           ;               ;          ;             ;
+; led[7]                ; Top       ; Output Port   ; n/a      ;             ;
+;     -- led[7]         ; Top       ; Output Pad    ; Unplaced ; Synthesized ;
+;     -- led[7]~output  ; Top       ; Output Buffer ; Unplaced ; Synthesized ;
+;                       ;           ;               ;          ;             ;
+; n_reset               ; Top       ; Input Port    ; n/a      ;             ;
+;     -- n_reset        ; Top       ; Input Pad     ; Unplaced ; Synthesized ;
+;     -- n_reset~input  ; Top       ; Input Buffer  ; Unplaced ; Synthesized ;
+;                       ;           ;               ;          ;             ;
+; ready_in              ; Top       ; Input Port    ; n/a      ;             ;
+;     -- ready_in       ; Top       ; Input Pad     ; Unplaced ; Synthesized ;
+;     -- ready_in~input ; Top       ; Input Buffer  ; Unplaced ; Synthesized ;
+;                       ;           ;               ;          ;             ;
+; sw[0]                 ; Top       ; Input Port    ; n/a      ;             ;
+;     -- sw[0]          ; Top       ; Input Pad     ; Unplaced ; Synthesized ;
+;     -- sw[0]~input    ; Top       ; Input Buffer  ; Unplaced ; Synthesized ;
+;                       ;           ;               ;          ;             ;
+; sw[1]                 ; Top       ; Input Port    ; n/a      ;             ;
+;     -- sw[1]          ; Top       ; Input Pad     ; Unplaced ; Synthesized ;
+;     -- sw[1]~input    ; Top       ; Input Buffer  ; Unplaced ; Synthesized ;
+;                       ;           ;               ;          ;             ;
+; sw[2]                 ; Top       ; Input Port    ; n/a      ;             ;
+;     -- sw[2]          ; Top       ; Input Pad     ; Unplaced ; Synthesized ;
+;     -- sw[2]~input    ; Top       ; Input Buffer  ; Unplaced ; Synthesized ;
+;                       ;           ;               ;          ;             ;
+; sw[3]                 ; Top       ; Input Port    ; n/a      ;             ;
+;     -- sw[3]          ; Top       ; Input Pad     ; Unplaced ; Synthesized ;
+;     -- sw[3]~input    ; Top       ; Input Buffer  ; Unplaced ; Synthesized ;
+;                       ;           ;               ;          ;             ;
+; sw[4]                 ; Top       ; Input Port    ; n/a      ;             ;
+;     -- sw[4]          ; Top       ; Input Pad     ; Unplaced ; Synthesized ;
+;     -- sw[4]~input    ; Top       ; Input Buffer  ; Unplaced ; Synthesized ;
+;                       ;           ;               ;          ;             ;
+; sw[5]                 ; Top       ; Input Port    ; n/a      ;             ;
+;     -- sw[5]          ; Top       ; Input Pad     ; Unplaced ; Synthesized ;
+;     -- sw[5]~input    ; Top       ; Input Buffer  ; Unplaced ; Synthesized ;
+;                       ;           ;               ;          ;             ;
+; sw[6]                 ; Top       ; Input Port    ; n/a      ;             ;
+;     -- sw[6]          ; Top       ; Input Pad     ; Unplaced ; Synthesized ;
+;     -- sw[6]~input    ; Top       ; Input Buffer  ; Unplaced ; Synthesized ;
+;                       ;           ;               ;          ;             ;
+; sw[7]                 ; Top       ; Input Port    ; n/a      ;             ;
+;     -- sw[7]          ; Top       ; Input Pad     ; Unplaced ; Synthesized ;
+;     -- sw[7]~input    ; Top       ; Input Buffer  ; Unplaced ; Synthesized ;
+;                       ;           ;               ;          ;             ;
++-----------------------+-----------+---------------+----------+-------------+
+
+
++-------------------------------------------------------------------------+
+; Partition Merge Resource Usage Summary                                  ;
++---------------------------------------------+---------------------------+
+; Resource                                    ; Usage                     ;
++---------------------------------------------+---------------------------+
+; Estimate of Logic utilization (ALMs needed) ; 36                        ;
+;                                             ;                           ;
+; Combinational ALUT usage for logic          ; 68                        ;
+;     -- 7 input functions                    ; 0                         ;
+;     -- 6 input functions                    ; 1                         ;
+;     -- 5 input functions                    ; 1                         ;
+;     -- 4 input functions                    ; 19                        ;
+;     -- <=3 input functions                  ; 47                        ;
+;                                             ;                           ;
+; Dedicated logic registers                   ; 67                        ;
+;                                             ;                           ;
+; I/O pins                                    ; 19                        ;
+; Total MLAB memory bits                      ; 0                         ;
+; Total block memory bits                     ; 48                        ;
+;                                             ;                           ;
+; Total DSP Blocks                            ; 2                         ;
+;                                             ;                           ;
+; Maximum fan-out node                        ; clk_divider:cd0|count[24] ;
+; Maximum fan-out                             ; 59                        ;
+; Total fan-out                               ; 530                       ;
+; Average fan-out                             ; 2.77                      ;
++---------------------------------------------+---------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Partition Merge RAM Summary                                                                                                                                                                                                                                ;
++-------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+-------------------------------------------------+
+; Name                                                                                                        ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF                                             ;
++-------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+-------------------------------------------------+
+; CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|altsyncram:gpr_rtl_0|altsyncram_37s1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 3            ; 8            ; 3            ; 8            ; 24   ; db/CPU_top.ram0_dual_port_SRAM_439b62d0.hdl.mif ;
+; CPU:cpu0|register_file:rf|dual_port_SRAM:sr0|altsyncram:gpr_rtl_1|altsyncram_37s1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 3            ; 8            ; 3            ; 8            ; 24   ; db/CPU_top.ram0_dual_port_SRAM_439b62d0.hdl.mif ;
++-------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+-------------------------------------------------+
+
+
++---------------------------------------------+
+; Partition Merge DSP Block Usage Summary     ;
++-------------------------------+-------------+
+; Statistic                     ; Number Used ;
++-------------------------------+-------------+
+; Independent 9x9               ; 2           ;
+; Total number of DSP blocks    ; 2           ;
+;                               ;             ;
+; Fixed Point Signed Multiplier ; 2           ;
++-------------------------------+-------------+
+
+
++--------------------------+
+; Partition Merge Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Partition Merge
+    Info: Version 16.1.2 Build 203 01/18/2017 SJ Standard Edition
+    Info: Processing started: Tue Apr 25 15:21:05 2023
+Info: Command: quartus_cdb --read_settings_files=on --write_settings_files=off affine_CPU_v8 -c CPU_top --merge=on
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (35007): Using synthesis netlist for partition "Top"
+Info (35007): Using synthesis netlist for partition "ALU_mult_stage:am1" File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v8/ALU_v2.sv Line: 58
+Info (35002): Resolved and merged 2 partition(s)
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (35048): Found 1 ports with constant drivers. For more information, refer to the Partition Merger report
+Warning (21074): Design contains 8 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "sw[0]" File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v8/CPU_top.sv Line: 5
+    Warning (15610): No output dependent on input pin "sw[1]" File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v8/CPU_top.sv Line: 5
+    Warning (15610): No output dependent on input pin "sw[2]" File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v8/CPU_top.sv Line: 5
+    Warning (15610): No output dependent on input pin "sw[3]" File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v8/CPU_top.sv Line: 5
+    Warning (15610): No output dependent on input pin "sw[4]" File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v8/CPU_top.sv Line: 5
+    Warning (15610): No output dependent on input pin "sw[5]" File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v8/CPU_top.sv Line: 5
+    Warning (15610): No output dependent on input pin "sw[6]" File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v8/CPU_top.sv Line: 5
+    Warning (15610): No output dependent on input pin "sw[7]" File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v8/CPU_top.sv Line: 5
+Info (21057): Implemented 125 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 11 input pins
+    Info (21059): Implemented 8 output pins
+    Info (21061): Implemented 88 logic cells
+    Info (21064): Implemented 16 RAM segments
+    Info (21062): Implemented 2 DSP elements
+Info: Quartus Prime Partition Merge was successful. 0 errors, 10 warnings
+    Info: Peak virtual memory: 1326 megabytes
+    Info: Processing ended: Tue Apr 25 15:21:06 2023
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+

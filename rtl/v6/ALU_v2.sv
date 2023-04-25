@@ -39,7 +39,7 @@ mux_21 #(
     BUS_WIDTH
 ) coeff_mux (   
     .s  (f_add              ), 
-    .a  ({BUS_WIDTH-1{1'b0}}), 
+    .a  ({BUS_WIDTH{1'b0}}), 
     .b  (imm                ),
     .out(coeff               )
 );
