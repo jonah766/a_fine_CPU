@@ -39,9 +39,9 @@ logic PC_en, PC_comparator;
 mux_21 #(
     1
 ) PC_en_mux (
-    .s  (instr[3]     ), // differentiate between instr[5:3] == 001 (pattern) / 000 (rdy)
-    .a  (pattern_match), // 001 -> pattern
-    .b  (ready_in     ), // 000 -> ready in 
+    .s  (instr[3]     ),
+    .a  (pattern_match),
+    .b  (ready_in     ),
     .out(PC_comparator)
 );
 
