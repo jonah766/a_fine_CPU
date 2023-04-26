@@ -44,6 +44,25 @@ set_global_assignment -name ORIGINAL_QUARTUS_VERSION 22.1STD.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "02:07:30  APRIL 16, 2023"
 set_global_assignment -name LAST_QUARTUS_VERSION "16.1.2 Standard Edition"
 
+set_location_assignment PIN_AF14 -to fastclk
+set_location_assignment PIN_AE12 -to n_reset
+set_location_assignment PIN_AD10 -to ready_in
+set_location_assignment PIN_AB12 -to sw[0]
+set_location_assignment PIN_AC12 -to sw[1]
+set_location_assignment PIN_AF9 -to sw[2]
+set_location_assignment PIN_AF10 -to sw[3]
+set_location_assignment PIN_AD11 -to sw[4]
+set_location_assignment PIN_AD12 -to sw[5]
+set_location_assignment PIN_AE11 -to sw[6]
+set_location_assignment PIN_AC9 -to sw[7]
+set_location_assignment PIN_V16 -to led[0]
+set_location_assignment PIN_W16 -to led[1]
+set_location_assignment PIN_V17 -to led[2]
+set_location_assignment PIN_V18 -to led[3]
+set_location_assignment PIN_W17 -to led[4]
+set_location_assignment PIN_W19 -to led[5]
+set_location_assignment PIN_Y19 -to led[6]
+set_location_assignment PIN_W20 -to led[7]
 
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ready_in
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to led[7]
