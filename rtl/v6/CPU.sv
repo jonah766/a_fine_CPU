@@ -5,11 +5,12 @@ module CPU #(
     parameter REG_ADDR_WIDTH   = 2, 
     parameter BUS_WIDTH        = 8
 ) (
-    input  logic                 clk,  
-    input  logic                 n_reset,
-    input  logic [BUS_WIDTH-1:0] in_port,
-    input  logic                 ready_in,
-    output logic [BUS_WIDTH-1:0] out_port
+    input  logic                        clk,  
+    input  logic                        n_reset,
+    input  logic [BUS_WIDTH-1:0]        in_port,
+    input  logic                        ready_in,
+    output logic [BUS_WIDTH-1:0]        out_port,
+    output logic [INSTR_ADDR_WIDTH-1:0] prog_cnt,
 );       
 
 //the macro to dump signals   
@@ -55,6 +56,8 @@ program_counter #(
    .en     (PC_en   ),
    .count  (PC_count)
 );
+
+assign prog_cnt = PC_count;
 
 // -- program ROM
 logic [INSTR_WIDTH-1:0] instr;

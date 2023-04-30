@@ -1,9 +1,10 @@
 ////////////////////////////////////////////////////////////////////
 // format: 
-// wait <imm> <imm> = XXX|000|00X|00X   
-// move \$a    \$b    = XXX|0XX|0XX|000   
-// mac  \$a \$b \$c    = XXX|0XX|0XX|0XX   
-// set  <imm>       = XXX|0|XXXX\_XXXX   
+// wait <imm> <imm>  = XXX|000|00X|00X   
+// move \$a    \$b   = XXX|0XX|0XX|000   
+// mac  \$a \$b \$c  = XXX|0XX|0XX|0XX   
+// set  <imm>        = XXX|0|XXXX\_XXXX   
+// ldsw \$a          = XXX|0XX|000|000   
 // HEX /////////// BINARY  ///////////////////// ASSEMBLER /////////
 E09             // 12'b111\_000\_001\_001        // (1)  wait 1 1
 

@@ -1,4 +1,5 @@
 simulation/*/sim_build
 simulation/*/results.xml
 rtl/quickstart
-rt/simple_dff
+rtl/simple_dff
+*.zip

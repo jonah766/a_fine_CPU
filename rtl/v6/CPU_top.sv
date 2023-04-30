@@ -3,7 +3,8 @@ module CPU_top (
     input  logic       n_reset,
     input  logic       ready_in,
     input  logic [7:0] sw,
-    output logic [7:0] led
+    output logic [7:0] led,
+    output logic [6:0] ss_0
 );
 
 logic clk;
@@ -20,7 +21,15 @@ CPU cpu0 (
     .n_reset (n_reset ),
     .ready_in(ready_in),
     .in_port (sw      ),
-    .out_port(led     )
+    .out_port(led     ),
+    .prog_cnt(prog_cnt)
+);
+
+logic [3:0] prog_cnt;
+
+seven_seg_decoder ssd0 (
+    .address(prog_cnt),
+    .data   (ss0     ),
 );
 
 endmodule
