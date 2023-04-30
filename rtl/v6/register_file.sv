@@ -15,9 +15,12 @@ dual_port_SRAM #(
 	DEPTH
 ) sr0 (
 	.clk      (clk      ), 
-	.we       (we       ),
- 	.wr_addr  (wr_addr  ),
-	.wr_data  (wr_data  ),
+	.we_a     (we       ),
+	.we_b     ('0       ),
+ 	.wr_addr_a(wr_addr  ),
+ 	.wr_addr_b('0       ),
+	.wr_data_a(wr_data  ),
+	.wr_data_b('0       ),
  	.rd_addr_a(rd_addr_a), 
 	.rd_addr_b(rd_addr_b),
  	.rd_data_a(rd_data_a), 

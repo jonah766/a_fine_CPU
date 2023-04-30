@@ -36,7 +36,31 @@
 					"strict" : false
 				},
 				{
-					"name" : "fastclk",
+					"name" : "ss_0[0]",
+					"strict" : false
+				},
+				{
+					"name" : "ss_0[1]",
+					"strict" : false
+				},
+				{
+					"name" : "ss_0[2]",
+					"strict" : false
+				},
+				{
+					"name" : "ss_0[3]",
+					"strict" : false
+				},
+				{
+					"name" : "ss_0[4]",
+					"strict" : false
+				},
+				{
+					"name" : "ss_0[5]",
+					"strict" : false
+				},
+				{
+					"name" : "ss_0[6]",
 					"strict" : false
 				},
 				{
@@ -45,6 +69,10 @@
 				},
 				{
 					"name" : "n_reset",
+					"strict" : false
+				},
+				{
+					"name" : "fastclk",
 					"strict" : false
 				},
 				{

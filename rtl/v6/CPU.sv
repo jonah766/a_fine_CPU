@@ -10,7 +10,7 @@ module CPU #(
     input  logic [BUS_WIDTH-1:0]        in_port,
     input  logic                        ready_in,
     output logic [BUS_WIDTH-1:0]        out_port,
-    output logic [INSTR_ADDR_WIDTH-1:0] prog_cnt,
+    output logic [INSTR_ADDR_WIDTH-1:0] prog_cnt
 );       
 
 //the macro to dump signals   

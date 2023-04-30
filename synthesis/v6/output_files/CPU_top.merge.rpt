@@ -1,5 +1,5 @@
 Partition Merge report for CPU_top
-Wed Apr 26 15:43:22 2023
+Sun Apr 30 20:55:10 2023
 Quartus Prime Version 16.1.2 Build 203 01/18/2017 SJ Standard Edition
 
 
@@ -42,14 +42,14 @@ agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Partition Merge Summary                                                           ;
 +---------------------------------+-------------------------------------------------+
-; Partition Merge Status          ; Successful - Wed Apr 26 15:43:22 2023           ;
+; Partition Merge Status          ; Successful - Sun Apr 30 20:55:10 2023           ;
 ; Quartus Prime Version           ; 16.1.2 Build 203 01/18/2017 SJ Standard Edition ;
 ; Revision Name                   ; CPU_top                                         ;
 ; Top-level Entity Name           ; CPU_top                                         ;
 ; Family                          ; Cyclone V                                       ;
 ; Logic utilization (in ALMs)     ; N/A                                             ;
 ; Total registers                 ; 102                                             ;
-; Total pins                      ; 19                                              ;
+; Total pins                      ; 26                                              ;
 ; Total virtual pins              ; 0                                               ;
 ; Total block memory bits         ; 48                                              ;
 ; Total DSP Blocks                ; 2                                               ;
@@ -88,13 +88,13 @@ Note: The Incremental Compilation Advisor can be used to get more detailed recom
 +---------------------------------------------+-----+--------------------+--------------------------------+
 ; Statistic                                   ; Top ; ALU_mult_stage:am1 ; hard_block:auto_generated_inst ;
 +---------------------------------------------+-----+--------------------+--------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 42  ; 15                 ; 0                              ;
+; Estimate of Logic utilization (ALMs needed) ; 44  ; 14                 ; 0                              ;
 ;                                             ;     ;                    ;                                ;
-; Combinational ALUT usage for logic          ; 67  ; 0                  ; 0                              ;
+; Combinational ALUT usage for logic          ; 74  ; 0                  ; 0                              ;
 ;     -- 7 input functions                    ; 0   ; 0                  ; 0                              ;
 ;     -- 6 input functions                    ; 1   ; 0                  ; 0                              ;
 ;     -- 5 input functions                    ; 8   ; 0                  ; 0                              ;
-;     -- 4 input functions                    ; 13  ; 0                  ; 0                              ;
+;     -- 4 input functions                    ; 20  ; 0                  ; 0                              ;
 ;     -- <=3 input functions                  ; 45  ; 0                  ; 0                              ;
 ; Memory ALUT usage                           ; 0   ; 0                  ; 0                              ;
 ;     -- 64-address deep                      ; 0   ; 0                  ; 0                              ;
@@ -103,7 +103,7 @@ Note: The Incremental Compilation Advisor can be used to get more detailed recom
 ; Dedicated logic registers                   ; 70  ; 32                 ; 0                              ;
 ;                                             ;     ;                    ;                                ;
 ;                                             ;     ;                    ;                                ;
-; I/O pins                                    ; 19  ; 0                  ; 0                              ;
+; I/O pins                                    ; 26  ; 0                  ; 0                              ;
 ; I/O registers                               ; 0   ; 0                  ; 0                              ;
 ; Total block memory bits                     ; 48  ; 0                  ; 0                              ;
 ; Total block memory implementation bits      ; 0   ; 0                  ; 0                              ;
@@ -116,8 +116,8 @@ Note: The Incremental Compilation Advisor can be used to get more detailed recom
 ;     -- Registered Output Connections        ; 64  ; 0                  ; 0                              ;
 ;                                             ;     ;                    ;                                ;
 ; Internal Connections                        ;     ;                    ;                                ;
-;     -- Total Connections                    ; 597 ; 144                ; 0                              ;
-;     -- Registered Connections               ; 336 ; 128                ; 0                              ;
+;     -- Total Connections                    ; 639 ; 144                ; 0                              ;
+;     -- Registered Connections               ; 364 ; 128                ; 0                              ;
 ;                                             ;     ;                    ;                                ;
 ; External Connections                        ;     ;                    ;                                ;
 ;     -- Top                                  ; 0   ; 112                ; 0                              ;
@@ -126,7 +126,7 @@ Note: The Incremental Compilation Advisor can be used to get more detailed recom
 ;                                             ;     ;                    ;                                ;
 ; Partition Interface                         ;     ;                    ;                                ;
 ;     -- Input Ports                          ; 11  ; 29                 ; 0                              ;
-;     -- Output Ports                         ; 8   ; 16                 ; 0                              ;
+;     -- Output Ports                         ; 15  ; 16                 ; 0                              ;
 ;     -- Bidir Ports                          ; 0   ; 0                  ; 0                              ;
 ;                                             ;     ;                    ;                                ;
 ; Registered Ports                            ;     ;                    ;                                ;
@@ -195,6 +195,34 @@ Note: Resource usage numbers presented for Partitions containing post-synthesis 
 ;     -- ready_in       ; Top       ; Input Pad     ; Unplaced ; Synthesized ;
 ;     -- ready_in~input ; Top       ; Input Buffer  ; Unplaced ; Synthesized ;
 ;                       ;           ;               ;          ;             ;
+; ss_0[0]               ; Top       ; Output Port   ; n/a      ;             ;
+;     -- ss_0[0]        ; Top       ; Output Pad    ; Unplaced ; Synthesized ;
+;     -- ss_0[0]~output ; Top       ; Output Buffer ; Unplaced ; Synthesized ;
+;                       ;           ;               ;          ;             ;
+; ss_0[1]               ; Top       ; Output Port   ; n/a      ;             ;
+;     -- ss_0[1]        ; Top       ; Output Pad    ; Unplaced ; Synthesized ;
+;     -- ss_0[1]~output ; Top       ; Output Buffer ; Unplaced ; Synthesized ;
+;                       ;           ;               ;          ;             ;
+; ss_0[2]               ; Top       ; Output Port   ; n/a      ;             ;
+;     -- ss_0[2]        ; Top       ; Output Pad    ; Unplaced ; Synthesized ;
+;     -- ss_0[2]~output ; Top       ; Output Buffer ; Unplaced ; Synthesized ;
+;                       ;           ;               ;          ;             ;
+; ss_0[3]               ; Top       ; Output Port   ; n/a      ;             ;
+;     -- ss_0[3]        ; Top       ; Output Pad    ; Unplaced ; Synthesized ;
+;     -- ss_0[3]~output ; Top       ; Output Buffer ; Unplaced ; Synthesized ;
+;                       ;           ;               ;          ;             ;
+; ss_0[4]               ; Top       ; Output Port   ; n/a      ;             ;
+;     -- ss_0[4]        ; Top       ; Output Pad    ; Unplaced ; Synthesized ;
+;     -- ss_0[4]~output ; Top       ; Output Buffer ; Unplaced ; Synthesized ;
+;                       ;           ;               ;          ;             ;
+; ss_0[5]               ; Top       ; Output Port   ; n/a      ;             ;
+;     -- ss_0[5]        ; Top       ; Output Pad    ; Unplaced ; Synthesized ;
+;     -- ss_0[5]~output ; Top       ; Output Buffer ; Unplaced ; Synthesized ;
+;                       ;           ;               ;          ;             ;
+; ss_0[6]               ; Top       ; Output Port   ; n/a      ;             ;
+;     -- ss_0[6]        ; Top       ; Output Pad    ; Unplaced ; Synthesized ;
+;     -- ss_0[6]~output ; Top       ; Output Buffer ; Unplaced ; Synthesized ;
+;                       ;           ;               ;          ;             ;
 ; sw[0]                 ; Top       ; Input Port    ; n/a      ;             ;
 ;     -- sw[0]          ; Top       ; Input Pad     ; Unplaced ; Synthesized ;
 ;     -- sw[0]~input    ; Top       ; Input Buffer  ; Unplaced ; Synthesized ;
@@ -235,18 +263,18 @@ Note: Resource usage numbers presented for Partitions containing post-synthesis 
 +---------------------------------------------+---------------------------+
 ; Resource                                    ; Usage                     ;
 +---------------------------------------------+---------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 53                        ;
+; Estimate of Logic utilization (ALMs needed) ; 54                        ;
 ;                                             ;                           ;
-; Combinational ALUT usage for logic          ; 67                        ;
+; Combinational ALUT usage for logic          ; 74                        ;
 ;     -- 7 input functions                    ; 0                         ;
 ;     -- 6 input functions                    ; 1                         ;
 ;     -- 5 input functions                    ; 8                         ;
-;     -- 4 input functions                    ; 13                        ;
+;     -- 4 input functions                    ; 20                        ;
 ;     -- <=3 input functions                  ; 45                        ;
 ;                                             ;                           ;
 ; Dedicated logic registers                   ; 102                       ;
 ;                                             ;                           ;
-; I/O pins                                    ; 19                        ;
+; I/O pins                                    ; 26                        ;
 ; Total MLAB memory bits                      ; 0                         ;
 ; Total block memory bits                     ; 48                        ;
 ;                                             ;                           ;
@@ -254,8 +282,8 @@ Note: Resource usage numbers presented for Partitions containing post-synthesis 
 ;                                             ;                           ;
 ; Maximum fan-out node                        ; clk_divider:cd0|count[24] ;
 ; Maximum fan-out                             ; 94                        ;
-; Total fan-out                               ; 622                       ;
-; Average fan-out                             ; 2.76                      ;
+; Total fan-out                               ; 664                       ;
+; Average fan-out                             ; 2.70                      ;
 +---------------------------------------------+---------------------------+
 
 
@@ -287,7 +315,7 @@ Note: Resource usage numbers presented for Partitions containing post-synthesis 
 Info: *******************************************************************
 Info: Running Quartus Prime Partition Merge
     Info: Version 16.1.2 Build 203 01/18/2017 SJ Standard Edition
-    Info: Processing started: Wed Apr 26 15:43:21 2023
+    Info: Processing started: Sun Apr 30 20:55:09 2023
 Info: Command: quartus_cdb --read_settings_files=off --write_settings_files=off affine_CPU_v6 -c CPU_top --merge=on
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (35007): Using synthesis netlist for partition "Top"
@@ -296,16 +324,16 @@ Info (35002): Resolved and merged 2 partition(s)
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Info (35048): Found 1 ports with constant drivers. For more information, refer to the Partition Merger report
-Info (21057): Implemented 159 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 173 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 11 input pins
-    Info (21059): Implemented 8 output pins
-    Info (21061): Implemented 122 logic cells
+    Info (21059): Implemented 15 output pins
+    Info (21061): Implemented 129 logic cells
     Info (21064): Implemented 16 RAM segments
     Info (21062): Implemented 2 DSP elements
 Info: Quartus Prime Partition Merge was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 1322 megabytes
-    Info: Processing ended: Wed Apr 26 15:43:23 2023
-    Info: Elapsed time: 00:00:02
+    Info: Peak virtual memory: 1326 megabytes
+    Info: Processing ended: Sun Apr 30 20:55:10 2023
+    Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
 

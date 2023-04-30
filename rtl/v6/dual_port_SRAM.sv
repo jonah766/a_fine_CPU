@@ -3,9 +3,9 @@ module dual_port_SRAM #(
     parameter DEPTH     = 3
 ) (
 	input  logic                     clk, 
-	input  logic                     we,
- 	input  logic [$clog2(DEPTH)-1:0] wr_addr,
-	input  logic [BUS_WIDTH-1:0]     wr_data,
+	input  logic                     we_a, we_b,
+ 	input  logic [$clog2(DEPTH)-1:0] wr_addr_a, wr_addr_b,
+	input  logic [BUS_WIDTH-1:0]     wr_data_a, wr_data_b,
  	input  logic [$clog2(DEPTH)-1:0] rd_addr_a, rd_addr_b,
  	output logic [BUS_WIDTH-1:0]     rd_data_a, rd_data_b
 );
@@ -17,14 +17,23 @@ initial begin
 		gpr[i] = '0;
 end
 
-// syncrhonous RAM write
+// syncrhonous RAM a write/read
 always_ff @ (posedge clk)
 begin
-	if (we) begin 
-		gpr[wr_addr] <= wr_data;
+	if (we_a) begin 
+		gpr[wr_addr_a] <= wr_data_a;
+	end
+	rd_data_a <= gpr[rd_addr_a];
+end	
+
+
+// syncrhonous RAM b write/read
+always_ff @ (posedge clk)
+begin
+	if (we_b) begin 
+		gpr[wr_addr_b] <= wr_data_b;
 	end
 	rd_data_b <= gpr[rd_addr_b];
-	rd_data_a <= gpr[rd_addr_a];
 end	
 	
 

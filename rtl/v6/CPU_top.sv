@@ -29,7 +29,7 @@ logic [3:0] prog_cnt;
 
 seven_seg_decoder ssd0 (
     .address(prog_cnt),
-    .data   (ss0     ),
+    .data   (ss_0    ),
 );
 
 endmodule

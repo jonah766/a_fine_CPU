@@ -64,6 +64,15 @@ set_location_assignment PIN_W19 -to led[5]
 set_location_assignment PIN_Y19 -to led[6]
 set_location_assignment PIN_W20 -to led[7]
 
+set_location_assignment PIN_AE26 -to ss_0[0]
+set_location_assignment PIN_AE27 -to ss_0[1]
+set_location_assignment PIN_AE28 -to ss_0[2]
+set_location_assignment PIN_AG27 -to ss_0[3]
+set_location_assignment PIN_AF28 -to ss_0[4]
+set_location_assignment PIN_AG28 -to ss_0[5]
+set_location_assignment PIN_AH28 -to ss_0[6]
+
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to n_reset
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ready_in
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to led[7]
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to led[6]
@@ -72,7 +81,8 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to led[4]
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to led[3]
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to led[2]
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to led[1]
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to n_reset
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to led[0]
+
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to sw[7]
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to sw[6]
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to sw[5]
@@ -81,7 +91,14 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to sw[3]
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to sw[2]
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to sw[1]
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to sw[0]
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to led[0]
+
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ss_0[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ss_0[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ss_0[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ss_0[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ss_0[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ss_0[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ss_0[6]
 
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
@@ -117,6 +134,12 @@ set_global_assignment -name QII_AUTO_PACKED_REGISTERS "MINIMIZE AREA"
 set_global_assignment -name ADVANCED_PHYSICAL_OPTIMIZATION ON
 
 set_global_assignment -name FITTER_EFFORT "STANDARD FIT"
+set_global_assignment -name PARTITION_NETLIST_TYPE POST_SYNTH -section_id "ALU_mult_stage:am1"
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id "ALU_mult_stage:am1"
+set_global_assignment -name PARTITION_COLOR 39423 -section_id "ALU_mult_stage:am1"
+
+set_global_assignment -name SYSTEMVERILOG_FILE ../../rtl/v6/sw_decoder.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../../rtl/v6/seven_seg_decoder.sv
 set_global_assignment -name SYSTEMVERILOG_FILE ../../rtl/v6/ALU_v2.sv
 set_global_assignment -name SYSTEMVERILOG_FILE ../../rtl/v6/ALU_mult_stage.sv
 set_global_assignment -name SYSTEMVERILOG_FILE ../../rtl/v6/ALU.sv
@@ -134,9 +157,6 @@ set_global_assignment -name SYSTEMVERILOG_FILE ../../rtl/v6/register_file.sv
 set_global_assignment -name SYSTEMVERILOG_FILE ../../rtl/v6/sfixed_adder.sv
 set_global_assignment -name SYSTEMVERILOG_FILE ../../rtl/v6/sfixed_mult.sv
 set_global_assignment -name SYSTEMVERILOG_FILE ../../rtl/v6/sfixed_mult_9x9_x3.sv
-set_global_assignment -name PARTITION_NETLIST_TYPE POST_SYNTH -section_id "ALU_mult_stage:am1"
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id "ALU_mult_stage:am1"
-set_global_assignment -name PARTITION_COLOR 39423 -section_id "ALU_mult_stage:am1"
 
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_instance_assignment -name PARTITION_HIERARCHY am1_6c451 -to "CPU:cpu0|ALU_v2:alu|ALU_mult_stage:am1" -section_id "ALU_mult_stage:am1"

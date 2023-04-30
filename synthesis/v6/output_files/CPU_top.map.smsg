@@ -1,0 +1,2 @@
+Warning (10268): Verilog HDL information at dual_port_SRAM.sv(21): always construct contains both blocking and non-blocking assignments File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v6/dual_port_SRAM.sv Line: 21
+Warning (10268): Verilog HDL information at dual_port_SRAM.sv(31): always construct contains both blocking and non-blocking assignments File: /home/jf3g19/mydocuments/coursework/ELEC6234/a_fine_CPU/rtl/v6/dual_port_SRAM.sv Line: 31
